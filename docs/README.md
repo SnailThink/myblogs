@@ -6,7 +6,7 @@
 </p>
 
 <h3 align="center">记录并分享每一次成长</h3>
-------
+
 
 通过 gitbook 的形式整理了自己的工作和学习经验，[VincentBlog](https://gitee.com/VincentBlog/Java-Blog) 直接访问即可，也推荐大家采用这种形式创建属于自己的“笔记本”，让成长看的见。
 
