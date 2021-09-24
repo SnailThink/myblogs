@@ -12,6 +12,7 @@
      
 - Spring框架
 
+  - [Spring设计模式](spring/Spring-Design-Patterns.md)
   - [初识spring框架](spring/【10分钟学Spring】：（一）初识Spring框架.md)
   - [依赖注入及示例](spring/【10分钟学Spring】：（二）一文搞懂spring依赖注入（DI）.md)
   - [spring的条件化装配](spring/【10分钟学Spring】：（三）你了解spring的高级装配吗_条件化装配bean.md)
@@ -39,11 +40,16 @@
   - [ ] Rpc调用
 
 - 基础工具
+
+  - IDEA
+    - [IDEA插件](base_tool/IDEA/IDEA插件.md)
+    - [IDEA高级调试技巧](base_tool/IDEA/IDEA高级调试技巧.md)
+
   - [Htool](base_tool/HTool.md)
   - [Maven](base_tool/Maven-Hello.md)
-  - [IDEA插件](base_tool/IDEA插件.md)
+
   - [数据库表结构生成工具](base_tool/数据库表结构生成工具.md)
-  - [ ] Git
+  - [Git基础](base_tool/Git/Git-Hello.md)
   - [ ] Jenkins
 
 - 其他工具
