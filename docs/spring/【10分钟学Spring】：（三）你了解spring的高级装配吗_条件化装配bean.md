@@ -239,4 +239,3 @@ conditional 装配helloworld
 
 Spring条件化装配bean的两种方式，第一种是使用profile机制，在bean的配置类中使用@profile注解，标识哪些bean对应哪个profile配置，然后在web.xml或Servlet启动参数中配置激活哪个profile来实现条件装配；第二种是使用@Conditional注解，在带有@Bean注解的方法上增加@Conditional注解，在注解属性值中提供一个实现了Condition接口的类（该类会重写matches方法，定义具体的创建条件）。<完>
 
-<section class="_editor"><section class="_editor"><p style="text-align:center"><img src="http://img.96weixin.com/ueditor/20191122/1574428873195184.png" alt="1574428873195184.png" _src="http://img.96weixin.com/ueditor/20191122/1574428873195184.png"></p></section></section>
