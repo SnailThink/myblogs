@@ -1,4 +1,7 @@
 - Java
+  - 数据类型
+  
+  - [ArrayList](java/ArrayList.md)
 
   - [JavaStream](java/JavaStream流还可以这样玩.md)
   
@@ -32,7 +35,6 @@
   - [Shiro实战](framework/Shiro实战.md)
 
   
-
 - Message Queue
   - [RabbitMQ](message_queue/RabbitMQ-Hello.md)
 
