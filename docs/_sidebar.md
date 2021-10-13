@@ -59,6 +59,7 @@
   - [搭建图床](other_tool/搭建图床.md)
   - [搭建博客](other_tool/搭建博客.md)
   - [命令启动软件](other_tool/配置命令快速启动常用软件.md)
+  - [Windows技巧](other_tool/Windows技巧.md)
 
 - NetWork
   - [http状态码](network/http状态码.md)
