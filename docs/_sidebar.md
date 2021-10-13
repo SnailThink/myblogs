@@ -57,6 +57,7 @@
 - 其他工具
   - [程序员软件](other_tool/程序员软件.md)
   - [搭建图床](other_tool/搭建图床.md)
+  - [搭建博客](other_tool/搭建博客.md)
   - [命令启动软件](other_tool/配置命令快速启动常用软件.md)
 
 - NetWork
