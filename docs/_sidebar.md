@@ -60,7 +60,7 @@
   - [命令启动软件](other_tool/配置命令快速启动常用软件.md)
 
 - NetWork
-  - [搭建图床](network/http状态码.md)
+  - [http状态码](network/http状态码.md)
 
 - 设计模式
 
