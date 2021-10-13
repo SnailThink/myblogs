@@ -1,2 +1,14 @@
 
 .DS_Store
+
+### IntelliJ IDEA ###
+.idea
+.idea/
+/.idea/
+.mvn
+*.iws
+*.iml
+*.ipr
+mvnw.cmd
+mvnw
+/.mvn
