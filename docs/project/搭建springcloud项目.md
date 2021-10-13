@@ -277,7 +277,8 @@ import java.io.Serializable;
  **/
 
 //所有的实体类必须实现序列化
-
+@Data
+@NoArgsConstructor
 public class DeptVO implements Serializable {
 	private Long id;
 	private String deptno;
@@ -463,4 +464,763 @@ git remote add origin https://gitee.com/VincentBlog/spring-cloud.git
 
 #### 4.查看文件
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160405.png)
+![](https://gitee.com/VincentBlog/image/raw/master/image/20211013181226.png)
+
+### 四、搭建EurekaServe
+
+#### 1.搭建Maven模块
+
+![image-20211013181425389](https://gitee.com/VincentBlog/image/raw/master/image/20211013181425.png)
+
+
+
+![image-20211013181458519](https://gitee.com/VincentBlog/image/raw/master/image/20211013181458.png)
+
+
+
+![image-20211013181514245](https://gitee.com/VincentBlog/image/raw/master/image/20211013181514.png)
+
+#### 2.修改springcloud-eureka-7001 pom文件
+
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springcloud</artifactId>
+        <groupId>com.snailthink</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springcloud-eureka-7001</artifactId>
+
+    <dependencies>
+        <!--eureka-server-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <version>2.2.9.RELEASE</version>
+        </dependency>
+        <!--热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
+```
+
+#### 3.添加启动类
+
+![image-20211013182411394](https://gitee.com/VincentBlog/image/raw/master/image/20211013182411.png)
+
+```java
+package com.snailthink.springcloud;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+/**
+ * @program: springcloud
+ * @description:
+ * @author: SnailThink
+ * @create: 2021-10-13 18:19
+ **/
+@SpringBootApplication
+@EnableEurekaServer
+public class EurekaServer_7001 {
+
+	/**
+	 * http://localhost:7001/  启动项目EurekaServe
+	 *
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaServer_7001.class, args);
+	}
+}
+```
+
+#### 4.添加yml文件
+
+```yml
+server:
+  port: 7001
+
+# eureka 配置
+eureka:
+  instance:
+    hostname: localhost #Eureka 服务端的实例名称
+  client:
+    register-with-eureka: false #表示是否向Eureka注册中心注册自己
+    fetch-registry: false #fetch-registry 为false 表示自己为注册中心
+    service-url: #监控页面  默认："defaultZone", "http://localhost:8761/eureka/"
+      # 单机：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群(关联)：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/，
+      # 集群(关联)eg：defaultZone: http://localhost:7002/eureka/，http://localhost:7003/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+```
+
+#### 5.运行项目
+
+![image-20211013182739932](https://gitee.com/VincentBlog/image/raw/master/image/20211013182740.png)
+
+
+
+### 五、搭建服务提供者 springcloud-provide-8001
+
+#### 1.搭建maven模块
+
+![image-20211013183218015](https://gitee.com/VincentBlog/image/raw/master/image/20211013183218.png)
+
+
+
+
+
+![image-20211013183235398](https://gitee.com/VincentBlog/image/raw/master/image/20211013183235.png)
+
+
+
+#### 2.修改pom文件
+
+```yml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springcloud</artifactId>
+        <groupId>com.snailthink</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springcloud-provide-8001</artifactId>
+
+
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+
+        <!--完善监控信息 修改state 页面跳转-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
+        </dependency>
+        <!--需要实体类 所以要配置api-model-->
+        <dependency>
+            <groupId>com.snailthink</groupId>
+            <artifactId>springcloud-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <!--test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--jetty 类似tomcat-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>
+
+        <!--热部署工具-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
+
+```
+
+#### 4.添加启动类
+
+```java
+package com.snailthink.springcloud;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@SpringBootApplication
+@EnableEurekaClient //配置客户端 注册到Eureka
+public class DeptProvider_8001 {
+    public static void main(String[] args) {
+        SpringApplication.run(DeptProvider_8001.class, args);
+    }
+}
+```
+
+
+
+#### 5.添加yml文件
+
+```yml
+server:
+  port: 8001
+
+# mybatis 配置
+mybatis:
+  type-aliases-package: com.snailthink.springcloud.pojo
+  #config-location: classpath:mybatis/mybatis-config.xml #Mybatis 的核心配置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true #配置驼峰大小写转换
+
+#Spring 配置
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/snailthink?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 1q2w3e
+    driver-class-name: org.gjt.mm.mysql.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: springcloud-provide-dept
+
+
+#Eureka 配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    instance-id: springcloud-provide-dept8001  # 修改eureka 上Status展示的描述信息.
+
+info:
+  app.name: snailthink-springcloud
+  company.name: bolg.snailthink.com
+  author: snailthink
+```
+
+
+
+#### 6.添加Controller
+
+```java
+package com.snailthink.springcloud.controller;
+
+import com.snailthink.springcloud.pojo.DeptVO;
+import com.snailthink.springcloud.service.DeptService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+//提供Restful 服务
+@RestController
+@RequestMapping("/dept")
+public class DeptController {
+
+    @Autowired
+    private DeptService deptService;
+
+    @Autowired
+    DiscoveryClient discoveryClient;
+
+
+    /**
+     * http://localhost:8001/dept/connectStr?str=张三
+     * 1.测试接口的联通性
+     * @param str
+     * @return
+     */
+    @GetMapping("/connectStr")
+    public String connectStr(@RequestParam("str") String str) {
+        return "hello：" + str;
+    }
+
+    /**
+     *
+     * http://localhost:8001/dept/connect/张三
+     *
+     * 2.测试接口的联通性
+     * RESTful 风格
+     * @param str
+     * @return
+     */
+    @GetMapping("/connect/{str}")
+    public String connect(@PathVariable("str") String str) {
+        return "hello：" + str;
+    }
+
+
+    @PostMapping("/add")
+    public boolean addDept(DeptVO deptVO) {
+        return deptService.addDept(deptVO);
+    }
+
+    /**
+     * http://localhost:8001/dept/queryDeptById/1
+     * @param id
+     * @return
+     */
+    @GetMapping("/queryDeptById/{id}")
+    public DeptVO queryDeptById(@PathVariable("id") Long id) {
+        return deptService.queryDeptById(id);
+    }
+
+    @GetMapping("/queryAllDept")
+    public List<DeptVO> queryAllDept() {
+        return deptService.queryAllDept();
+    }
+
+
+    //注册进来的微服务 获取一些信息
+    @GetMapping("/discovery")
+    public Object discovery(){
+		//获取微服务列表的清单
+        List<String> services=discoveryClient.getServices();
+        System.out.println("discovery=>services:"+services);
+
+        //得到一个具体的微服务信息、通过具体的服务id application
+        List<ServiceInstance> instances=discoveryClient.getInstances("SPRINGCLOUD-PROVIDE-DEPT");
+        for (ServiceInstance instance : instances) {
+            System.out.println(
+                    instance.getHost()+"\t"+ //主机地址
+                    instance.getPort()+"\t"+ //端口
+                    instance.getUri()+"\t"+ //URL
+                    instance.getServiceId()+"\t" //服务名
+            );
+        }
+        return  this.discoveryClient;
+    }
+}
+
+```
+
+
+
+#### 7.添加dao
+
+```java
+package com.snailthink.springcloud.dao;
+
+import com.snailthink.springcloud.pojo.DeptVO;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Mapper
+@Repository
+public interface DeptDao {
+
+    boolean addDept(DeptVO deptVO);
+
+    DeptVO queryDeptById(@Param("id") Long id);
+
+    List<DeptVO> queryAllDept();
+
+}
+
+```
+
+#### 8.添加service
+
+```java
+package com.snailthink.springcloud.service;
+
+import com.snailthink.springcloud.pojo.DeptVO;
+
+import java.util.List;
+
+public interface DeptService {
+
+    boolean addDept(DeptVO deptVO);
+
+    DeptVO queryDeptById(Long id);
+
+    List<DeptVO> queryAllDept();
+
+}
+```
+
+#### 9.添加实现impl
+
+```java
+package com.snailthink.springcloud.service.impl;
+
+import com.snailthink.springcloud.dao.DeptDao;
+import com.snailthink.springcloud.pojo.DeptVO;
+import com.snailthink.springcloud.service.DeptService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class DeptServiceImpl implements DeptService {
+
+    @Autowired
+    private DeptDao dao;
+
+    @Override
+    public boolean addDept(DeptVO deptVO) {
+        return dao.addDept(deptVO);
+    }
+
+    @Override
+    public DeptVO queryDeptById(Long id) {
+        return dao.queryDeptById(id);
+    }
+
+    @Override
+    public List<DeptVO> queryAllDept() {
+        return dao.queryAllDept();
+    }
+}
+
+```
+
+#### 10. 添加mybatis文件
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.snailthink.springcloud.dao.DeptDao">
+    <!--add -->
+    <insert id="addDept" parameterType="com.snailthink.springcloud.pojo.DeptVO">
+      INSERT INTO `snailthink`.`dept`( `db_source`, `dept_name`)
+       VALUES ( #{db_source}, #{dname} );
+    </insert>
+
+    <select id="queryDeptById" resultType="com.snailthink.springcloud.pojo.DeptVO" parameterType="long">
+        SELECT dept_no AS deptno,dept_name AS dname ,db_source AS db_source FROM dept WHERE id=#{id} ;
+    </select>
+
+    <select id="queryAllDept" resultType="com.snailthink.springcloud.pojo.DeptVO" >
+        SELECT dept_no AS deptno,dept_name AS dname ,db_source AS db_source FROM dept
+    </select>
+</mapper>
+
+```
+
+#### 11.运行项目访问
+
+[测试接口联通性](http://localhost:8001/dept/connect/132)
+
+[测试接口联通性](http://localhost:8001/dept/connectStr?str=AAA)
+
+![image-20211013185115702](https://gitee.com/VincentBlog/image/raw/master/image/20211013185115.png)
+
+
+
+
+
+#### 12.调用接口获取数据
+
+[根据ID查询数据](http://localhost:8001/dept/queryDeptById/1)
+
+![image-20211013185731013](https://gitee.com/VincentBlog/image/raw/master/image/20211013185731.png)
+
+#### 13.查询注册中心
+
+我们发现**springcloud-provide-8001** 已经注册到EurekaServe 上了
+
+![image-20211013185811786](https://gitee.com/VincentBlog/image/raw/master/image/20211013185811.png)
+
+
+
+#### 14. 查看项目层级目录
+
+![image-20211013190257106](https://gitee.com/VincentBlog/image/raw/master/image/20211013190257.png)
+
+### 六、搭建服务消费者   springcloud-consumer-dept-9001 
+
+#### 1.搭建maven模块
+
+![image-20211013192313693](https://gitee.com/VincentBlog/image/raw/master/image/20211013192313.png)
+
+
+
+#### 2.修改pom文件
+
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springcloud</artifactId>
+        <groupId>com.snailthink</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springcloud-consumer-dept-feign-9001</artifactId>
+
+    <!--实体类modle-->
+    <dependencies>
+
+        <!--使用Feign-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.snailthink</groupId>
+            <artifactId>springcloud-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
+```
+
+#### 3.添加yml文件
+
+```yml
+server:
+  port: 9001
+
+# eureka 配置
+eureka:
+  client:
+    register-with-eureka: false #表示是否向Eureka注册中心注册自己
+    service-url: #监控页面  默认："defaultZone", "http://localhost:8761/eureka/"
+      # 单机：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群(关联)：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/，
+      # 集群(关联)eg：defaultZone: http://localhost:7002/eureka/，http://localhost:7003/eureka/
+      defaultZone: http://localhost:7001/eureka/
+
+```
+
+#### 4.添加启动类
+
+```java
+package com.snailthink.springcloud;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+/**
+ * @program: springcloud
+ * @description:
+ * @author: SnailThink
+ * @create: 2021-10-13 19:24
+ **/
+@SpringBootApplication
+@EnableEurekaClient //配置客户端 注册到Eureka
+@EnableFeignClients(basePackages = {"com.snailthink.springcloud"}) //哪些包下面的注解要被扫描
+public class FeginDeptConsumer_9001 {
+
+	//Ribbon 和Eureka 整合后 可以直接调用，不用关系IP地址和端口号
+	public static void main(String[] args) {
+		SpringApplication.run(FeginDeptConsumer_9001.class, args);
+	}
+}
+
+```
+
+#### 5.API模块添加Feign
+
+
+
+##### 1.添加Feign依赖
+
+```java
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
+
+```
+
+##### 2.添加server
+
+```java
+
+package com.snailthink.springcloud.server;
+
+import com.snailthink.springcloud.pojo.DeptVO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
+
+/**
+ * DeptServer API
+ */
+@Component
+@FeignClient(value = "SPRINGCLOUD-PROVIDE-DEPT")
+public interface DeptClientServer {
+
+	/**
+	 * 增加dept
+	 * @param deptVO
+	 * @return
+	 */
+	@PostMapping("dept/add")
+	boolean addDept(DeptVO deptVO);
+
+	/**
+	 * 根据主键ID 查询dept
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("dept/queryDeptById/{id}")
+	DeptVO queryDeptById(@PathVariable("id") Long id);
+
+	/**
+	 * 查询dept 全部数据
+	 * @return
+	 */
+	@GetMapping("dept/queryAllDept")
+	List<DeptVO> queryAllDept();
+
+}
+
+```
+
+#### 6.添加Controller
+
+```java
+package com.snailthink.springcloud.controller;
+
+import com.snailthink.springcloud.pojo.DeptVO;
+import com.snailthink.springcloud.server.DeptClientServer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+/**
+ * @program: springcloud
+ * @description: 消费者
+ * @author: SnailThink
+ * @create: 2021-10-11 15:52
+ **/
+@RestController
+public class DeptConsumerController {
+
+	//消费者不应该有Service 层
+	//restTemplate ... 供我们直接调用就可以！注册到Spring中
+	//(URL，实体：Map，Class<T> responseType)
+	//http://localhost:8009/consumer/dept/list
+
+	@Autowired
+	private DeptClientServer deptServer = null;
+
+	@GetMapping("consumer/dept/hello")
+	public String helloStr() {
+		return "hello World";
+	}
+
+
+	@RequestMapping("consumer/dept/add")
+	public boolean add(DeptVO deptVO) {
+		return this.deptServer.addDept(deptVO);
+	}
+
+	@RequestMapping("consumer/dept/get/{id}")
+	public DeptVO get(@PathVariable("id") Long id) {
+		return this.deptServer.queryDeptById(id);
+	}
+
+	@RequestMapping("consumer/dept/list")
+	public List<DeptVO> list() {
+		return this.deptServer.queryAllDept();
+	}
+}
+
+```
+
+
+
+#### 7.服务调用测试
+
+
+
+[服务调用](http://localhost:9001/consumer/dept/get/1)
+
+![image-20211013193755057](https://gitee.com/VincentBlog/image/raw/master/image/20211013193755.png)
+
+#### 8.服务调用说明
+
+
+
+![image-20211013194210544](https://gitee.com/VincentBlog/image/raw/master/image/20211013194210.png)
+
+
+
+- 首先需要启动Eureka-Server 注册中心
+- 将服务提供着provide-8001 注册到服务中心上
+- 服务消费者根据服务名称访问Eureka 获取到服务提供者进行远程调用。
