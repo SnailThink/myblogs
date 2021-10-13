@@ -289,6 +289,6 @@ Intellij IDEA 公司 JetBrains 推出了一种新字体：JetBrains Mono，它�
 
 ### 关注
 
-![snailThink.png](http://ww1.sinaimg.cn/large/006aMktPgy1gdegzjxv6yj30go0gogmi.jpg)
+![公众号](https://gitee.com/VincentBlog/image/raw/master/image/20211013200549.jpg)
 
 ![](https://pic.downk.cc/item/5f5e3aae160a154a67a7b936.gif)
