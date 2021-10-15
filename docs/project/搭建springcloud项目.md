@@ -1224,3 +1224,438 @@ public class DeptConsumerController {
 - 首先需要启动Eureka-Server 注册中心
 - 将服务提供着provide-8001 注册到服务中心上
 - 服务消费者根据服务名称访问Eureka 获取到服务提供者进行远程调用。
+
+
+
+### 七、Hystrix服务熔断
+
+
+
+#### 1.搭建maven模块
+
+![image-20211015143315203](https://gitee.com/VincentBlog/image/raw/master/image/20211015143315.png)
+
+![image-20211015143333389](https://gitee.com/VincentBlog/image/raw/master/image/20211015143333.png)
+
+
+
+#### 2.修改pom依赖
+
+**主要使用**
+
+```xml
+  <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+```
+
+**完整xml文件**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springcloud</artifactId>
+        <groupId>com.snailthink</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springcloud-provide-dept-hystrix-6001</artifactId>
+
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+
+        <!-- hystrix -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+
+        <!--完善监控信息 修改state 页面跳转-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
+        </dependency>
+        <!--需要实体类 所以要配置api-model-->
+        <dependency>
+            <groupId>com.snailthink</groupId>
+            <artifactId>springcloud-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <!--test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--jetty 类似tomcat-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>
+
+        <!--热部署工具-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
+```
+
+#### 3.添加启动类
+
+```java
+package com.snailthink.springcloud;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@SpringBootApplication
+@EnableEurekaClient //配置客户端 注册到Eureka
+@EnableDiscoveryClient //获取discovery 数据 服务发现
+@EnableCircuitBreaker //添加对熔断的支持
+public class HystrixDeptProvider_6001 {
+    public static void main(String[] args) {
+        SpringApplication.run(HystrixDeptProvider_6001.class, args);
+    }
+}
+
+```
+
+#### 4.添加yml文件
+
+```java
+server:
+  port: 6001
+
+# mybatis 配置
+mybatis:
+  type-aliases-package: com.snailthink.springcloud.pojo
+  #config-location: classpath:mybatis/mybatis-config.xml #Mybatis 的核心配置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true #配置驼峰大小写转换
+
+#Spring 配置
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/snailthink?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 1q2w3e
+    driver-class-name: org.gjt.mm.mysql.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: springcloud-provide-dept
+
+
+#Eureka 配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    instance-id: springcloud-provide-dept-hystrix6001  # 修改eureka 上Status展示的描述信息.
+    prefer-ip-address: true # 可以显示服务器的Ip
+
+info:
+  app.name: snailthink-springcloud
+  company.name: bolg.snailthink.com
+  author: snailthink
+
+```
+
+#### 5.修改Controller
+
+```java
+package com.snailthink.springcloud.controller;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.snailthink.springcloud.pojo.DeptVO;
+import com.snailthink.springcloud.service.DeptService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+//提供Restful 服务
+@RestController
+public class DeptController {
+
+	@Autowired
+	private DeptService deptService;
+
+
+	/**
+	 * http://localhost:6001/dept/queryDeptById/1
+	 * 失败时候调用 hystrixGet 方法
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("dept/queryDeptById/{id}")
+	@HystrixCommand(fallbackMethod = "hystrixGet") //失败时候调用 hystrixGet
+	public DeptVO queryDeptById(@PathVariable("id") Long id) {
+
+		DeptVO deptVO = deptService.queryDeptById(id);
+		if (deptVO == null) {
+			throw new RuntimeException("id=>" + id + "，不存在该用户、或者用户没有找到");
+		}
+		return deptService.queryDeptById(id);
+	}
+
+	public DeptVO hystrixGet(@PathVariable("id") Long id) {
+		return new DeptVO().setId(null).setDb_source("not this database in mysql").setDname("id=>" + id + "没有对应的信息，null--@Hystrix");
+	}
+
+	@GetMapping("dept/queryAllDept")
+	public List<DeptVO> queryAllDept() {
+		return deptService.queryAllDept();
+	}
+
+
+}
+
+```
+
+## 八、服务降级
+
+#### 1.springcloud-api
+
+**添加服务降级Server的工厂方法**
+
+```java
+package com.snailthink.springcloud.server;
+
+import com.snailthink.springcloud.pojo.DeptVO;
+import feign.hystrix.FallbackFactory;
+
+import java.util.List;
+
+/**
+ * @program: springcloud
+ * @description: 服务降级
+ * @author: SnailThink
+ * @create: 2021-10-15 15:40
+ **/
+public class DeptClientServerFallBackFactory implements FallbackFactory {
+	@Override
+	public DeptClientServer create(Throwable throwable) {
+		return new DeptClientServer() {
+			@Override
+			public boolean addDept(DeptVO deptVO) {
+				return false;
+			}
+
+			/**
+			 * 对queryDeptById 方法执行服务降级 其他方法一样的 操作
+			 * @param id
+			 * @return
+			 */
+			@Override
+			public DeptVO queryDeptById(Long id) {
+				return new DeptVO().setId(id).setDb_source("not this database in mysql").
+						setDname("id=>" + id + "没有对应的信息，客户端口提供了降级信息，这个服务已经被关闭");
+			}
+
+			@Override
+			public List<DeptVO> queryAllDept() {
+				return null;
+			}
+		};
+	}
+}
+
+```
+
+**在Server中增加服务降级注解和工厂关联**
+
+
+
+```java
+package com.snailthink.springcloud.server;
+
+import com.snailthink.springcloud.pojo.DeptVO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
+
+/**
+ * DeptServer API
+ */
+@Component
+@FeignClient(value = "SPRINGCLOUD-PROVIDE-DEPT",fallbackFactory = DeptClientServerFallBackFactory.class) //服务降级操作调用工厂实现
+public interface DeptClientServer {
+
+	/**
+	 * 增加dept
+	 * @param deptVO
+	 * @return
+	 */
+	@PostMapping("dept/add")
+	boolean addDept(DeptVO deptVO);
+
+	/**
+	 * 根据主键ID 查询dept
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("dept/queryDeptById/{id}")
+	DeptVO queryDeptById(@PathVariable("id") Long id);
+
+	/**
+	 * 查询dept 全部数据
+	 * @return
+	 */
+	@GetMapping("dept/queryAllDept")
+	List<DeptVO> queryAllDept();
+}
+
+```
+
+#### 2.dept-feign中开启服务降级
+
+**开启服务降级**
+
+```java
+# 开启服务降级
+feign:
+  hystrix:
+    enabled: true
+```
+
+
+
+#### 3.启动服务
+
+```
+1.启动eurekaserve-7001
+2.启动服务端provide-dept-8001
+3.启动客户端consumer-dept-feign
+```
+
+
+
+
+
+##  九、服务监控
+
+
+
+~~~java
+
+1.添加引用
+
+```java
+  <!--Hystrix依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+        <!--dashboard依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+```
+
+
+2.主启动类增加如下
+```java
+@SpringBootApplication
+@EnableEurekaClient //EnableEurekaClient 客户端的启动类，在服务启动后自动向注册中心注册服务
+public class DeptProvider_8001 {
+    public static void main(String[] args) {
+        SpringApplication.run(DeptProvider_8001.class,args);
+    }
+
+    //增加一个 Servlet
+    @Bean
+    public ServletRegistrationBean hystrixMetricsStreamServlet(){
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new HystrixMetricsStreamServlet());
+        //访问该页面就是监控页面
+        registrationBean.addUrlMappings("/actuator/hystrix.stream");
+       
+        return registrationBean;
+    }
+}
+
+```
+~~~
+
+
+
+**访问http://localhost:8008/hystrix**
+
+
+
+![image-20211015171928197](https://gitee.com/VincentBlog/image/raw/master/image/20211015171929.png)
+
+
+
+
+
+进入监控页面：http://localhost:8001/actuator/hystrix.stream
+
+![image-20211015171958361](https://gitee.com/VincentBlog/image/raw/master/image/20211015171958.png)
+
+**效果如下图：**
+
+
+
+![img](https://img-blog.csdnimg.cn/20201121162612484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU5MTk4MA==,size_16,color_FFFFFF,t_70#pic_center)
