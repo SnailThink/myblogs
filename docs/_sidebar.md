@@ -10,6 +10,7 @@
     - [数据库](start/database.md)
   - Redis
      - [Redis指南](redis/Redis-Hello.md)
+     
   - Linux
      - [Linux-Hello](database/Linux-Hello.md)
      
@@ -37,6 +38,8 @@
   
 - Message Queue
   - [RabbitMQ](message_queue/RabbitMQ-Hello.md)
+  - [RabbitmQ_消息丢失-重复消费-分布式事务.md](message_queue/RabbitmQ_消息丢失-重复消费-分布式事务.md)
+  - [RabbitMQ基础.md](message_queue/RabbitMQ基础.md)
 
 - RPC Learning
   - [ ] Rpc调用
