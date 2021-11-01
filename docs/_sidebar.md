@@ -94,6 +94,8 @@
 - 待完成
   - [待完成](todo/狂神笔记.md)
   
+- 优秀习惯
+  - [优秀习惯](good_programmer/good_programmer.md)
   
 - 直击面试
 
