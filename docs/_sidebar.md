@@ -1,9 +1,9 @@
 - Java
   - 数据类型
   
-  - [ArrayList](java/ArrayList.md)
+  - [ArrayList](Java/ArrayList.md)
 
-  - [JavaStream](java/JavaStream流还可以这样玩.md)
+  - [JavaStream](Java/JavaStream流还可以这样玩.md)
   
 - 数据存储、缓存和搜索
   - 数据库
@@ -83,7 +83,7 @@
 - Big Data
 
 - LeetCode
-  - [leecode](leecode/leecode.md)
+  - [leecode](LeeCode/leecode.md)
 
 - 数据结构 - Data Structures
   - [ArrayList](data_structures/ArrayList.md)

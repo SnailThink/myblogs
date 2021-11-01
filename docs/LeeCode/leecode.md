@@ -2,6 +2,8 @@
 
 ## Java   [Leecode-100](https://leetcode-cn.com/problem-list/2cktkvj/)
 
+[Leecode刷题技巧](https://github.com/CyC2018/CS-Notes/tree/master/notes)
+
 ### 628 [三个数的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-three-numbers/)
 
  给你一个整型数组 `nums` ，在数组中找出由三个数组成的最大乘积，并输出这个乘积。 
@@ -164,6 +166,8 @@
 		return new StringBuilder(str).reverse().toString();
 	}
 ```
+
+
 
 ### [767. 重构字符串](https://leetcode-cn.com/problems/reorganize-string/)
 
@@ -2573,6 +2577,198 @@ public int fib(int n) {
 输入：arr = [-3,0,1,-3,1,1,1,-3,10,0]
 输出：true
 ```
+
+**解题思路**
+
+-  使用哈希表记录每个数字的出现次数；随后再利用新的哈希表，统计不同的出现次数的数目 
+
+-  如果不同的出现次数的数目等于不同数字的数目，则返回 true，否则返回false。 
+
+```java
+public boolean uniqueOccurrences(int[] arr) {
+		Map<Integer, Integer> occur = new HashMap<Integer, Integer>();
+		for (int x : arr) {
+			occur.put(x, occur.getOrDefault(x, 0) + 1);
+		}
+		Set<Integer> times = new HashSet<Integer>();
+		for (Map.Entry<Integer, Integer> x : occur.entrySet()) {
+			times.add(x.getValue());
+		}
+		return times.size() == occur.size();
+	}
+```
+
+### [448. 找到所有数组中消失的数字](https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/)
+
+给你一个整数数组 `arr`，请你帮忙统计数组中每个数的出现次数。
+
+如果每个数的出现次数都是独一无二的，就返回 `true`；否则返回 `false`。
+
+ **示例 1：** 
+
+```
+输入：arr = [1,2,2,1,1,3]
+输出：true
+解释：在该数组中，1 出现了 3 次，2 出现了 2 次，3 只出现了 1 次。没有两个数的出现次数相同。
+```
+
+ **示例 2：** 
+
+```
+输入：arr = [1,2]
+输出：false
+```
+
+ **示例 3：** 
+
+```
+输入：arr = [-3,0,1,-3,1,1,1,-3,10,0]
+输出：true
+```
+
+**解题思路**
+
+-   用一个哈希表记录数组 *nums* 中的数字，由于数字范围均在 [1,n][1,*n*] 中 
+
+-  再利用哈希表检查 [1,n][1,*n*] 中的每一个数是否出现，从而找到缺失的数字。 
+
+```java
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        int n = nums.length;
+        for (int num : nums) {
+            int x = (num - 1) % n;
+            nums[x] += n;
+        }
+        List<Integer> ret = new ArrayList<Integer>();
+        for (int i = 0; i < n; i++) {
+            if (nums[i] <= n) {
+                ret.add(i + 1);
+            }
+        }
+        return ret;
+    }
+```
+
+
+
+
+
+
+
+### [204. 计数质数](https://leetcode-cn.com/problems/count-primes/)
+
+ 统计所有小于非负整数 *`n`* 的质数的数量。 
+
+ **示例 1：** 
+
+```
+输入：n = 10
+输出：4
+解释：小于 10 的质数一共有 4 个, 它们是 2, 3, 5, 7 。
+```
+
+ **示例 2：** 
+
+```
+输入：n = 0
+输出：0
+```
+
+ **示例 3：** 
+
+```
+输入：n = 1
+输出：0
+```
+
+**解题思路**
+
+-  在大于 1 的自然数中，除了 1 和它本身以外不再有其他因数的自然数 
+- 
+
+```java
+class Solution {
+    public int countPrimes(int n) {
+        int ans = 0;
+        for (int i = 2; i < n; ++i) {
+            ans += isPrime(i) ? 1 : 0;
+        }
+        return ans;
+    }
+
+    public boolean isPrime(int x) {
+        for (int i = 2; i * i <= x; ++i) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+
+
+### [414. 第三大的数](https://leetcode-cn.com/problems/third-maximum-number/)
+
+ 给你一个非空数组，返回此数组中 **第三大的数** 。如果不存在，则返回数组中最大的数 
+
+ **示例 1：** 
+
+```
+输入：[3, 2, 1]
+输出：1
+解释：第三大的数是 1 
+```
+
+ **示例 2：** 
+
+```
+输入：[1, 2]
+输出：2
+解释：第三大的数不存在, 所以返回最大的数 2 。
+```
+
+ **示例 3：** 
+
+```
+输入：[2, 2, 3, 1]
+输出：1
+解释：注意，要求返回第三大的数，是指在所有不同数字中排第三大的数。
+此例中存在两个值为 2 的数，它们都排第二。在所有不同数字中排第三大的数为 1 。
+```
+
+
+
+**解题思路**
+
+- 
+- 
+
+```java
+public int thirdMax(int[] nums) {
+        Arrays.sort(nums);
+        List<Integer> ans = new ArrayList<>();
+        
+        for(int i:nums){
+            if(ans.contains(i)){
+                continue;
+            }
+            ans.add(i);
+        }
+
+        int n = ans.size();
+        if(n==1 || n==2){
+            return ans.get(n-1);
+        }
+
+        return ans.get(ans.size()-3);
+    }
+```
+
+
+
+
 
 
 
