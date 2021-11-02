@@ -77,10 +77,6 @@
   - [搭建springcloud项目](project/搭建springcloud项目.md)
   - [dubbo+zk实战](project/dubbo+zk实战.md)
 
-- SOA 架构
-  - [ ] 单点登录
-  
-- Big Data
 
 - LeetCode
   - [leecode](LeeCode/leecode.md)
@@ -95,7 +91,7 @@
   - [待完成](todo/狂神笔记.md)
   
 - 优秀习惯
-  - [优秀习惯](good_programmer/good_programmer.md)
+  - [优秀习惯](good_programmer/good_programmer_start.md)
   
 - 直击面试
 
