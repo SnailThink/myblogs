@@ -28,7 +28,7 @@
 
 |      Project      | Version | Article                                                      |
 | :---------------: | :-----: | :----------------------------------------------------------- |
-|     **MySQL**     | 5.7.25  | 1、MySQL架构概述<br/>2、MySQL存储引擎<br/>3、索引<br/>4、事务<br/>5、表设计<br/>[6、性能优化<br/>7、锁机制<br/>8、分区分表分库<br/>9 、主从复制<br/>10 、[mysql基础](https://mp.weixin.qq.com/s/-3nlo-vTbK2-QTgI2tBvPQ)<br/>11 、[Sql调优](https://mp.weixin.qq.com/s/1Tf7uSnAwVnI9PmWOtH65g)<br/> |
+|     **MySQL**     | 5.7.25  | 1、MySQL架构概述<br/>2、MySQL存储引擎<br/>3、索引<br/>4、事务<br/>5、表设计<br/>6、性能优化<br/>7、锁机制<br/>8、分区分表分库<br/>9 、主从复制<br/>10 、[mysql基础](https://mp.weixin.qq.com/s/-3nlo-vTbK2-QTgI2tBvPQ)<br/>11 、[Sql调优](https://mp.weixin.qq.com/s/1Tf7uSnAwVnI9PmWOtH65g)<br/> |
 |     **Redis**     |  5.0.6  | [Redis-Hello](https://mp.weixin.qq.com/s/WIShAZFUyUiNFgJem356SQ) |
 | **Elasticsearch** |         |                                                              |
 |   **Amazon S3**   |         |                                                              |
@@ -181,27 +181,3 @@
 
 + 文章只是记录自己的学习，如果在文章中发现错误或者侵权问题，欢迎指出，谢谢
 
-## 待完成事情
-
-- [ ] [Spring中涉及的设计模式总结](https://mp.weixin.qq.com/s/Zi6umVQ8HZWLlUjFxD-3Bg)
-- [ ] [springcloud体系中的重要知识点](https://mp.weixin.qq.com/s/jfdauYGniX9DM2zyyjQGgg)
-- [x] [sql优化](https://mp.weixin.qq.com/s/HuKptQYg3OOUsd5h0N8qWQ)
-- [ ] [HashMap夺命21问](https://mp.weixin.qq.com/s/5nxmAogZRAFuG6BcyjNJlQ)
-- [ ] [消息队列](https://mp.weixin.qq.com/s/qQyV4M7SOcoJr8t05YsBrg)
-- [x] [有了http为什么还要用RPC](https://mp.weixin.qq.com/s/TpdaAleV3ghenvC39F_Y7w)
-- [x] [万字复习http](https://mp.weixin.qq.com/s/YTlqMzvP2bdbO_QfwxEBIQ)
-- [ ] [spring session与spring boot整合实战](https://mp.weixin.qq.com/s/thpl0BzXccQ99gexjcckgQ)
-- [x] [springboot注解总结](https://mp.weixin.qq.com/s/Q-Sys6eK0E5FJ2uUNjkaFA)
-- [ ] [.NET 异步](https://mp.weixin.qq.com/s/p8Kx3cbHKsiYI-H1LrhTiw)
-- [ ] [代码优化建议](https://mp.weixin.qq.com/s/q8mG0ZtWFKA6yj_ZBScQFg)
-- [ ] [服务组件Feign的工作原理](https://mp.weixin.qq.com/s/QFq5GU7jCQ_9YLY4XxpfKw)
-- [ ] [23种设计模式详解](https://mp.weixin.qq.com/s/PkgBrHV4H16lG-_LP1RNHA)
-- [ ] [为什么SpringBoot的 jar 可以直接运行](https://mp.weixin.qq.com/s/U1pU4i11Y3jskQJA01us_g)
-- [x] [redisCRUD](https://juejin.cn/post/6844903957186215944)
-- [ ] [参数校验(Validator)](https://mp.weixin.qq.com/s/eW8bdeVwgs3AAkMX6CMm4A)
-- [ ] [MyBatis动态SQL](https://mp.weixin.qq.com/s/EulRVPYAC9XbfypNIzNiRw)
-- [x] [List 如何一边遍历，一边删除](https://mp.weixin.qq.com/s/MR4csY3HEmY5NfZ7eZgRRw)
-- [ ] [重构](https://www.cnblogs.com/KnightsWarrior/archive/2010/06/30/1767981.html)
-- [x] [大厂程序员凡尔赛的一天](https://mp.weixin.qq.com/s/ugSVzj6df0NikdxQlzevXQ)
-- [ ] [springBoot教程](https://mp.weixin.qq.com/s/6ZRO2CFg_SEqdzPhy9mIcQ)
-- [ ] 
