@@ -48,7 +48,14 @@
   - [代码优化实战](yuque/Java/代码优化实战.md)
 
   - [代码重构技巧](yuque/Java/代码重构技巧.md)
+  
+  - [打印对象](yuque/Java/打印对象.md)
 
+  - [sonar安装及配置](yuque/Java/sonar安装及配置.md)
+  
+  - [在线工具](yuque/Java/在线工具.md)
+
+  
   
 
 ## 问题
