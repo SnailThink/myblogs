@@ -1,9 +1,7 @@
 - Java
-  - 数据类型
-  
-  - [ArrayList](Java/ArrayList.md)
 
-  - [JavaStream](Java/JavaStream流还可以这样玩.md)
+  - [Javahome](Java/Javahome.md)
+
   
 - 数据存储、缓存和搜索
   - 数据库
@@ -74,20 +72,10 @@
   - [第一章节](desgin-pattern/Java面试必备：手写单例模式.md)
   - [工厂模式](desgin-pattern/工厂模式超详解（代码示例）.md)
 
-- Project
-
-  - [搭建springcloud项目](project/搭建springcloud项目.md)
-  - [dubbo+zk实战](project/dubbo+zk实战.md)
-
 
 - LeetCode
   - [leecode](LeeCode/leecode.md)
 
-- 数据结构 - Data Structures
-  - [ArrayList](data_structures/ArrayList.md)
-  - [Bean映射工具](data_structures/Bean映射工具.md)
-  - [HashMap](data_structures/HashMap.md)
-  - [HashMap](List集合遇到的坑/List集合遇到的坑.md)
 
 - 待完成
   - [待完成](todo/狂神笔记.md)
