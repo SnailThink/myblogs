@@ -92,7 +92,7 @@
 |    Git     | [Git使用技巧](https://mp.weixin.qq.com/s/OQ-MYB6cP3LjLyG1D2p_DA)<br>[Git常见错误](https://mp.weixin.qq.com/s/Z97aHUncuTx6_KQL7rZqKg)<br>[Git使用命令](https://mp.weixin.qq.com/s/tb0B_7wevt29RZJSiTJOPQ)<br> |
 |    IDEA    | [IDEA插件](https://mp.weixin.qq.com/s/wH_cUGVb9c4JKHuCjhMd2Q)<br>[IDEA实用技巧](https://mp.weixin.qq.com/s/tfQ0OPc4VZT_rMMiFDzRog)<br>[IDEA调试技巧](https://mp.weixin.qq.com/s/RDVo56glqzWKDCaHnZ27hQ) |
 |  Jenkins   |                                                              |
-|   Htool    | [dubbo+zk实战](tool/base_tool/Htool.md)<br/>                                                           |
+|   Htool    | [Htool](demo/HTool.md)<br/>                                                           |
 
 
 ##  💡  其他工具
@@ -123,7 +123,7 @@
 
 |    Project    | Article              |
 | :-----------: | :------------------- |
-| 23 种设计模式 | <br/><br/><br/><br/> |
+| 23 种设计模式 | [设计模式-单例模式 ](https://mp.weixin.qq.com/s/bO-4EzysaRFw_9wqJ_P8jg)|
 
 
 
@@ -155,7 +155,7 @@
 
 |  Project   | Article |
 | :--------: | :------ |
-| 数组与链表 |         |
+| 数组与链表 |[HashMap](Java//数据结构/HashMap.md) </br> [ArrayList](Java/数据结构/ArrayList.md)</br>        |
 |  栈与队列  |         |
 |   树与图   |         |
 |   哈希表   |         |
@@ -168,20 +168,16 @@
 
 | Project | Article |
 | :-----: | :------ |
-| Spring  |         |
 |  网络   |         |
 |  基础   |         |
-|  MySQL  | [MySQL-Hello](database/MySQL-Hello.md)</br>      |
 
 
-
-##    🐮  B站资料
+##    🐮  资料
 
 |       Project       | Article                                                      |
 | :-----------------: | :----------------------------------------------------------- |
-| B站Java视频资料学习 | [B站Java视频资料](https://mp.weixin.qq.com/s/8rWtnXFNfAKK7Hdq735xBA) |
-
-
+| B站Java视频资料学习 | [狂神笔记](面试/狂神笔记.md) </br>[B站Java视频资料](https://mp.weixin.qq.com/s/8rWtnXFNfAKK7Hdq735xBA) |
+| 微信公众号 | [文章导航](WeChat/文章导航.md)</br>  |
 
 
 

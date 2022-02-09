@@ -42,9 +42,7 @@
   - [RabbitMQ基础.md](message_queue/RabbitMQ基础.md)
 
 - 基础工具
-
-  - [工具](tool/toolHome.md)
-
+  - [demo](demo/demo-hello.md)
 
 - 设计模式
 

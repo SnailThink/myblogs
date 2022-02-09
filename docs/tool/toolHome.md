@@ -14,10 +14,6 @@
   - [banner](tool/base_tool/Maven/Maven-Hello.md)
   - [maven_setting.xml中文配置详解](tool/base_tool/Maven/maven_setting.xml中文配置详解.md)
 
- ## Java Tool
-  
-  - [Htool](tool/base_tool/Htool.md)
-
 ## 效率
   - [GitHub使用技巧](tool/效率/GitHub使用技巧.md)
   - [Windows技巧](tool/效率/Windows技巧.md)

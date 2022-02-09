@@ -1,8 +1,4 @@
-## Java
-  - [ArrayList](Java/ArrayList.md)
-          
-  - [HashMap](Java/HashMap.md)
-
+## Java数据结构
   - [JavaStream](Java/JavaStream流还可以这样玩.md)
   
   - [List集合遇到的坑](Java/List集合遇到的坑.md)
@@ -11,11 +7,14 @@
   
   - [多线程-Hello](Java/多线程-Hello.md)
 
-  - [Maven](tool/base_tool/Maven/Maven-Hello.md)
+## 数据结构
+  - [ArrayList](Java/数据结构/ArrayList.md)
+          
+  - [HashMap](Java//数据结构/HashMap.md)
   
+
 ##  LeetCode
   - [leecode](LeeCode/leecode.md)
-  
   
 ## 语雀
 
