@@ -10,6 +10,7 @@
      
   - Linux
      - [Linux-Hello](database/Linux-Hello.md)
+     - [shell命令](database/shell命令.md)
      
 - Spring框架
 
@@ -30,7 +31,6 @@
   
 - 必备框架
   - [mybatis实战](framework/mybatis实战.md)
-  - [pom文件详解](framework/pom文件详解.md)
   - [Shiro实战](framework/Shiro实战.md)
   - [JPA详解](framework/JPA详解.md)
 

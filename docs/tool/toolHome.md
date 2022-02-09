@@ -9,9 +9,13 @@
  ## Java小工具
  
   - [Htool](tool/base_tool/HTool.md)
-  - [Maven](tool/base_tool/Maven-Hello.md)
+ 
   - [数据库表结构生成工具](tool/base_tool/数据库表结构生成工具.md)
   
+  - [远程Debug](tool/远程Debug.md)
+  
+  - [Java启动关闭脚本](tool/Java启动关闭脚本.md)
+
   
 ## Git
   - [Git-Hello](tool/base_tool/Git/Git-Hello.md)
