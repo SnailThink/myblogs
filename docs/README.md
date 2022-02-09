@@ -30,7 +30,7 @@
 | :---------------: | :-----: | :----------------------------------------------------------- |
 |     **MySQL**     | 5.7.25  | 1、MySQL架构概述<br/>2、MySQL存储引擎<br/>3、索引<br/>4、事务<br/>5、表设计<br/>6、性能优化<br/>7、锁机制<br/>8、分区分表分库<br/>9 、主从复制<br/>10 、[mysql基础](https://mp.weixin.qq.com/s/-3nlo-vTbK2-QTgI2tBvPQ)<br/>11 、[Sql调优](https://mp.weixin.qq.com/s/1Tf7uSnAwVnI9PmWOtH65g)<br/> |
 |     **Redis**     |  5.0.6  | [Redis-Hello](https://mp.weixin.qq.com/s/WIShAZFUyUiNFgJem356SQ) |
-| **Elasticsearch** |         |                                                              |
+| **Elasticsearch** |         | [elasticsearch](yuque/Java/elasticsearch.md)                                                             |
 |   **Amazon S3**   |         |                                                              |
 |      MongoDB      |         |                                                              |
 |     Sqlserver     |         | [SqlServer基础](https://mp.weixin.qq.com/s/-p7Ni115nRRd3Q5AQ1O0dw) |
@@ -52,16 +52,15 @@
 | :----------: | :------------: | :----------------------------------------------------------- |
 |    Spring    | 4.3.26.RELEASE | [Spring注解](https://mp.weixin.qq.com/s/UuzxgGg7Lsvsac9F_CLOcg)<br/> |
 |  Spring MVC  |                |                                                              |
-| Spring Boot  |     2.1.8      | [SpringBoot定时任务](https://mp.weixin.qq.com/s/SwBOJVpmh8_nhMHVlLMGuw)<br>[SpringBoot实战](https://mp.weixin.qq.com/s/TjT43KpFDe_TpBw3kqf64Q)<br> |
-| Spring Cloud |                |                                                              |
-
+| Spring Boot  |     2.1.8      | [Spingboot定时任务-Hello](springboot/Spingboot定时任务-Hello.md)</br>[Springboot_jdk_Maven版本](springboot/Springboot_jdk_Maven版本.md)</br>[SpringBoot-Hello](springboot/SpringBoot-Hello.md)</br>[SpringBoot注解-Helloo](springboot/SpringBoot注解-Hello.md) |
+| Spring Cloud |                |[如何理解微服务.md](springcloud/如何理解微服务.md)</br> [SpringCloud-Hello](springcloud/SpringCloud-Hello.md)</br>[搭建SpringCloud项目](springcloud/搭建SpringCloud项目.md)                                                            |
 
 
 ##  🏡  必备框架
 
 | Project | Version | Article                                                      |
 | :-----: | :-----: | :----------------------------------------------------------- |
-|   JPA   |         |                                                              |
+|   JPA   |         | [JPA详解](framework/JPA详解.md)                                                             |
 | MyBatis |         | [Mybatis实战](https://mp.weixin.qq.com/s/iNfi4lQWFqz-mMdwMyPccg) |
 |  Shiro  |         | [Shiro实战](https://mp.weixin.qq.com/s/lkT7SLkdgai9R_9XR1MOFw) |
 
@@ -71,7 +70,7 @@
 
 | Project | Version | Article |
 | :-----: | :-----: | :------ |
-|   MQ    |         |         |
+|   MQ    |         | [RabbitMQ](message_queue/RabbitMQ-Hello.md)</br>[RabbitmQ_消息丢失-重复消费-分布式事务.md](message_queue/RabbitmQ_消息丢失-重复消费-分布式事务.md)</br>[RabbitMQ基础.md](message_queue/RabbitMQ基础.md)</br>        |
 |  Kafka  |  2.12   |         |
 
 
@@ -93,21 +92,30 @@
 |    Git     | [Git使用技巧](https://mp.weixin.qq.com/s/OQ-MYB6cP3LjLyG1D2p_DA)<br>[Git常见错误](https://mp.weixin.qq.com/s/Z97aHUncuTx6_KQL7rZqKg)<br>[Git使用命令](https://mp.weixin.qq.com/s/tb0B_7wevt29RZJSiTJOPQ)<br> |
 |    IDEA    | [IDEA插件](https://mp.weixin.qq.com/s/wH_cUGVb9c4JKHuCjhMd2Q)<br>[IDEA实用技巧](https://mp.weixin.qq.com/s/tfQ0OPc4VZT_rMMiFDzRog)<br>[IDEA调试技巧](https://mp.weixin.qq.com/s/RDVo56glqzWKDCaHnZ27hQ) |
 |  Jenkins   |                                                              |
-| Chrome插件 |                                                              |
-|            |                                                              |
+|   Htool    | [dubbo+zk实战](tool/base_tool/Htool.md)<br/>                                                           |
 
 
-
-##  🌈  其他工具
+##  💡  其他工具
 
 |    Project     | Article                                                      |
 | :------------: | :----------------------------------------------------------- |
-|    搭建图床    | [搭建图床](https://mp.weixin.qq.com/s/GlxPta7sa_Emg2g3fbrZWw) |
+|    搭建图床    | [搭建图床](tool/效率/搭建图床.md) |
 | 生成数据库文档 | [生成数据库文档](https://mp.weixin.qq.com/s/nZ0ib-63mC7c0hen6ZfJxg) |
 |    命令启动    | [命令启动](https://mp.weixin.qq.com/s/QNJJr1darX3j9sja2Q1WVA) |
-|                |                                                              |
 |   Chrome插件   | [Chrome](https://mp.weixin.qq.com/s/sCm4eN7FapjGp5RGjHz90A)  |
-|   程序员工具   | [程序员工具](https://mp.weixin.qq.com/s/pOMx4rGvK_cdn8S9ljoWHw) |
+|   程序员工具   | [程序员软件](tool/效率/程序员软件.md) |
+|   搭建博客   | [搭建博客](tool/software/搭建博客.md) |
+
+
+##  🌈  软件
+
+|    Project     | Article                                                      |
+| :------------: | :----------------------------------------------------------- |
+|  sonar安装及配置    |[sonar安装及配置](tool/software/sonar安装及配置.md) |
+| 数据接口配置服务 | [数据接口配置服务-Dataway](tool/software/数据接口配置服务-Dataway.md) |
+|   数据库表结构生成工具    | [数据库表结构生成工具](tool/software/数据库表结构生成工具.md) |
+|   Java启动关闭脚本   | [Java启动关闭脚本](tool/software/Java启动关闭脚本.md) |
+|   程序员软件   | [程序员软件](tool/效率/程序员软件.md) |
 
 
 
@@ -123,7 +131,7 @@
 
 |  Project  | Version | Article    |
 | :-------: | :-----: | :--------- |
-| Zookeeper |  3.5.6  | <br/><br/> |
+| Zookeeper |  3.5.6  |[dubbo+zk实战](SOA/dubbo+zk实战.md)<br/> |
 
 
 
@@ -139,7 +147,7 @@
 
 | Project  | Article |
 | :------: | :------ |
-| LeetCode | <br/>   |
+| LeetCode | [leecode](LeeCode/leecode.md)<br/>   |
 
 
 
@@ -163,7 +171,7 @@
 | Spring  |         |
 |  网络   |         |
 |  基础   |         |
-|  MySQL  |         |
+|  MySQL  | [MySQL-Hello](database/MySQL-Hello.md)</br>      |
 
 
 
