@@ -1,7 +1,6 @@
 - Java
 
   - [Javahome](Java/Javahome.md)
-
   
 - 数据存储、缓存和搜索
   - 数据库
@@ -41,51 +40,20 @@
   - [RabbitmQ_消息丢失-重复消费-分布式事务.md](message_queue/RabbitmQ_消息丢失-重复消费-分布式事务.md)
   - [RabbitMQ基础.md](message_queue/RabbitMQ基础.md)
 
-- RPC Learning
-  - [ ] Rpc调用
-
 - 基础工具
 
-  - IDEA
-    - [IDEA插件](base_tool/IDEA/IDEA插件.md)
-    - [IDEA高级调试技巧](base_tool/IDEA/IDEA高级调试技巧.md)
+  - [工具](other_tool/toolHome.md)
 
-  - [Htool](base_tool/HTool.md)
-  - [Maven](base_tool/Maven-Hello.md)
-
-  - [数据库表结构生成工具](base_tool/数据库表结构生成工具.md)
-  - [Git基础](base_tool/Git/Git-Hello.md)
-  - [ ] Jenkins
-
-- 其他工具
-  - [程序员软件](other_tool/程序员软件.md)
-  - [搭建图床](other_tool/搭建图床.md)
-  - [搭建博客](other_tool/搭建博客.md)
-  - [命令启动软件](other_tool/配置命令快速启动常用软件.md)
-  - [Windows技巧](other_tool/Windows技巧.md)
-
-- NetWork
-  - [http状态码](network/http状态码.md)
 
 - 设计模式
 
   - [第一章节](desgin-pattern/Java面试必备：手写单例模式.md)
   - [工厂模式](desgin-pattern/工厂模式超详解（代码示例）.md)
 
-
-- LeetCode
-  - [leecode](LeeCode/leecode.md)
-
-
-- 待完成
-  - [待完成](todo/狂神笔记.md)
   
 - 优秀习惯
   - [优秀习惯](good_programmer/good_programmer_start.md)
   
-- 直击面试
-
-- B站资料
 
 - [来撩我啊](callme.md)
 

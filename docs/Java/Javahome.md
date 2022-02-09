@@ -12,8 +12,14 @@
   - [List集合遇到的坑](Java/List集合遇到的坑.md)
 
   - [Bean映射工具](Java/Bean映射工具.md)
+  
+  - [多线程-Hello](Java/多线程-Hello.md)
 
-
+  
+##  LeetCode
+  - [leecode](LeeCode/leecode.md)
+  
+  
 ## 语雀
 
   - [arthas 常用命令图解](https://gitee.com/VincentBlog/image/raw/master/image/20220209101528.png)
@@ -33,8 +39,12 @@
   - [MapStruct最佳实践](yuque/Java/MapStruct最佳实践.md)
 
   - [elasticsearch](yuque/Java/elasticsearch.md)
+  
+  - [elasticsearch](yuque/Java/http状态码.md)
 
-
+  - [docker基础命令_k8s基础命令](yuque/Java/docker基础命令_k8s基础命令.md)
+    
+  
 
 ## 问题
 
