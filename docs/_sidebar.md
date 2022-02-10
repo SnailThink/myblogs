@@ -1,9 +1,6 @@
 - Java
-  - 数据类型
-  
-  - [ArrayList](Java/ArrayList.md)
 
-  - [JavaStream](Java/JavaStream流还可以这样玩.md)
+  - [Javahome](Java/Javahome.md)
   
 - 数据存储、缓存和搜索
   - 数据库
@@ -13,6 +10,7 @@
      
   - Linux
      - [Linux-Hello](database/Linux-Hello.md)
+     - [shell命令](database/shell命令.md)
      
 - Spring框架
 
@@ -28,13 +26,14 @@
   - [版本关系](springboot/Springboot_jdk_Maven版本.md)
 
 - SpringCloud
-  - [认识springcloud](springcloud/SpringCloud-Hello.md)
+  - [SpringCloud-Hello](springcloud/SpringCloud-Hello.md)
+  - [搭建SpringCloud项目](springcloud/搭建SpringCloud项目.md)
   
   
 - 必备框架
-  - [mybatis实战](framework/mybatis实战.md)
-  - [pom文件详解](framework/pom文件详解.md)
+  - [mybatis实战](framework/Mybatis/Mybatis实战.md)
   - [Shiro实战](framework/Shiro实战.md)
+  - [JPA详解](framework/JPA详解.md)
 
   
 - Message Queue
@@ -42,61 +41,18 @@
   - [RabbitmQ_消息丢失-重复消费-分布式事务.md](message_queue/RabbitmQ_消息丢失-重复消费-分布式事务.md)
   - [RabbitMQ基础.md](message_queue/RabbitMQ基础.md)
 
-- RPC Learning
-  - [ ] Rpc调用
-
 - 基础工具
-
-  - IDEA
-    - [IDEA插件](base_tool/IDEA/IDEA插件.md)
-    - [IDEA高级调试技巧](base_tool/IDEA/IDEA高级调试技巧.md)
-
-  - [Htool](base_tool/HTool.md)
-  - [Maven](base_tool/Maven-Hello.md)
-
-  - [数据库表结构生成工具](base_tool/数据库表结构生成工具.md)
-  - [Git基础](base_tool/Git/Git-Hello.md)
-  - [ ] Jenkins
-
-- 其他工具
-  - [程序员软件](other_tool/程序员软件.md)
-  - [搭建图床](other_tool/搭建图床.md)
-  - [搭建博客](other_tool/搭建博客.md)
-  - [命令启动软件](other_tool/配置命令快速启动常用软件.md)
-  - [Windows技巧](other_tool/Windows技巧.md)
-
-- NetWork
-  - [http状态码](network/http状态码.md)
+  - [demo](demo/demo-hello.md)
 
 - 设计模式
 
   - [第一章节](desgin-pattern/Java面试必备：手写单例模式.md)
   - [工厂模式](desgin-pattern/工厂模式超详解（代码示例）.md)
 
-- Project
-
-  - [搭建springcloud项目](project/搭建springcloud项目.md)
-  - [dubbo+zk实战](project/dubbo+zk实战.md)
-
-
-- LeetCode
-  - [leecode](LeeCode/leecode.md)
-
-- 数据结构 - Data Structures
-  - [ArrayList](data_structures/ArrayList.md)
-  - [Bean映射工具](data_structures/Bean映射工具.md)
-  - [HashMap](data_structures/HashMap.md)
-  - [HashMap](List集合遇到的坑/List集合遇到的坑.md)
-
-- 待完成
-  - [待完成](todo/狂神笔记.md)
   
 - 优秀习惯
   - [优秀习惯](good_programmer/good_programmer_start.md)
   
-- 直击面试
-
-- B站资料
 
 - [来撩我啊](callme.md)
 
