@@ -179,20 +179,6 @@ BigDecimal 和double 的区别
 通常显示为 包名.类名.@八位字符
 
 
-
-1.16 将A对象转换为B对象
-
-`Java 有没有这样 List<A>转成 List<B>`
-
-```c#
- var result = ObjectHelper.AutoCopyList<ReqOfferAndRequirementModel, ReqOfferAndRequirementViewModel>(offerList).ToList();
-
-```
-
-1.17 对象之间的拷贝
-
-
-
 1.18 @RequestBody@RequestParam区别
 
  requestHeader中，即请求头 @RequestParam。 
@@ -277,12 +263,6 @@ WHERE Id = #{id}
         )
     </insert>
 ```
-
-
-
-
-
-
 
 **2.jpa保存数据并返回主键**
 

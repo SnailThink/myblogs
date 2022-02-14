@@ -122,3 +122,155 @@ select 重复字段A, 重复字段B, count(*) from 表 group by 重复字段A, �
 delete from table group by 重复字段 having count(重复字段) > 1
 ```
 
+
+### 16.查询时间范围修改的存储过程
+
+```sql
+declare @Platform nvarchar(100) = '数据库名称'
+declare @Platform_BusinessData nvarchar(100) = '数据库名称' 
+declare @LastModifyDate nvarchar(100) = '2020-04-10 00:00:00'  --修改时间
+
+declare @sql nvarchar(max) = '
+if OBJECT_ID(''tempdb..#t'') is not null drop table #t
+
+select *
+    into #t
+    from (
+    select ''' + @Platform + '..'' + o.name + isnull(''.'' + tb.name, '''') name, o.create_date, o.modify_date,o.type_desc
+        FROM ' + @Platform + '.sys.all_objects o
+        left join ' + @Platform + '.sys.triggers t on t.object_id = o.object_id
+        left join ' + @Platform + '.sys.tables tb on tb.object_id = t.parent_id
+        union all
+    select ''' + @Platform_BusinessData + '..'' + o.name + isnull(''.'' + tb.name, ''''), o.create_date, o.modify_date,o.type_desc
+        FROM ' + @Platform_BusinessData + '.sys.all_objects o
+        left join ' + @Platform_BusinessData + '.sys.triggers t on t.object_id = o.object_id
+        left join ' + @Platform_BusinessData + '.sys.tables tb on tb.object_id = t.parent_id
+    ) t
+    where modify_date >=''' + @LastModifyDate + '''
+
+--select distinct type_desc from #t
+
+select * from #t
+    where type_desc = ''USER_TABLE''
+        
+select * from #t
+    where type_desc = ''SQL_STORED_PROCEDURE''
+    
+select * from #t
+    where type_desc = ''SQL_SCALAR_FUNCTION'' or type_desc = ''SQL_TABLE_VALUED_FUNCTION''
+    
+select * from #t
+    where type_desc = ''VIEW''
+    
+select * from #t
+    where type_desc = ''SQL_TRIGGER''
+'    
+
+print @Sql
+exec sp_executesql @sql
+```
+
+
+
+### 17.查询时间范围创建的表
+
+```sql
+-- 查看自己模式中的表创建时间，created字段对应的就是创建时间
+-- 查看其它模式里的表：dba_objects, all_objects
+select * from user_objects where object_type='TABLE'
+
+-- sqlserver中如何表的创建时间
+select name,crdate from sysobjects where xtype='u' order by crdate desc
+select name,crdate from sysobjects where xtype='u' AND crdate>'2020-01-01' ORDER by crdate DESC 
+```
+
+
+#### 18.行转列存储过程
+```sql
+use data 
+go
+if OBJECT_ID('rowtocolok') is not null
+begin
+drop PROCEDURE [dbo].[rowtocolok]
+end
+go
+CREATE PROCEDURE [dbo].[rowtocolok] @tableName SYSNAME,@groupColumn SYSNAME, 
+@row2column SYSNAME,@row2columnValue SYSNAME,@sql_where NVARCHAR(MAX)
+AS 
+DECLARE @sql_str NVARCHAR(MAX)
+DECLARE @sql_col NVARCHAR(MAX)
+BEGIN
+/********
+DECLARE @tableName SYSNAME --行转列表
+DECLARE @groupColumn SYSNAME --分组字段
+DECLARE @row2column SYSNAME --行变列的字段
+DECLARE @row2columnValue SYSNAME --行变列值的需聚合字段
+SET @tableName = '#temp1'
+SET @groupColumn = '客户编号'
+SET @row2column = '月统计'
+SET @row2columnValue = '付款金额'
+SET @sql_where = 'where 月统计 between ''2016-7-1'' and ''2017-7-1'''
+********/
+
+SET @sql_str = N'
+SELECT @sql_col_out = ISNULL(@sql_col_out + '','','''') + QUOTENAME(['+@row2column+'])
+    FROM ['+@tableName+'] '+@sql_where+' GROUP BY ['+@row2column+']'
+PRINT @sql_str
+EXEC sp_executesql @sql_str,N'@sql_col_out NVARCHAR(MAX) OUTPUT',@sql_col_out=@sql_col OUTPUT
+PRINT @sql_col
+ 
+SET @sql_str = N'
+SELECT * FROM (
+    SELECT ['+@groupColumn+'],['+@row2column+'],['+@row2columnValue+'] FROM ['+@tableName+']) p PIVOT
+    (SUM(['+@row2columnValue+']) FOR ['+@row2column+'] IN ( '+ @sql_col +') ) AS pvt
+ORDER BY pvt.['+@groupColumn+']'
+PRINT (@sql_str)
+EXEC (@sql_str)
+END
+
+```
+
+#### 19、查看锁
+
+```sql
+--查看数据库表锁的情况：
+
+  --查看被锁表： 
+
+    select   request_session_id   spid,OBJECT_NAME(resource_associated_entity_id) tableName    
+
+    from   sys.dm_tran_locks where resource_type='OBJECT' 
+
+ select * from      sys.dm_tran_locks   where resource_type='OBJECT' 
+     --spid   锁表进程  
+	 --tableName   被锁表名 
+   -- 解锁： 
+       declare @spid  int  
+    Set @spid  = 57 --锁表进程 
+  declare @sql varchar(1000) 
+    set @sql='kill '+cast(@spid  as varchar) 
+    exec(@sql)
+ 
+select * from [sys].[sysprocesses] der
+ CROSS APPLY 
+  sys.[dm_exec_sql_text](der.[sql_handle]) AS dest 
+ where spid=25
+
+
+ --闩锁总累计等待次数和时间
+SELECT wait_type,wait_time_ms,waiting_tasks_count
+,wait_time_ms/NULLIF(waiting_tasks_count,0) AS avg_wait_time
+FROM sys.dm_os_wait_stats
+WHERE wait_type LIKE 'LATCH%'
+or wait_type LIKE 'PAGELATCH%'
+or wait_type LIKE 'PAGEIOLATCH%'
+
+--各种类闩锁详细累计等待次数和时间
+SELECT * FROM sys.dm_os_latch_stats
+
+--查看自旋锁
+SELECT * FROM sys.dm_os_spinlock_stats
+
+DBCC SQLPERF(spinlockstats)
+
+```

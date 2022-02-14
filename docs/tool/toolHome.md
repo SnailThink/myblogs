@@ -32,5 +32,5 @@
   - [数据库表结构生成工具](tool/software/数据库表结构生成工具.md)
   - [Java启动关闭脚本](tool/software/Java启动关闭脚本.md)
   - [搭建博客](tool/software/搭建博客.md)
-
+  - [Gitlab搭建](tool/software/Gitlab搭建.md)
 

@@ -31,7 +31,7 @@
   
   
 - 必备框架
-  - [mybatis实战](framework/Mybatis/Mybatis实战.md)
+  - [mybatis实战](tool/base_tool/Mybatis/Mybatis实战.md)
   - [Shiro实战](framework/Shiro实战.md)
   - [JPA详解](framework/JPA详解.md)
 
