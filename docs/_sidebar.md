@@ -1,6 +1,10 @@
-- Java
+* Java
 
-  - [Javahome](Java/Javahome.md)
+  * [Javahome](Java/Javahome.md)
+  * [Java基础](./Java/Java基础.md)
+  * [Java集合](./Java/Java集合.md)
+  * [Java多线程](./docs/Java多线程.md)
+  * [jvm](./docs/jvm.md)
   
 - 数据存储、缓存和搜索
   - 数据库
@@ -50,9 +54,9 @@
   - [工厂模式](desgin-pattern/工厂模式超详解（代码示例）.md)
 
   
-- 优秀习惯
-  - [优秀习惯](good_programmer/good_programmer_start.md)
-  
+* 优秀习惯
+  * [优秀习惯](good_programmer/good_programmer_start.md)
+  * [结构](good_programmer/结构.md)
 
 - [来撩我啊](callme.md)
 

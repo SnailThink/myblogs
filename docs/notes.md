@@ -10,7 +10,7 @@ docsify serve docs
 [myblogs_github](https://snailthink.github.io/myblogs/)
 
 
-## 在线启动地址
+## 我的公众号
 ![知否派](https://gitee.com/VincentBlog/image/raw/master/image/20220224181847.jpg)
 
 
@@ -21,7 +21,7 @@ docsify serve docs
 ## 项目地址
 [DotNetFamily](https://github.com/SnailThink/DotNetFamily.git)
 
-[myblogs地址](https://github.com/SnailThink/myblogs.git)
+[myblogs地址当前模块](https://github.com/SnailThink/myblogs.git)
 
 [spring-boot-learning](https://gitee.com/VincentBlog/spring-boot-learning.git)
 

@@ -7,7 +7,7 @@
 >作者:九灵
 >原文地址:https://juejin.im/post/5ef84184e51d45348424d810
 
-## 1.1. ArrayList
+## 一、ArrayList
 
 **ArrayList** 底层数据结构为 **动态数组** ，所以我们可以将之称为数组队列。 ArrayList 的依赖关系：
 
@@ -24,7 +24,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 从依赖关系可以看出，ArrayList 首先是一个列表，其次，他具有列表的相关功能，支持快速（固定时间）定位资源位置。可以进行拷贝操作，同时支持序列化。这里我们需要重点关注的是 AbstractLit 以及 RandomAccess 。这个类，一个是定义了列表的基本属性，以及确定我们列表中的常规动作。而RandomAccess 主要是提供了快速定位资源位置的功能。
 
-### 1.1.1. ArrayList 成员变量
+### 1.1、ArrayList 成员变量
 
 ```java
   /**
@@ -63,7 +63,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 拓展思考： **EMPTY_ELEMENTDATA** 和 **DEFAULTCAPACITY_EMPTY_ELEMENTDATA** 都是两个空的数组对象，他们到底有什么区别呢？我们在下一节讲解构造方法的时候，会做详细对比。
 
-### 1.1.2. 构造方法
+### 1.2、构造方法
 
 **ArrayList** 中提供了三种构造方法：
 
@@ -73,7 +73,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 根据构造器的不同，构造方法会有所区别。我们在平常开发中，可能会出现在默认构造器内部调用了 ArrayList（int capacity） 这种方式，但是ArrayList 中对于**不同的构造器的内部实现都有所区别**，主要跟上述提到的成员变量有关。
 
-#### 1.1.2.1. ArrayList（）
+#### 1.2.1 ArrayList（）
 
 在源码给出的注释中这样描述：构造一个初始容量为十的空列表
 
@@ -142,7 +142,7 @@ public class ArrayList<E> extends AbstractList<E>
 回到刚才的问题：为什么说创建一个默认大小为10 的列表呢？或许你已经找到答案了～
 ```
 
-#### 1.1.2.2. ArrayList(int initialCapacity)
+#### 1.2.2 ArrayList(int initialCapacity)
 
 根据指定大小初始化 ArrayList 中的数组大小，如果默认值大于0，根据参数进行初始化，如果等于0，指向EMPTY_ELEMENTDATA 内存地址（与上述默认构造器用法相似）。如果小于0，则抛出IllegalArgumentException 异常。
 
@@ -161,7 +161,7 @@ public ArrayList(int initialCapacity) {
 
 拓展思考：为什么这里是用 **EMPTY_ELEMENTDATA** 而不是跟默认构造器一样使用 **DEFAULTCAPACITY_EMPTY_ELEMENTDATA** ？有兴趣的童鞋可以自己县思考，经过思考的知识，才是你的～
 
-#### 1.1.2.3 ArrayList（Collection c）
+#### 1.2.3 ArrayList（Collection c）
 
 将Collection<T>  c 中保存的数据，首先转换成数组形式（toArray（）方法），然后判断当前数组长度是否为0，为 0 则只想默认数组（EMPTY_ELEMENTDATA）；否则进行数据拷贝。
 
@@ -179,7 +179,7 @@ public ArrayList(int initialCapacity) {
     }
 ```
 
-#### 1.1.2.4 总结
+#### 1.2.4 总结
 
 上述的三个构造方法可以看出，其实每个构造器内部做的事情都不一样，特别是默认构造器与 ArrayList(int initialCapacity) 这两个构造器直接的区别 ，我们是需要做一些区别的。
 
@@ -188,7 +188,7 @@ public ArrayList(int initialCapacity) {
 
 因此 DEFAULTCAPACITY_EMPTY_ELEMENTDATA 与 EMPTY_ELEMENTDATA 的本质区别就在于，会不会设置默认的数组长度。
 
-### 1.1.3. 添加方法（Add）
+### 1.3、添加方法（Add）
 
 ArrayList 添加了四种添加方法：
 
@@ -197,7 +197,7 @@ ArrayList 添加了四种添加方法：
 - addAll(Collection<? extends E> c)
 - addAll(int index, Collection<? extends E> c)
 
-#### 1.1.3.1 add(E element)
+#### 1.3.1 add(E element)
 
 首先看add（T t）的源码：
 
@@ -211,7 +211,7 @@ ArrayList 添加了四种添加方法：
 
 结合默认构造器或其他构造器中，如果默认数组为空，则会在 ensureCapacityInternal（）方法调用的时候进行数组初始化。这就是为什么默认构造器调用的时候，我们创建的是一个空数组，但是在注释里却介绍为 长度为10的数组。
 
-#### 1.1.3.2 add（int i , T t）
+#### 1.3.2 add（int i , T t）
 
 ```java
    public void add(int index, E element) {
@@ -240,7 +240,7 @@ ArrayList 添加了四种添加方法：
 
 6）将新的数据内容存放到数组的指定位置（index）上
 
-#### 1.1.3.3 addAll(Collection<? extends E> c)
+#### 1.3.3 addAll(Collection<? extends E> c)
 
 ```java
     public boolean addAll(Collection<? extends E> c) {
@@ -255,7 +255,7 @@ ArrayList 添加了四种添加方法：
 
 addAll() 方法，通过将collection 中的数据转换成 Array[] 然后添加到elementData 数组，从而完成整个集合数据的添加。在整体上没有什么特别之初，这里的collection 可能会抛出控制异常 NullPointerException  需要注意一下。
 
-#### 1.1.3.4 addAll(int index，Collection<? extends E> c)
+#### 1.3.4 addAll(int index，Collection<? extends E> c)
 
 ```java
  public boolean addAll(int index, Collection<? extends E> c) {
@@ -278,7 +278,7 @@ addAll() 方法，通过将collection 中的数据转换成 Array[] 然后添加
 
 与上述方法相比，这里主要多了两个步骤，判断添加数据的位置是不是在末尾，如果在中间，则需要先将数据向后移动 collection 长度 的位置。
 
-### 1.1.4、删除方法（Remove）
+### 1.4、删除方法（Remove）
 
 ArrayList 中提供了 五种删除数据的方式：
 
@@ -288,7 +288,7 @@ ArrayList 中提供了 五种删除数据的方式：
 - clear（）
 - removeAll（Collection c）
 
-#### 1.1.4.1、remove（int i）:
+#### 1.4.1、remove（int i）:
 
 删除数据并不会更改数组的长度，只会将数据重数组种移除，如果目标没有其他有效引用，则在GC 时会进行回收。
 
@@ -306,7 +306,7 @@ public E remove(int index) {
     }
 ```
 
-#### 1.1.4.2、remove（E element）:
+#### 1.4.2、remove（E element）:
 
 这种方式，会在内部进行 AccessRandom 方式遍历数组，当匹配到数据跟 Object 相等，则调用 fastRemove（） 进行删除
 
@@ -342,7 +342,7 @@ fastRemove( ): fastRemove 操作与上述的根据下标进行删除其实是一
     }
 ```
 
-#### 1.1.4.3、removeRange（int fromIndex, int toIndex）
+#### 1.4.3、removeRange（int fromIndex, int toIndex）
 
 该方法主要删除了在范围内的数据，通过System.arraycopy  对整部分的数据进行覆盖即可。
 
@@ -362,11 +362,11 @@ fastRemove( ): fastRemove 操作与上述的根据下标进行删除其实是一
     }
 ```
 
-#### 1.1.4.4、clear（）
+#### 1.4.4、clear（）
 
 直接将整个数组设置为 null ，这里不做细述。
 
-#### 1.1.4.5、removeAll（Collection c）
+#### 1.4.5、removeAll（Collection c）
 
 主要通过调用：
 
@@ -414,7 +414,7 @@ fastRemove( ): fastRemove 操作与上述的根据下标进行删除其实是一
 
 避免 ConcurrentModificationException 的有效办法是使用 Concurrent包下面的 CopyOnWriteArrayList ，后续会进行详细分析
 
-### 1.1.5、toArray（）
+### 1.5、toArray（）
 
 ArrayList提供了2个toArray()函数：
 
@@ -433,7 +433,7 @@ toArray（） 源码：
     }
 ```
 
-### 1.1.6、subList（）
+### 1.6、subList（）
 
 如果我们在开发过程中有需要获取集合中的某一部分的数据进行操作，我们可以通过使用SubList（） 方法来进行获取，这里会创建ArrayList 的一个内部类 SubList（）。
 
@@ -475,7 +475,7 @@ ArrayList总体来说比较简单，不过ArrayList还有以下一些特点：
 - 拓展思考3、remove 方法存在的坑？
 - 拓展思考4:、ArrayList为什么不是线程安全？
 
-## 2.1. Vector
+## 二、Vector
 
 在介绍Vector 的时候，人们常说：
 
@@ -526,7 +526,7 @@ This method performs synchronization to ensure the consistency
 
 2、Class类的getInterfaces 可以获取到实现的接口，却不能获取到父类实现接口，但是这种操作无意义。
 
-### 2.1.1.Vector 成员变量
+### 2、Vector 成员变量
 
 ```java
     /**
@@ -556,7 +556,7 @@ This method performs synchronization to ensure the consistency
 
 因此，Vector 与 ArrayList 中的第一个不同点就是，**成员变量不一致**。
 
-### 2.1.2 Vector构造函数
+### 2.1、Vector构造函数
 
 Vector 提供了四种构造函数：
 
@@ -605,7 +605,7 @@ JDK 1.2 之后提出了将Collection 转换成 Vector 的构造函数，实际�
 
 在构造函数上面的对比：Vector 的构造函数的设计上输于 ArrayList。
 
-### 2.2.1 添加方法（Add）
+### 2.2、添加方法（Add）
 
 Vector 在添加元素的方法上面，比ArrayList 中多了一个方法。Vector 支持的add 方法有：
 
@@ -615,7 +615,7 @@ Vector 在添加元素的方法上面，比ArrayList 中多了一个方法。Vec
 - addAll(Collection<? extends E> c)
 - addAll(int index, Collection<? extends E> c)
 
-#### 2.2.1.1 addElement(E)
+#### 2.2.1 addElement(E)
 
 我们看一下这个多出来的 **addElement(E)** 方法 有什么特殊之处：
 
@@ -668,7 +668,7 @@ Vector 在添加元素的方法上面，比ArrayList 中多了一个方法。Vec
 
 Vector 中支持自定义的增长系数，也是它在 **add()** 方法中为数不多的亮点了。
 
-#### 2.2.2.2 add(int index, E element)
+#### 2.2.2 add(int index, E element)
 
 这部分代码跟ArrayList 中没有太多的差异，主要是抛出的异常有所不同，ArrayList 中抛出的是IndexOutOfBoundsException。这里则是抛出 ArrayIndexOutOfBoundsException。至于为什么需要将操作抽取到 insertElementAt（） 这个方法中呢？童鞋们可以进行相关思考。
 
@@ -697,7 +697,7 @@ Vector 中支持自定义的增长系数，也是它在 **add()** 方法中为�
 
 在添加方法上面，Vector 与ArrayList 大同小异。Vector 多了一个奇怪的 addElement(E)。
 
-### 2.2.3 删除方法（Remove）
+### 2.3、删除方法（Remove）
 
 Vecotr 中提供了比较多的删除方法，但是只要查看一下源码，就可以发现其实大部分都是相同的方法。
 
@@ -907,7 +907,7 @@ private transient Entry<E> header = new Entry<E>(null, null, null);
 
 LinkedList 在新版本的实现中，除了区分了头节点和尾节点外，更加注重在使用时进行内存分配，这里跟ArrayList 类似（ArrayList 默认构造器是创建一个空的数组对象）。
 
-### 4、添加方法（Add）
+### 3.3、添加方法（Add）
 
 LinkedList 继承了 AbstractSequentialList（AbstractList），同时实现了Deque 接口，因此，他在添加方法 这一块，包含了两者的操作：
 
@@ -926,7 +926,7 @@ LinkedList 继承了 AbstractSequentialList（AbstractList），同时实现了D
 - offerFirst(E e)
 - offerLast(E e)
 
-#### 4.1 add(E e) & addLast(E e) & offer(E e) & offerLast(E e)
+#### 3.3.1 add(E e) & addLast(E e) & offer(E e) & offerLast(E e)
 
 虽然 LinkedList 分别实现了List 和 Deque 的添加方法，但是在某种意义上，这些方法其实都是有共性的。例如，我们调用add（E e） 方法，不管是ArrayList 或 Vector 等列表，都是默认在数组末尾进行添加，因此与 队列中在末尾添加节点 addLast（E e） 是有着一样的韵味的。所以，从LinkedList 的源码中，这几个方法，底层操作其实是一致的。
 
@@ -973,7 +973,7 @@ LinkedList 继承了 AbstractSequentialList（AbstractList），同时实现了D
 
 **拓展思考**：为什么内部变量 Node l 需要使用 final 进行修饰？
 
-#### 4.2 addFirst(E e) & offerFirst（E e）
+#### 3.3.2 addFirst(E e) & offerFirst（E e）
 
 ```java
     public boolean offerFirst(E e) {
@@ -1000,7 +1000,7 @@ LinkedList 继承了 AbstractSequentialList（AbstractList），同时实现了D
 
 从上述代码可以看出，offerFirst 和addFirst 其实都是一样的操作，只是返回的数据类型不同。而 **linkFirst** 方法，则与 linkLast 其实是一样的思想，这里也不做细述。
 
-#### 4.3 add(int index，E e)
+#### 3.3.3 add(int index，E e)
 
 这里我们主要讲一下，为什么LinkedList 在添加、删除元素这一方面优于 ArrayList。
 
@@ -1060,7 +1060,7 @@ System.arraycopy(elementData, index, elementData, index + 1,size - index);
 
 
 
-#### 4.4 addAll(Collection<? extends E> c)
+#### 3.3.4 addAll(Collection<? extends E> c)
 
 LinkedList 中提供的两个addAll 方法中，其实内部实现也是一样的，主要通过： addAll(int index, Collection<? extends E> c)进行实现：
 
@@ -1110,11 +1110,11 @@ LinkedList 中提供的两个addAll 方法中，其实内部实现也是一样�
     }
 ```
 
-#### 4.5 小结
+#### 3.3.5 小结
 
 LinkedList 在插入数据优于ArrayList ，主要是因为他只需要修改指针的指向即可，而不需要将整个数组的数据进行转移。而LinkedList 优于没有实现 RandomAccess，或者说 不支持索引搜索的原因，他在查找元素这一操作，需要消耗比较多的时间进行操作（n/2）。
 
-### 5、删除方法（Remove）
+### 3.4、删除方法（Remove）
 
 **AbstractSequentialList**：
 
@@ -1129,7 +1129,7 @@ LinkedList 在插入数据优于ArrayList ，主要是因为他只需要修改�
 - removeFirstOccurrence(Object o)
 - removeLastOccurrence(Object o)
 
-#### 5.1 remove（int index)&remove（Object o）
+#### 3.4.1 remove（int index)&remove（Object o）
 
 在 ArrayList 中，remove（Object o） 方法，是通过遍历数组，找到下标后，通过fastRemove（与 remove（int i） 类似的操作）进行删除。而LinkedList，则是遍历链表，找到目标节点（node），通过 unlink 进行删除： 我们这里主要来看看 unlink 方法：
 
@@ -1174,7 +1174,7 @@ LinkedList 在插入数据优于ArrayList ，主要是因为他只需要修改�
 
 可以看到，删除方法与添加方法类似，只需要修改节点关系即可，避免了类似于ArrayList 的数组平移情况，大大减少了时间损耗。
 
-#### 5.2 Deque 中的Remove
+#### 3.4.2 Deque 中的Remove
 
 Deque 中的 removeFirstOccurrence 和 removeLastOccurrence 主要过程为，首先从first/last 节点开始遍历，当发现第一个目标对象，则低哦啊用remove（Object o） 进行删除对象。总体上没有什么特别之处。
 
@@ -1209,7 +1209,7 @@ Deque 中的 removeFirstOccurrence 和 removeLastOccurrence 主要过程为，�
 
 结合队列的思想，removeFirst 和removeLast 都会返回 数据 E，相当于我们的出列操作（**pollFirst**/**pollLast**）
 
-### 6 LinkedList 双端链表
+### 3.5 LinkedList 双端链表
 
 我们之所以说LinkedList 为双端链表，是因为他实现了Deque 接口，支持队列的一些操作，我们来看一下有哪些方法实现：
 
@@ -1221,7 +1221,7 @@ Deque 中的 removeFirstOccurrence 和 removeLastOccurrence 主要过程为，�
 
 可以看到Deque 中提供的方法主要有上述的几个方法，接下来我们来看看在LinkedList 中是如何实现这些方法的。
 
-### 6.1 pop（） & poll（）
+### 3.6. pop（） & poll（）
 
 **LinkedList#pop** 的源码：
 
@@ -1250,7 +1250,7 @@ Deque 中的 removeFirstOccurrence 和 removeLastOccurrence 主要过程为，�
 
 对比 pop 和poll 的源码可以看到，虽然同样是 first 出列，不同的是，如果first 为null， **pop（）方法会抛出异常**。
 
-### 6.2 push（）
+### 3.7 push（）
 
 push（） 方法的底层实现，其实就是调用了 addFirst（Object o）：
 
@@ -1262,7 +1262,7 @@ push（） 方法的底层实现，其实就是调用了 addFirst（Object o）�
 
 push()方法的操作，主要跟 栈（Stack） 中的入栈操作类似。
 
-### 6.3 peek（）
+### 3.8 peek（）
 
 LinkedList#peek 操作主要为，将取队列头部元素的值（根据队列的 FIFO，peek为取头部数据）
 
@@ -1273,7 +1273,7 @@ LinkedList#peek 操作主要为，将取队列头部元素的值（根据队列�
    }
 ```
 
-### 6.4 offer（）
+### 3.9 offer（）
 
 offer()方法为直接调用添加方法。
 
@@ -1283,7 +1283,7 @@ offer()方法为直接调用添加方法。
    }
 ```
 
-### 7 LinkedList 遍历
+### 3.10 LinkedList 遍历
 
 LinkedList 由于没有实现 RandomAccess，因此，在以随机访问的形式进行遍历时效果会非常低下。除此之外，LinkedList 提供了类似于通过Iterator 进行遍历，节点的prev 或 next 进行遍历，还有for循环遍历，都有不错的效果。
 
