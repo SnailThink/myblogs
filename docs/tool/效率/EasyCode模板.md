@@ -25,15 +25,14 @@ import lombok.Data;
 
 ##表注释（宏定义）
 #tableComment("表实体类")
-@Data
 @Entity
 @Table(name = "${tableInfo.obj}")
 public class $!{tableInfo.name} implements Serializable {
   
 #foreach($column in $tableInfo.fullColumn)
     #if(${column.comment})
-     /**${column.comment}
-        ${column.name}
+     /**
+       ${column.comment}
      */#end
         ##@Basic
         ##@Column(name = "${column.obj}")
@@ -57,6 +56,7 @@ public class $!{tableInfo.name} implements Serializable {
 ##    #break
 ###end
 }
+
 
 ```
 
