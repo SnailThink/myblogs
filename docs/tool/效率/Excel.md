@@ -60,3 +60,14 @@
 
 `=IF(EXACT(A1,B1),"相同","不相同")` 不区分大小写
 
+
+### 2.4 按照逗号分割
+
+![image-20220315093648428](https://gitee.com/VincentBlog/image/raw/master/image/20220315093655.png)
+
+### 2.5 行转列/列转行
+
+**转置操作**
+
+![image-20220315093759234](https://gitee.com/VincentBlog/image/raw/master/image/20220315093759.png)
+

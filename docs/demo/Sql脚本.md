@@ -333,3 +333,19 @@ FROM    dbo.syscolumns col
 WHERE   obj.name = 'TableName'--表名
 ORDER BY col.colorder ;
 ```
+
+
+#### 22.查找表主键
+
+```sql
+
+SELECT
+	table_schema,
+	table_name,
+	column_name AS ID 
+FROM
+	INFORMATION_SCHEMA.KEY_COLUMN_USAGE t 
+WHERE
+	t.table_schema = 'snailthink' 
+	AND table_name = 'dwd_tb_sc_tvss_task_driver_hourly_fact';
+```
