@@ -347,5 +347,5 @@ FROM
 	INFORMATION_SCHEMA.KEY_COLUMN_USAGE t 
 WHERE
 	t.table_schema = 'snailthink' 
-	AND table_name = 'dwd_tb_sc_tvss_task_driver_hourly_fact';
+	AND table_name = '表名称';
 ```
