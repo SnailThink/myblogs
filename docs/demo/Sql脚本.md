@@ -349,3 +349,37 @@ WHERE
 	t.table_schema = 'snailthink' 
 	AND table_name = '表名称';
 ```
+
+#### 23.Mysql设置多列唯一索引
+
+```sql
+ALTER TABLE `orm_dept` ADD UNIQUE INDEX ` UNIQ_TEMP` (`dept_id`, `dept_no`) USING BTREE 
+```
+#### 24. 查看数据库引擎  InnoDB/ MyISAM
+```sql
+show engines 
+show variables like 'storage_engine'
+show variables like '%storage_engine%'
+show create table orm_dept_test
+```
+#### 25. 查看数据库创建表语句
+```sql
+show create table orm_dept_test
+```
+
+#### 26. MySQL查找表字段
+```sql
+SELECT
+	COLUMN_NAME,
+	IS_NULLABLE,
+	DATA_TYPE,
+	CHARACTER_MAXIMUM_LENGTH,
+	COLUMN_TYPE COLUMN_KEY,
+	EXTRA,
+	COLUMN_COMMENT 
+FROM
+	information_schema.COLUMNS 
+WHERE
+	table_name = 'orm_dept' 
+	AND table_schema = 'snailthink';
+```

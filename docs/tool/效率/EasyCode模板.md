@@ -531,4 +531,61 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
 
 ```
 
-### 8.
+### 8.CSV 注解模板
+
+```java
+##导入宏定义
+$!define
+
+##保存文件（宏定义）
+#save("/entity", ".java")
+
+##包路径（宏定义）
+#setPackageSuffix("entity")
+
+
+##自动导入包（全局变量）
+$!autoImport
+##import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.io.Serializable;
+import lombok.Data;
+##import com.baomidou.mybatisplus.annotation.IdType;
+##import com.baomidou.mybatisplus.annotation.TableId;
+
+##表注释（宏定义）
+#tableComment("表实体类")
+@Entity
+@Table(name = "${tableInfo.obj}")
+public class $!{tableInfo.name} implements Serializable {
+  
+#foreach($column in $tableInfo.fullColumn)
+    #if(${column.comment})
+     /**
+       ${column.comment}
+     */#end
+##@Basic
+##@Column(name = "${column.obj}")
+    @CsvBindByName(column = "${column.obj}")
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+    
+#end
+#foreach($column in $tableInfo.fullColumn)
+   @Basic
+   @Column(name = "${column.obj}")#getSetMethod($column)
+#end
+###foreach($column in $tableInfo.pkColumn)
+##    /**
+##     * 获取主键值
+##     *
+##     * @return 主键值
+##     */
+##    @Override
+##    protected Serializable pkVal() {
+##        return this.$!column.name;
+##    }
+##    #break
+###end
+}
+
+```
+

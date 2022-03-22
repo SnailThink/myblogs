@@ -272,6 +272,10 @@ Material Theme UI是JetBrains IDE（IntelliJ IDEA，WebStorm，Android Studio等
 Intellij IDEA 公司 JetBrains 推出了一种新字体：JetBrains Mono，它是专为开发人员设计的。从 2019.3 版本开始，JetBrains Mono 字体将随 JetBrains 系列 IDEs 一起提供。老版本的话，,安装方式可以参见本博客另一文章介绍：
 [IDEA JetBrains Mono字体介绍和安装](https://blog.csdn.net/weixin_41846320/article/details/104058969)
 
+### IDEA 设置字体格式
+ 
+https://blog.csdn.net/frankcheng5143/article/details/50779149
+
 ------
 
 ### **其他还有一些插件，根据实际情况选择使用** 
