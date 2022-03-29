@@ -383,3 +383,12 @@ WHERE
 	table_name = 'orm_dept' 
 	AND table_schema = 'snailthink';
 ```
+
+#### 27. 查询存储过程的修改时间
+```sql
+
+-- 查询存储过程的修改时间
+Select [name],create_date,modify_date FROM sys.all_objects where type_desc = N'SQL_STORED_PROCEDURE' and name = '存储过程名'
+
+
+```
