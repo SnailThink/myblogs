@@ -390,5 +390,46 @@ WHERE
 -- 查询存储过程的修改时间
 Select [name],create_date,modify_date FROM sys.all_objects where type_desc = N'SQL_STORED_PROCEDURE' and name = '存储过程名'
 
-
 ```
+
+#### 28 查询数据库所有表名称
+```sql
+-- 1.查询数据库中所有表名称
+-- 
+show tables;
+SELECT TABLE_NAME,TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='Snailthink';
+
+-- 2.查询指定数据库中指定表的所有字段名
+select column_name from information_schema.columns where table_schema='Snailthink' and table_name='Table_Name'
+```
+
+
+#### 29.关联更新数据
+```sql
+UPDATE operation o 
+       JOIN  (SELECT o.id, 
+                            o.status 
+                     FROM   operation o 
+                     WHERE  o.group = 123 
+                            AND o.status NOT IN ( 'done' ) 
+                     ORDER  BY o.parent, 
+                               o.id 
+                     LIMIT  1) t
+         ON o.id = t.id 
+SET    status = 'applying' 
+```
+
+#### 30. SQL执行顺序
+
+```sql
+FROM <1>
+ON <2>
+JOIN <3>
+WHERE <4>
+GROUP BY <5>
+HAVING <6>
+SELECT <7>
+DISTINCT <8>
+ORDER BY <9>
+LIMIT <10>
+``` 
