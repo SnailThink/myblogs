@@ -71,3 +71,8 @@
 
 ![image-20220315093759234](https://gitee.com/VincentBlog/image/raw/master/image/20220315093759.png)
 
+### 2.6 Excel快捷键
+Excel求和 Alt+=
+美化表格 Ctrl+T
+生成图表 Alt+F1
+
