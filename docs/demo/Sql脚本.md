@@ -433,3 +433,17 @@ DISTINCT <8>
 ORDER BY <9>
 LIMIT <10>
 ``` 
+
+#### 31. 某个存储过程修改时间
+```sql
+SELECT
+    [name]
+    ,create_date
+    ,modify_date
+FROM
+  sys.all_objects
+WHERE
+type_desc = N'SQL_STORED_PROCEDURE'
+and name = '存储过程名称' -- 输入名称
+and modify_date >='2021-04-20 00:00:00'
+``` 
