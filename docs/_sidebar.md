@@ -3,14 +3,16 @@
   * [Javahome](Java/Javahome.md)
   * [Java基础](./Java/Java基础.md)
   * [Java集合](./Java/Java集合.md)
-  * [Java多线程](./docs/Java多线程.md)
-  * [jvm](./docs/jvm.md)
-  
+  * [Java多线程](./Java/Java多线程.md)
+  * [JVM](./Java/JVM.md)
+  * [JVM](./Java/JVM.md)
+
 - 数据存储、缓存和搜索
-  - 数据库
-    - [数据库](start/database.md)
+  - 数据库 
+    - [MySQL数据库](database/MySQL-Hello.md)
+    
   - Redis
-     - [Redis指南](redis/Redis-Hello.md)
+     - [Redis指南](Redis/Redis-Hello.md)
      
   - Linux
      - [Linux-Hello](database/Linux-Hello.md)

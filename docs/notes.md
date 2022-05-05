@@ -15,7 +15,7 @@ docsify serve docs
 
 
 ## 在线启动地址
-  - [待完成](todo/狂神笔记.md)
+  - [待完成](todo/狂神资料.md)
   
 
 ## 项目地址
@@ -37,7 +37,7 @@ docsify serve docs
 
 [图床](https://gitee.com/VincentBlog/image.git)
 
-### 老项目
+### 老项目 
 [spring-boot-mybatis](https://gitee.com/VincentBlog/spring-boot-mybatis.git)
 
 [Java-Blog](https://gitee.com/VincentBlog/Java-Blog.git)
