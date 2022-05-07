@@ -217,6 +217,6 @@ private static void copyProperties(Object source, Object target, @Nullable Class
 
 ## 关注
 
-![公众号](https://gitee.com/VincentBlog/image/raw/master/image/20211013200549.jpg)
+![公众号](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)
 
 ![](https://pic.downk.cc/item/5f5e3aae160a154a67a7b936.gif)
