@@ -388,7 +388,7 @@ TRUNCATE [TABLE] tbl_name
 
 
 
-### 三.binlog恢复数据
+### 三. binlog恢复数据
 
 ```mysql
 # 登录

@@ -1,7 +1,8 @@
 # leecode 
 
-## Java   [Leecode-100](https://leetcode-cn.com/problem-list/2cktkvj/)
+## 一、leecode刷题
 
+>[Leecode-100](https://leetcode-cn.com/problem-list/2cktkvj/)
 [Leecode刷题技巧](https://github.com/CyC2018/CS-Notes/tree/master/notes)
 
 ### 628 [三个数的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-three-numbers/)
@@ -2773,7 +2774,7 @@ public int thirdMax(int[] nums) {
 
 
 
-## 数据库
+## 二、数据库
 
 ###  [176.第二高的薪水](https://leetcode-cn.com/problems/second-highest-salary/)
 

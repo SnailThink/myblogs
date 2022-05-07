@@ -84,4 +84,416 @@ JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有�
 
 如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
 
-![知否派](https://gitee.com/VincentBlog/image/raw/master/image/20220224181847.jpg)
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)
+
+
+## 2.2.八大排序算法
+
+### 2.2.1 冒泡排序法
+
+1. 从第一个元素开始，比较相邻的两个元素。如果第一个比第二个大，则进行交换。
+2. 轮到下一组相邻元素，执行同样的比较操作，再找下一组，直到没有相邻元素可比较为止，此时最后的元素应是最大的数。
+3. 除了每次排序得到的最后一个元素，对剩余元素重复以上步骤，直到没有任何一对元素需要比较为止。
+
+
+![20201013163804124](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220506093912.gif)
+
+
+```java
+public void bubbleSortOpt(int[] arr) {
+
+	if(arr == null) {
+        throw new NullPoniterException();
+    }
+    if(arr.length < 2) {
+        return;
+    }
+    int temp = 0;
+    for(int i = 0; i < arr.length - 1; i++) {
+        for(int j = 0; j < arr.length - i - 1; j++) {
+            if(arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+```
+
+
+### 2.2.2 快速排序法
+
+快速排序的思想很简单，就是先把待排序的数组拆成左右两个区间，左边都比中间的基准数小，右边都比基准数大。接着左右两边各自再做同样的操作，完成后再拆分再继续，一直到各区间只有一个数为止.
+
+举个例子，现在我要排序 4、9、5、1、2、6 这个数组。一般取首位的 4 为基准数，第一次排序的结果是：
+
+2、1、4、5、9、6 
+
+以 4 为分界点，对 2、1、4 和 5、9、6 各自排序，得到：
+
+1、2、4、5、9、6
+
+不用管左边的 1、2、4 了，将 5、9、6 拆成 5 和 9、6，再排序，至此结果为：
+
+1、2、4、5、6、9
+
+为什么把快排划到交换排序的范畴呢？因为元素的移动也是靠交换位置来实现的。算法的实现需要用到递归（拆分区间之后再对每个区间作同样的操作）
+
+
+![在这里插入图片描述](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220506094746.gif)
+
+
+```java
+public void quicksort(int[] arr, int start, int end) {
+
+	if(start < end) {
+        // 把数组中的首位数字作为基准数
+        int stard = arr[start];
+        // 记录需要排序的下标
+        int low = start;
+        int high = end;
+        // 循环找到比基准数大的数和比基准数小的数
+        while(low < high) {
+            // 右边的数字比基准数大
+            while(low < high && arr[high] >= stard) {
+                high--;
+            }
+            // 使用右边的数替换左边的数
+            arr[low] = arr[high];
+            // 左边的数字比基准数小
+            while(low < high && arr[low] <= stard) {
+                low++;
+            }
+            // 使用左边的数替换右边的数
+            arr[high] = arr[low];
+        }
+        // 把标准值赋给下标重合的位置
+        arr[low] = stard;
+        // 处理所有小的数字
+        quickSort(arr, start, low);
+        // 处理所有大的数字
+        quickSort(arr, low + 1, end);
+    }
+}
+```
+
+### 2.2.3  插入排序
+
+插入排序是一种简单的排序方法，其基本思想是将一个记录插入到已经排好序的有序表中，使得被插入数的序列同样是有序的。按照此法对所有元素进行插入，直到整个序列排为有序的过程。直接插入排序就是插入排序的粗暴实现。对于一个序列，选定一个下标，认为在这个下标之前的元素都是有序的。将下标所在的元素插入到其之前的序列中。接着再选取这个下标的后一个元素，继续重复操作。直到最后一个元素完成插入为止。我们一般从序列的第二个元素开始操作。
+
+![在这里插入图片描述](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220506094953.gif)
+
+
+```java
+public void insertSort(int[] arr) {
+    // 遍历所有数字
+	for(int i = 1; i < arr.length - 1; i++) {
+        // 当前数字比前一个数字小
+        if(arr[i] < arr[i - 1]) {
+            int j;
+            // 把当前遍历的数字保存起来
+            int temp = arr[i];
+            for(j = i - 1; j >= 0 && arr[j] > temp; j--) {
+                // 前一个数字赋给后一个数字
+                arr[j + 1] = arr[j];
+            }
+            // 把临时变量赋给不满足条件的后一个元素
+            arr[j + 1] = temp;
+        }
+    }
+}
+```
+
+
+### 2.2.4  希尔排序
+
+
+某些情况下直接插入排序的效率极低。比如一个已经有序的升序数组，这时再插入一个比最小值还要小的数，也就意味着被插入的数要和数组所有元素比较一次。我们需要对直接插入排序进行改进。怎么改进呢？前面提过，插入排序对已经排好序的数组操作时，效率很高。因此我们可以试着先将数组变为一个相对有序的数组，然后再做插入排序。
+
+希尔排序能实现这个目的。希尔排序把序列按下标的一定增量（步长）分组，对每组分别使用插入排序。随着增量（步长）减少，一直到一，算法结束，整个序列变为有序。因此希尔排序又称缩小增量排序。
+
+一般来说，初次取序列的一半为增量，以后每次减半，直到增量为一。
+
+
+![在这里插入图片描述](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220506095125.jpeg)
+
+
+```java
+public void shellSort(int[] arr) {
+    // gap 为步长，每次减为原来的一半。
+    for (int gap = arr.length / 2; gap > 0; gap /= 2) {
+        // 对每一组都执行直接插入排序
+        for (int i = 0 ;i < gap; i++) {
+            // 对本组数据执行直接插入排序
+            for (int j = i + gap; j < arr.length; j += gap) {
+                // 如果 a[j] < a[j-gap]，则寻找 a[j] 位置，并将后面数据的位置都后移
+                if (arr[j] < arr[j - gap]) {
+                    int k;
+                    int temp = arr[j];
+                    for (k = j - gap; k >= 0 && arr[k] > temp; k -= gap) {
+                        arr[k + gap] = arr[k];
+                    }
+                    arr[k + gap] = temp;
+                }
+            }
+        }
+    }
+}
+
+```
+### 2.2.5  简单选择排序
+
+
+选择排序思想的暴力实现，每一趟从未排序的区间找到一个最小元素，并放到第一位，直到全部区间有序为止。
+
+
+![在这里插入图片描述](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220506095250.gif)
+
+
+```java
+public static void selectSort(int[] arr) {
+    // 遍历所有的数
+    for (int i = 0; i < arr.length; i++) {
+        int minIndex = i;
+        // 把当前遍历的数和后面所有的数进行比较，并记录下最小的数的下标
+        for (int j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[minIndex]) {
+                // 记录最小的数的下标
+                minIndex = j;
+            }
+        }
+        // 如果最小的数和当前遍历的下标不一致，则交换
+        if (i != minIndex) {
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+}
+```
+
+
+### 2.2.6  堆排序
+
+
+我们知道，对于任何一个数组都可以看成一颗完全二叉树，不了解这一方面的同学可以去看这篇博客。堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆；或者每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。如下图：
+
+![image-20220506095401752](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220506095401.png)
+
+像上图的大顶堆，映射为数组，就是 [50, 45, 40, 20, 25, 35, 30, 10, 15]。可以发现第一个下标的元素就是最大值，将其与末尾元素交换，则末尾元素就是最大值。所以堆排序的思想可以归纳为以下两步：
+
+根据初始数组构造堆
+每次交换第一个和最后一个元素，然后将除最后一个元素以外的其他元素重新调整为大顶堆.重复以上两个步骤，没有元素可操作，就完成排序了。
+
+我们需要把一个普通数组转换为大顶堆，调整的起始点是最后一个非叶子结点，然后从左至右，从下至上，继续调整其他非叶子结点，直到根结点为止。
+
+![在这里插入图片描述](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220506095427.gif)
+
+
+
+```java
+/**
+ * 转化为大顶堆
+ * @param arr 待转化的数组
+ * @param size 待调整的区间长度
+ * @param index 结点下标
+ */
+public void maxHeap(int[] arr, int size, int index) {
+    // 左子结点
+    int leftNode = 2 * index + 1;
+    // 右子结点
+    int rightNode = 2 * index + 2;
+    int max = index;
+    // 和两个子结点分别对比，找出最大的结点
+    if (leftNode < size && arr[leftNode] > arr[max]) {
+        max = leftNode;
+    }
+    if (rightNode < size && arr[rightNode] > arr[max]) {
+        max = rightNode;
+    }
+    // 交换位置
+    if (max != index) {
+        int temp = arr[index];
+        arr[index] = arr[max];
+        arr[max] = temp;
+        // 因为交换位置后有可能使子树不满足大顶堆条件，所以要对子树进行调整
+        maxHeap(arr, size, max);
+    }
+}
+
+/**
+ * 堆排序
+ * @param arr 待排序的整型数组
+ */
+public static void heapSort(int[] arr) {
+    // 开始位置是最后一个非叶子结点，即最后一个结点的父结点
+    int start = (arr.length - 1) / 2;
+    // 调整为大顶堆
+    for (int i = start; i >= 0; i--) {
+        SortTools.maxHeap(arr, arr.length, i);
+    }
+    // 先把数组中第 0 个位置的数和堆中最后一个数交换位置，再把前面的处理为大顶堆
+    for (int i = arr.length - 1; i > 0; i--) {
+        int temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+        maxHeap(arr, i, 0);
+    }
+}
+
+```
+
+
+### 2.2.7  堆排序
+
+
+
+归并排序是建立在归并操作上的一种有效，稳定的排序算法。该算法采用分治法的思想，是一个非常典型的应用。归并排序的思路如下：
+
+1. 将 n 个元素分成两个各含 n/2 个元素的子序列
+
+2. 借助递归，两个子序列分别继续进行第一步操作，直到不可再分为止
+
+3. 此时每一层递归都有两个子序列，再将其合并，作为一个有序的子序列返回上一层，再继续合并，全部完成之后得到的就是一个有序的序列
+
+   
+
+   关键在于两个子序列应该如何合并。假设两个子序列各自都是有序的，那么合并步骤就是：
+
+1. 创建一个用于存放结果的临时数组，其长度是两个子序列合并后的长度
+2. 设定两个指针，最初位置分别为两个已经排序序列的起始位置
+3. 比较两个指针所指向的元素，选择相对小的元素放入临时数组，并移动指针到下一位置
+4. 重复步骤 3 直到某一指针达到序列尾
+5. 将另一序列剩下的所有元素直接复制到合并序列尾
+
+![在这里插入图片描述](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220506095607.gif)
+
+
+
+```java
+/**
+ * 合并数组
+ */
+public static void merge(int[] arr, int low, int middle, int high) {
+    // 用于存储归并后的临时数组
+    int[] temp = new int[high - low + 1];
+    // 记录第一个数组中需要遍历的下标
+    int i = low;
+    // 记录第二个数组中需要遍历的下标
+    int j = middle + 1;
+    // 记录在临时数组中存放的下标
+    int index = 0;
+    // 遍历两个数组，取出小的数字，放入临时数组中
+    while (i <= middle && j <= high) {
+        // 第一个数组的数据更小
+        if (arr[i] <= arr[j]) {
+            // 把更小的数据放入临时数组中
+            temp[index] = arr[i];
+            // 下标向后移动一位
+            i++;
+        } else {
+            temp[index] = arr[j];
+            j++;
+        }
+        index++;
+    }
+    // 处理剩余未比较的数据
+    while (i <= middle) {
+        temp[index] = arr[i];
+        i++;
+        index++;
+    }
+    while (j <= high) {
+        temp[index] = arr[j];
+        j++;
+        index++;
+    }
+    // 把临时数组中的数据重新放入原数组
+    for (int k = 0; k < temp.length; k++) {
+        arr[k + low] = temp[k];
+    }
+}
+
+/**
+ * 归并排序
+ */
+public static void mergeSort(int[] arr, int low, int high) {
+    int middle = (high + low) / 2;
+    if (low < high) {
+        // 处理左边数组
+        mergeSort(arr, low, middle);
+        // 处理右边数组
+        mergeSort(arr, middle + 1, high);
+        // 归并
+        merge(arr, low, middle, high);
+    }
+}
+
+```
+
+### 2.2.8  基数排序
+
+
+```java
+/**
+ * 基数排序
+ */
+public static void radixSort(int[] arr) {
+    // 存放数组中的最大数字
+    int max = Integer.MIN_VALUE;
+    for (int value : arr) {
+        if (value > max) {
+            max = value;
+        }
+    }
+    // 计算最大数字是几位数
+    int maxLength = (max + "").length();
+    // 用于临时存储数据
+    int[][] temp = new int[10][arr.length];
+    // 用于记录在 temp 中相应的下标存放数字的数量
+    int[] counts = new int[10];
+    // 根据最大长度的数决定比较次数
+    for (int i = 0, n = 1; i < maxLength; i++, n *= 10) {
+        // 每一个数字分别计算余数
+        for (int j = 0; j < arr.length; j++) {
+            // 计算余数
+            int remainder = arr[j] / n % 10;
+            // 把当前遍历的数据放到指定的数组中
+            temp[remainder][counts[remainder]] = arr[j];
+            // 记录数量
+            counts[remainder]++;
+        }
+        // 记录取的元素需要放的位置
+        int index = 0;
+        // 把数字取出来
+        for (int k = 0; k < counts.length; k++) {
+            // 记录数量的数组中当前余数记录的数量不为 0
+            if (counts[k] != 0) {
+                // 循环取出元素
+                for (int l = 0; l < counts[k]; l++) {
+                    arr[index] = temp[k][l];
+                    // 记录下一个位置
+                    index++;
+                }
+                // 把数量置空
+                counts[k] = 0;
+            }
+        }
+    }
+}
+
+```
+### 2.2.9  总结
+
+| 排序法       | 最好情形 | 平均时间 | 最差情形 | 稳定度 | 空间复杂度  |
+| ------------ | -------- | -------- | -------- | ------ | ----------- |
+| 冒泡排序     | O(n)     | O(n^2^)  | O(n^2^)  | 稳定   | O(1)        |
+| 快速排序     | O(nlogn) | O(nlogn) | O(n^2^)  | 不稳定 | O(nlogn)    |
+| 直接插入排序 | O(n)     | O(n^2^)  | O(n^2^)  | 稳定   | O(1)        |
+| 希尔排序     |          |          |          | 不稳定 | O(1)        |
+| 直接选择排序 | O(n^2^)  | O(n^2^)  | O(n^2^)  | 不稳定 | O(1)        |
+| 堆排序       | O(nlogn) | O(nlogn) | O(nlogn) | 不稳定 | O(1)        |
+| 归并排序     | O(nlogn) | O(nlogn) | O(nlogn) | 稳定   | O(n + logn) |
+
+参考: https://blog.csdn.net/CSDN_handsome/article/details/109055036
