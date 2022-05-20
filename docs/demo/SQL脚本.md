@@ -267,6 +267,14 @@ and name = '存储过程名称' -- 输入名称
 and modify_date >='2021-04-20 00:00:00'
 ```
 
+### 32.SqlServer 使用正则校验
+```sql
+SELECT * FROM dbo.SapPushPODetail WHERE 
+ PATINDEX('%[cut]', CustomerOrderNo)>0
+
+SELECT * FROM dbo.SapPushPODetail WHERE 
+CustomerOrderNo LIKE '%cut'
+```
 
 
 ## 2.Mysql
@@ -370,13 +378,12 @@ show create table orm_dept_test
 
 ```sql
 
-
 ```
 
 ### 2.9 列转行
 
 ```sql
-
-
+-- 安装逗号分割
+select group_concat(id) from orm_customer;
 ```
 
