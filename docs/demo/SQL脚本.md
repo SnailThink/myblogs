@@ -274,6 +274,33 @@ SELECT * FROM dbo.SapPushPODetail WHERE
 
 SELECT * FROM dbo.SapPushPODetail WHERE 
 CustomerOrderNo LIKE '%cut'
+
+```
+### 时间格式转化
+
+```sql
+ 
+SELECT CONVERT(varchar(100), GETDATE(), 0) AS Style0 
+SELECT CONVERT(varchar(100), GETDATE(), 1) AS Style1 
+SELECT CONVERT(varchar(100), GETDATE(), 2) AS Style2 
+SELECT CONVERT(varchar(100), GETDATE(), 3) AS Style3 
+SELECT CONVERT(varchar(100), GETDATE(), 4) AS Style4 
+SELECT CONVERT(varchar(100), GETDATE(), 5) AS Style5 
+SELECT CONVERT(varchar(100), GETDATE(), 6) AS Style6 
+SELECT CONVERT(varchar(100), GETDATE(), 7) AS Style7 
+SELECT CONVERT(varchar(100), GETDATE(), 8) AS Style8 
+SELECT CONVERT(varchar(100), GETDATE(), 9) AS Style9 
+SELECT CONVERT(varchar(100), GETDATE(), 10) AS Style10 
+SELECT CONVERT(varchar(100), GETDATE(), 11) AS Style11 
+SELECT CONVERT(varchar(100), GETDATE(), 12) AS Style12 
+SELECT CONVERT(varchar(100), GETDATE(), 13) AS Style13 
+SELECT CONVERT(varchar(100), GETDATE(), 14) AS Style14 
+SELECT CONVERT(varchar(100), GETDATE(), 20) AS Style21 
+SELECT CONVERT(varchar(100), GETDATE(), 21) AS Style21 
+SELECT CONVERT(varchar(100), GETDATE(), 22) AS Style22 
+SELECT CONVERT(varchar(100), GETDATE(), 23) AS Style23 
+SELECT CONVERT(varchar(100), GETDATE(), 24) AS Style24 
+SELECT CONVERT(varchar(100), GETDATE(), 25) AS Style25 
 ```
 
 
