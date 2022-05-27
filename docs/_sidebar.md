@@ -5,7 +5,7 @@
   * [Java集合](./Java/Java集合.md)
   * [Java多线程](./Java/Java多线程.md)
   * [JVM](./Java/JVM.md)
-  * [LeeCode](./LeeCode/LeeCode.md)
+  * [LeeCode](leeCode/LeeCode.md)
 
 - 数据存储、缓存和搜索
   - 数据库 

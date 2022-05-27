@@ -147,7 +147,7 @@
 
 | Project  | Article |
 | :------: | :------ |
-| LeetCode | [leecode](LeeCode/LeeCode.md)<br/>   |
+| LeetCode | [leecode](leeCode/LeeCode.md)<br/>   |
 
 
 
