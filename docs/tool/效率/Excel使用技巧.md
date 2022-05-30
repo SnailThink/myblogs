@@ -6,9 +6,9 @@
 
 由于客户提供一部分数据需要导入系统做初始化，由于数据量比较大，并且既有Insert，也有Update语句，故想到用EXCEL生成SQL语句。
 
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182549.png)
 
 
-![image-20220228154005823](https://gitee.com/VincentBlog/image/raw/master/image/20220228154005.png)
 
 
 
@@ -44,7 +44,7 @@
 =CONCATENATE("#{item.",B1,"},")
 ```
 
-![image-20220228154441775](https://gitee.com/VincentBlog/image/raw/master/image/20220228154441.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182629.png)
 
 
 
@@ -63,13 +63,13 @@
 
 ### 2.4 按照逗号分割
 
-![image-20220315093648428](https://gitee.com/VincentBlog/image/raw/master/image/20220315093655.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182641.png)
 
 ### 2.5 行转列/列转行
 
 **转置操作**
 
-![image-20220315093759234](https://gitee.com/VincentBlog/image/raw/master/image/20220315093759.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182651.png)
 
 ### 2.6 Excel快捷键
 Excel求和 Alt+=

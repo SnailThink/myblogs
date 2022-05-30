@@ -10,11 +10,11 @@
 
 **git仓库的三大区域：工作区、暂存区、版本区**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210517144229.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182745.png)
 
 **git 工作流程**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210517144230.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182811.png)
 
 add 后文件存储在暂存区
 
@@ -292,9 +292,7 @@ C:\Users\Manager\.ssh
 
 #### 8.git常用流程
 
-
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210318155938.png)
-
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182854.png)
 git init 初始化git文件夹
 
 git add .  添加到暂存区
@@ -315,7 +313,6 @@ git reset --hard 版本号 回滚版本
 #### 9.配置SSH
 
 ssh-keygen -t rsa
-
 
 
 

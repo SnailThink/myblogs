@@ -4,7 +4,7 @@
 
 主要是因为Zookeeper包中，slf4j-log4j12和log4j冲突了，需要处理一下
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209103713.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180956.png)
 
 
 
@@ -14,7 +14,7 @@
 
 在服务提供者和消费中的pom.xml文件的ZooKeeper依赖中添加如下内容
 
-```java
+```xml
 <dependency>
    <groupId>com.101tec</groupId>
    <artifactId>zkclient</artifactId>

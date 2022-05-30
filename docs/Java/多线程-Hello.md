@@ -19,7 +19,7 @@
 
 栗子：如下图的QQ,tim，Notepad++，每一个程序都有一个独立的进程，进程之间是相互独立存在的。互不干涉，你可以一边听音乐一边写代码。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210304155344.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530181347.png)
 
 #### 1.2 什么是线程？
 

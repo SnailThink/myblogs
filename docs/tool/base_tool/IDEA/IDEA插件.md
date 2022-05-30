@@ -2,8 +2,6 @@
 
 原文地址:https://blog.csdn.net/weixin_41846320/article/details/82697818
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201009161102.png)
-
 插件安装方式：
 
 ![img](https://img-blog.csdn.net/20180914094459203?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
@@ -273,7 +271,7 @@ Intellij IDEA 公司 JetBrains 推出了一种新字体：JetBrains Mono，它�
 [IDEA JetBrains Mono字体介绍和安装](https://blog.csdn.net/weixin_41846320/article/details/104058969)
 
 ### IDEA 设置字体格式
- 
+
 https://blog.csdn.net/frankcheng5143/article/details/50779149
 
 ------

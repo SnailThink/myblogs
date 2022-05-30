@@ -28,7 +28,7 @@ yum install -y gitlab-ce
 
 ## 3. 安装完成
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201117110624.webp)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183123.webp)
 
 ## 4. 配置和启动GitLab
 
@@ -46,9 +46,9 @@ gitlab Reconfigured!
 
 访问http:// ip地址
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201117110623.webp)
 
 
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183116.webp)
 
 设置密码，然后通过 root + password 登录，当然也可以自己新建用户。
 
@@ -56,13 +56,13 @@ gitlab Reconfigured!
 
 之后，将要访问此GitLab的服务器上的公钥添加进来就可以进行愉快的玩耍了 (Linux 系统一般在 /root/.ssh 目录下，Windows一般在 C:\Users\用户名.ssh 目录下)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201117110622.webp)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183111.webp)
 
 ### 6. IP显示及HTTP，SSH 端口配置
 
 当你完成以上操作之后，你会发现你仓库中的SSH和HTTP地址是下图这样的，所以我们要对GitLab进行IP显示的配置及端口配置。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201117110621.webp)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183103.webp)
 
 #### 6.1 IP配置
 
@@ -182,6 +182,4 @@ gitlab-ctl restart
 
 完成以上操作之后，一切就都正常了
 
-
-
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201117110625.webp)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183037.webp)

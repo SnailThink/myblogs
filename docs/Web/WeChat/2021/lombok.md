@@ -1,6 +1,6 @@
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210205153916.jpg)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180719.jpeg)
 
 ​																						
 
@@ -12,7 +12,7 @@ Lombok是一款Java代码功能增强库，在Github上已有9.8k+Star。它会�
 
 首先我们需要在IDEA中安装好Lombok插件，如果你使用的是最新版IDEA 2020.3，则Lombok插件已经内置，无需安装。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210205152523.jpg)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180746.jpeg)
 
 之后在项目的pom.xml文件中添加Lombok依赖，SpringBoot 2.1.x版本后无需指定Lombok版本，SpringBoot在`spring-boot-dependencies`中已经内置。
 
@@ -1022,11 +1022,11 @@ public class LogSlf4jExample {
 
 使用了@Data注解以后，查看类结构可以发现getter、setter、toString等方法。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210205152522.jpg)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180820.jpeg)
 
 打开target目录下的`.class`文件，我们可以看到Lombok为我们生成的代码，可见Lombok是通过解析注解，然后在编译时生成代码来实现Java代码的功能增强的。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210205152521.jpg)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180830.jpeg)
 
 ## 参考资料
 

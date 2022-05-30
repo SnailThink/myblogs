@@ -18,7 +18,7 @@
 
 3.Path环境变量中追加：%MYSQL_HOME%\bin
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210427155613.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180039.png)
 
 
 
@@ -133,7 +133,7 @@ SELECT `customer_name`, `customer_no`, `customer_id`, `customer_address`, `custo
 exit (回车)
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210427155612.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180115.png)
 
 
 

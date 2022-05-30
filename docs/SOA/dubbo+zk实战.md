@@ -8,15 +8,13 @@
 
 下载成功后运行`zkServer.cmd` 文件、运行成功如下图所示
 
-![image-20211022190355620](https://gitee.com/VincentBlog/image/raw/master/image/20211022190402.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183325.png)
 
 
 
 zk客户端查看节点信息
 
-![image-20211022190710490](https://gitee.com/VincentBlog/image/raw/master/image/20211022190710.png)
-
-
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183345.png)
 
 
 
@@ -26,13 +24,13 @@ zk客户端查看节点信息
 
 项目结构：
 
-![image-20211022192257041](https://gitee.com/VincentBlog/image/raw/master/image/20211022192257.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183351.png)
 
 
 
 #### 1.先新建一个maven项目
 
-![image-20211022192410374](https://gitee.com/VincentBlog/image/raw/master/image/20211022192410.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183359.png)
 
 
 
@@ -48,7 +46,7 @@ Actifactid：dubbo
 
 #### 4.在dubbo项目下增加
 
-![image-20211022192829250](https://gitee.com/VincentBlog/image/raw/master/image/20211022192829.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530183406.png)
 
 - dubbo-common
 - dubbo-provider
@@ -111,7 +109,7 @@ public interface HelloService {
 
 #### 1.导入依赖
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -266,7 +264,7 @@ public class HelloServiceImpl implements HelloService {
 
 #### 1.导入依赖
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -431,7 +429,7 @@ public class HelloController {
 
 ### 问题：移除依赖
 
-```java
+```xml
 
 
   <dependency>
