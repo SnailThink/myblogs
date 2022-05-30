@@ -75,7 +75,6 @@ OrderRequirementVO findOrderList(@Param("param")Map<String,Object> param);
 
 - JPA 中 Update是否只能加 @Query
 
-  
 
 1.5 Jpa的Where 条件中增加不为null
 
@@ -110,8 +109,6 @@ SELECT *FROM groot_user WHERE groot_user_id =IFNULL(@AA,0);
 <if test="param.AppId != null and param.AppId == 10001 and #{item.UserId}==-1">
  </if>
 ```
-
-
 
 1.8 是否可以if嵌套写法
 
@@ -160,17 +157,6 @@ java.math.BigDecimal
 ```
 int QueryReqOfferNumByReqId(BaseRequest req, int reqId, int companyId = 0);
 ```
-
-1.13 导入包名称无效
-
-```
-import com.e6yun.project.rms.module.seibertron.vo.user.UserVO;
-```
-
-1.14
-
-BigDecimal 和double 的区别
-
 
 
 1.15 重写PO中的tostring方法的用途是什么
