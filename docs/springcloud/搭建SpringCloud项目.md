@@ -8,43 +8,41 @@
 
 #### 1.新建一个项目
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013155720.png)
+![image-20220530173611130](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173611.png)
 
 #### 2.选择maven搭建项目
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013155756.png)
+![image-20220530173625508](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173625.png)
 
 
 
 #### 3.搭建项目包名称以及项目名称
 
-
-
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013155819.png)
+![image-20220530173639287](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173639.png)
 
 
 
 #### 4.设置项目存放地址
 
-提前在 F:\test\dev-project 文件夹下新建 springcloud 文件夹
-
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013155847.png)
+提前在 `F:\test\dev-project` 文件夹下新建 `springcloud` 文件夹
 
 
 
+![image-20220530173652671](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173652.png)
+
+![image-20220530173705171](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173705.png)
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013155846.png)
 
 #### 5.查看项目结构
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013155923.png)
+![image-20220530173718422](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173718.png)
 
 #### 6.删除多余文件
 
 由于springcloud是父级项目则删src文件夹 删除后项目结构如下所示：
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013155924.png)
+![image-20220530173729818](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173729.png)
 
 
 
@@ -52,7 +50,7 @@
 
 **注意**：使用dependencyManagement 统一管理
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -155,10 +153,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
 </project>
-
 ```
 
 
@@ -167,31 +162,31 @@
 
 #### 1.新建一个model
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160020.png)
+![image-20220530173524074](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173524.png)
 
 
 
 #### 2.选择maven构建
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160019.png)
+![image-20220530173507730](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173507.png)
 
 #### 3.新建一个springcloud-api模块
 
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160055.png)
+![image-20220530173454665](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173454.png)
 
 
 
 #### 4.设计module 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160056.png)
+![image-20220530173431521](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173431.png)
 
 
 
 #### 5.查看项目结构
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160215.png)
+![image-20220530173419048](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173419.png)
 
 
 
@@ -199,7 +194,7 @@
 
 
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -244,19 +239,15 @@
 
 #### 8.添加一个实体model
 
-
-
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160154.png)
+![image-20220530173401552](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173401.png)
 
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160244.png)
-
-
+![image-20220530173349754](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173349.png)
 
 #### 9.添加一个pojo文件夹
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160243.png)
+![image-20220530173340357](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173340.png)
 
 
 
@@ -342,9 +333,7 @@ server:
 
 ```
 
-
-
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160406.png)
+![image-20220530173325804](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173325.png)
 
 
 
@@ -373,13 +362,11 @@ public class Dept_8008 {
 
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160359.png)
-
-
+![image-20220530173310071](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173310.png)
 
 #### 13.添加DeptController 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160400.png)
+![image-20220530173257019](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173257.png)
 
 
 
@@ -435,17 +422,15 @@ public class DeptController {
 
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160401.png)
-
-
+![image-20220530173240826](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173240.png)
 
 #### 2.创建仓库
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160402.png)
+![image-20220530173229482](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173229.png)
 
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160403.png)
+![image-20220530173215314](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173215.png)
 
 
 
@@ -460,25 +445,23 @@ git commit -m "first commit"
 git remote add origin https://gitee.com/VincentBlog/spring-cloud.git
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013160404.png)
+![image-20220530173154966](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173155.png)
 
-#### 4.查看文件
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20211013181226.png)
 
 ### 四、搭建EurekaServe
 
 #### 1.搭建Maven模块
 
-![image-20211013181425389](https://gitee.com/VincentBlog/image/raw/master/image/20211013181425.png)
+![image-20220530173114532](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173114.png)
 
 
 
-![image-20211013181458519](https://gitee.com/VincentBlog/image/raw/master/image/20211013181458.png)
+![image-20220530173059937](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173100.png)
 
 
 
-![image-20211013181514245](https://gitee.com/VincentBlog/image/raw/master/image/20211013181514.png)
+![image-20220530173046721](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173046.png)
 
 #### 2.修改springcloud-eureka-7001 pom文件
 
@@ -516,7 +499,7 @@ git remote add origin https://gitee.com/VincentBlog/spring-cloud.git
 
 #### 3.添加启动类
 
-![image-20211013182411394](https://gitee.com/VincentBlog/image/raw/master/image/20211013182411.png)
+![image-20220530173031370](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173031.png)
 
 ```java
 package com.snailthink.springcloud;
@@ -569,7 +552,7 @@ eureka:
 
 #### 5.运行项目
 
-![image-20211013182739932](https://gitee.com/VincentBlog/image/raw/master/image/20211013182740.png)
+![image-20220530173008291](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173008.png)
 
 
 
@@ -577,19 +560,19 @@ eureka:
 
 #### 1.搭建maven模块
 
-![image-20211013183218015](https://gitee.com/VincentBlog/image/raw/master/image/20211013183218.png)
+![image-20220530172945429](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172954.png)
 
 
 
+![image-20220530172929953](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172930.png)
 
 
-![image-20211013183235398](https://gitee.com/VincentBlog/image/raw/master/image/20211013183235.png)
 
 
 
 #### 2.修改pom文件
 
-```yml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -949,7 +932,7 @@ public class DeptServiceImpl implements DeptService {
 
 [测试接口联通性](http://localhost:8001/dept/connectStr?str=AAA)
 
-![image-20211013185115702](https://gitee.com/VincentBlog/image/raw/master/image/20211013185115.png)
+![image-20220530172856247](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172856.png)
 
 
 
@@ -959,25 +942,25 @@ public class DeptServiceImpl implements DeptService {
 
 [根据ID查询数据](http://localhost:8001/dept/queryDeptById/1)
 
-![image-20211013185731013](https://gitee.com/VincentBlog/image/raw/master/image/20211013185731.png)
+![image-20220530172843449](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172843.png)
 
 #### 13.查询注册中心
 
 我们发现**springcloud-provide-8001** 已经注册到EurekaServe 上了
 
-![image-20211013185811786](https://gitee.com/VincentBlog/image/raw/master/image/20211013185811.png)
+![image-20220530172829652](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172829.png)
 
 
 
 #### 14. 查看项目层级目录
 
-![image-20211013190257106](https://gitee.com/VincentBlog/image/raw/master/image/20211013190257.png)
+![image-20220530172816382](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172816.png)
 
 ### 六、搭建服务消费者   springcloud-consumer-dept-9001 
 
 #### 1.搭建maven模块
 
-![image-20211013192313693](https://gitee.com/VincentBlog/image/raw/master/image/20211013192313.png)
+![image-20220530172802769](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172802.png)
 
 
 
@@ -1211,13 +1194,13 @@ public class DeptConsumerController {
 
 [服务调用](http://localhost:9001/consumer/dept/get/1)
 
-![image-20211013193755057](https://gitee.com/VincentBlog/image/raw/master/image/20211013193755.png)
+![image-20220530172744059](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172744.png)
 
 #### 8.服务调用说明
 
 
 
-![image-20211013194210544](https://gitee.com/VincentBlog/image/raw/master/image/20211013194210.png)
+![image-20220530172731165](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172731.png)
 
 
 
@@ -1233,11 +1216,11 @@ public class DeptConsumerController {
 
 #### 1.搭建maven模块
 
-![image-20211015143315203](https://gitee.com/VincentBlog/image/raw/master/image/20211015143315.png)
-
-![image-20211015143333389](https://gitee.com/VincentBlog/image/raw/master/image/20211015143333.png)
+![image-20220530172718108](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172718.png)
 
 
+
+![image-20220530172703482](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172703.png)
 
 #### 2.修改pom依赖
 
@@ -1644,7 +1627,7 @@ public class DeptProvider_8001 {
 
 
 
-![image-20211015171928197](https://gitee.com/VincentBlog/image/raw/master/image/20211015171929.png)
+![image-20220530172623603](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172623.png)
 
 
 
@@ -1652,10 +1635,8 @@ public class DeptProvider_8001 {
 
 进入监控页面：http://localhost:8001/actuator/hystrix.stream
 
-![image-20211015171958361](https://gitee.com/VincentBlog/image/raw/master/image/20211015171958.png)
+![image-20220530172606211](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172606.png)
 
 **效果如下图：**
 
-
-
-![img](https://img-blog.csdnimg.cn/20201121162612484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU5MTk4MA==,size_16,color_FFFFFF,t_70#pic_center)
+![image-20220530172519611](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172520.png)
