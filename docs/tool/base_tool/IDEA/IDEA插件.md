@@ -296,6 +296,6 @@ https://blog.csdn.net/frankcheng5143/article/details/50779149
 
 ### 关注
 
-![公众号](https://gitee.com/VincentBlog/image/raw/master/image/20211013200549.jpg)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
 
 ![](https://pic.downk.cc/item/5f5e3aae160a154a67a7b936.gif)

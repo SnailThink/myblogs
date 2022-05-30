@@ -291,4 +291,4 @@ OptionalDouble average2 = customerVOList.stream().mapToInt(CustomerVO::getAge).g
 >如果本篇博客有任何错误，请批评指教，不胜感激！
 >点个在看，分享到朋友圈，对我真的很重要！！！
 
-![公众号](https://gitee.com/VincentBlog/image/raw/master/image/20211013200549.jpg)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)

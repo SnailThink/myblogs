@@ -12,7 +12,7 @@ docsify serve docs
 
 ## 我的公众号
 ![知否派](https://gitee.com/VincentBlog/image/raw/master/image/20220224181847.jpg)
-
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
 
 ## 在线启动地址
   - [待完成](todo/狂神资料.md)
