@@ -3,7 +3,7 @@
 - 作者  小陈 
 - 资料 http://www.baizhiedu.xin
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124200517.jpg)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100458.jpeg)
 
 ## 1.权限的管理
 
@@ -35,7 +35,7 @@
 
 ## 3.shiro的核心架构
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194059.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100524.png)
 
 ### 3.1 Subject
 
@@ -101,7 +101,7 @@
 
 ### 4.3 认证流程
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194133.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100540.png)
 
 ### 4.4 认证的开发
 
@@ -123,7 +123,7 @@ xiaochen=123
 zhangsan=456
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194205.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100551.png)
 
 ##### 3.开发认证代码
 
@@ -170,13 +170,13 @@ public class TestAuthenticator {
 
 ##### 1.shiro提供的Realm
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194239.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100604.png)
 
 
 
 ##### 2.根据认证源码认证使用的是SimpleAccountRealm
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194302.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100614.png)
 
 `SimpleAccountRealm的部分源码中有两个方法一个是 认证 一个是 授权`,
 
@@ -358,7 +358,7 @@ public class TestAuthenticatorCusttomerRealm {
 
 ### 5.3 授权流程
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194329.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100640.png)
 
 ### 5.4 授权方式
 
@@ -522,11 +522,11 @@ public class TestAuthenticatorCusttomerRealm {
 
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194356.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100655.png)
 
 ### 6.1 创建springboot项目
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194604.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100707.png)
 
 ### 6.2 引入shiro依赖
 
@@ -542,7 +542,7 @@ public class TestAuthenticatorCusttomerRealm {
 
 ##### 0.创建配置类
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194633.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100721.png)
 
 ##### 1.配置shiroFilterFactoryBean
 
@@ -573,7 +573,7 @@ public DefaultWebSecurityManager getSecurityManager(Realm realm){
 
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194702.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100732.png)
 
 ```java
 public class CustomerRealm extends AuthorizingRealm {
@@ -614,13 +614,15 @@ public class IndexController {
 }
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194733.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100743.png)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194753.png)
+
+
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100754.png)
 
 ##### 6.启动springboot应用访问index
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194816.png)
+![image-20220531100813520](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100813.png)
 
 - 注意:
   - **默认在配置好shiro环境后默认环境中没有对项目中任何资源进行权限控制,所有现在项目中所有资源都可以通过路径访问**
@@ -638,13 +640,13 @@ public class IndexController {
   shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
   ```
 
-  ![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194835.png)
+  ![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100827.png)
 
   - **/\**** 代表拦截项目中一切资源  **authc** 代表shiro中的一个filter的别名,详细内容看文档的shirofilter列表
 
 ##### 8.重启项目访问查看
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194857.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100839.png)
 
 ### 6.4 常见过滤器
 
@@ -668,7 +670,7 @@ public class IndexController {
 
 ##### 1. 在login.jsp中开发认证界面
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194915.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100850.png)
 
 ```html
 <form action="${pageContext.request.contextPath}/user/login" method="post">
@@ -728,11 +730,11 @@ public class UserController {
 
 ##### 4.启动项目以realm中定义静态数据进行认证
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194937.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101328.png)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124194954.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101338.png)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195021.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101348.png)
 
 - **认证功能没有md5和随机盐的认证就实现啦**
 
@@ -740,7 +742,7 @@ public class UserController {
 
 ##### 1.开发页面退出连接
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195041.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101313.png)
 
 ##### 2.开发controller
 
@@ -763,11 +765,11 @@ public class UserController {
 
 ##### 3.修改退出连接访问退出路径
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195126.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101250.png)
 
 ##### 4.退出之后访问受限资源立即返回认证界面
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195143.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101302.png)
 
 ### 6.7 MD5、Salt的认证实现
 
@@ -784,7 +786,7 @@ public class UserController {
 </form>
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195209.png)
+
 
 ##### 1.创建数据表结构
 
@@ -806,7 +808,7 @@ CREATE TABLE `t_user` (
 SET FOREIGN_KEY_CHECKS = 1;
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195236.png)
+
 
 ##### 2.项目引入依赖
 
@@ -856,7 +858,7 @@ mybatis.mapper-locations=classpath:com/baizhi/mapper/*.xml
 
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195255.png)
+
 
 ##### 4.创建entity
 
@@ -973,7 +975,7 @@ public class UserController {
 
 ##### 11.启动项目进行注册
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195334.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101217.png)
 
 ----
 
@@ -1091,7 +1093,7 @@ public Realm getRealm(){
 }
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195400.png)
+
 
 ### 6.8 授权实现
 
@@ -1145,7 +1147,7 @@ public String save(){
 }
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195422.png)
+
 
 ##### 2.方法调用授权
 
@@ -1162,13 +1164,13 @@ public String save(){
 }
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195442.png)
+
 
 ----
 
 ##### 3.授权数据持久化
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195510.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101149.png)
 
 ```sql
 SET NAMES utf8mb4;
@@ -1332,7 +1334,7 @@ public class CustomerRealm extends AuthorizingRealm {
 }
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195534.png)
+
 
 ##### 9.启动测试
 
@@ -1346,7 +1348,7 @@ public class CustomerRealm extends AuthorizingRealm {
 - 作用: **用来减轻DB的访问压力,从而提高系统的查询效率**
 - 流程: 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195552.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101121.png)
 
 #### 2.使用shiro中默认EhCache实现缓存
 
@@ -1385,7 +1387,7 @@ public class CustomerRealm extends AuthorizingRealm {
     }
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195614.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101111.png)
 
 ##### 3.启动刷新页面进行测试
 
@@ -1411,7 +1413,7 @@ spring.redis.host=localhost
 spring.redis.database=0
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195632.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101100.png)
 
 ##### 3.启动redis服务
 
@@ -1422,7 +1424,7 @@ redis-benchmark redis-check-rdb redis-sentinel  redis-trib.rb
 ➜  bin ./redis-server redis.conf
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195652.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101050.png)
 
 ##### 4.开发RedisCacheManager
 
@@ -1513,9 +1515,9 @@ public class RedisCache<K,V> implements Cache<K,V> {
 
 ##### 6.启动项目测试发现报错
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195715.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101038.png)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195735.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101028.png)
 
 - 错误解释: **由于shiro中提供的simpleByteSource实现没有实现序列化,所有在认证时出现错误信息**
 
@@ -1551,11 +1553,11 @@ public class RedisCache<K,V> implements Cache<K,V> {
     }
     ```
 
-    ![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195753.png)
+    ![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101016.png)
 
 ##### 7.再次启动测试,发现可以成功放入redis缓存
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195812.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101001.png)
 
 ----
 
@@ -1581,11 +1583,11 @@ public class RedisCache<K,V> implements Cache<K,V> {
 
 - 放行验证码
 
-  ![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195845.png)
+  ![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100951.png)
 
 - 开发页面
 
-  ![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195901.png)
+  ![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100940.png)
 
 - 修改认证流程
 
@@ -1819,7 +1821,7 @@ public ShiroDialect shiroDialect(){
 }
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124195925.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100916.png)
 
 
 

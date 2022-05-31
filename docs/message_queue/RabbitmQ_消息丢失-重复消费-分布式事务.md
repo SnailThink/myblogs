@@ -8,7 +8,7 @@
 
 RabbitMQ丢失的以下3种情况：
 
-![image-20211027140901894](https://gitee.com/VincentBlog/image/raw/master/image/20211027140908.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531093820.png)
 
 （1）生产者方面：生产者发送消息至MQ的数据丢失
 
@@ -30,7 +30,7 @@ RabbitMQ丢失的以下3种情况：
 
 我们针对这几方问题分别列出解决方案。
 
-![image-20211027141017490](https://gitee.com/VincentBlog/image/raw/master/image/20211027141017.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531093855.png)
 
 （1）生产者方面：有两种方案，**一是开启RabbitMQ事务（不推荐），二是开启confirm模式（异步，推荐）三是重试 （不推荐）**
 
@@ -159,12 +159,11 @@ spring:
 
 引入依赖 starter
 
-```java
+```xml
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-amqp</artifactId>
     </dependency>
-
 ```
 
 配置文件
@@ -173,7 +172,6 @@ spring:
 rabbitmq:
     publisher-returns: true
     publisher-confirm-type: correlated #新版本 publisher-confirms: true 已过时
-
 ```
 
 然后编写监听回调
@@ -282,13 +280,11 @@ System.out.println(message);
 
 其实队列本身是有顺序的，但是生产环境服务实例一般都是集群，当消费者是多个实例时，队列中的消息会分发到所有实例进行消费（同一个消息只能发给一个消费者实例），这样就不能保证消息顺序的消费，因为你不能确保哪台机器执行消费端业务代码的速度快
 
-
-
-![image.png](https://gitee.com/VincentBlog/image/raw/master/image/20211027143005.webp)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531093927.webp)
 
 
 
-![image-20211027143155267](https://gitee.com/VincentBlog/image/raw/master/image/20211027143155.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531093944.png)
 
 所以对于需要保证顺序消费的业务，我们可以只部署一个消费者实例，然后设置 RabbitMQ 每次只推送一个消息，再开启手动 ack 即可，配置如下
 
@@ -309,9 +305,9 @@ spring:
 
 - todo、使用Hash
 
-![image-20211027143231150](https://gitee.com/VincentBlog/image/raw/master/image/20211027143231.png)
 
 
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531093955.png)
 
 
 
@@ -342,19 +338,17 @@ spring:
 
 
 
-![image-20211027144221458](https://gitee.com/VincentBlog/image/raw/master/image/20211027144221.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531094008.png)
 
 
 
-
-
-![image-20211027144235771](https://gitee.com/VincentBlog/image/raw/master/image/20211027144235.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531094020.png)
 
 
 
 >分布式事务 
 >
->1.写入订单信息 id=10 add   			service A
+>1.写入订单信息 id=10 add   service A
 >
 >1.1 写入信息成功后 向消息队列发送消息 [但是先不提交事务]
 >
@@ -372,15 +366,13 @@ spring:
 
 
 
-![RabbitMq](https://gitee.com/VincentBlog/image/raw/master/image/20211027144617.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531094030.png)
 
 
 
 ###  参考地址
 
 [RabbitMQ如何保证消息的可靠性](https://suncat.blog.csdn.net/article/details/115266246)
-
-
 
 [RabbitMQ重复顺序消费](https://juejin.cn/post/6977981645475282958#heading-9)
 

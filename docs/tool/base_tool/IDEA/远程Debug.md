@@ -17,11 +17,11 @@ n,address=8888 -jar springboot-1.0.jar
 
 在IDEA中，点击Edit Configuration按钮。
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209145315.jpeg)
+![image-20220531095210798](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095210.png)
 
 出现弹窗，点击+按钮，找到Remote选项。
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209145318.jpeg)
+![image-20220531095249516](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095249.png)
 
 在【1】中填入Remote项目名称，在【2】中填IP地址和端口号，在【3】选择远程调试的项目module，配置完成后点击OK即可
 
@@ -35,7 +35,7 @@ systemctl disable firewalld.service #禁止firewall开机启动
 
 点击debug按钮，IDEA控制台打印信息：
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209145322.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095302.png)
 
 说明远程调试成功。
 
@@ -75,17 +75,17 @@ ip为192.168.44.128，端口为911 。
 
 
 
-**![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209145301.png)**
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095314.png)
 
 点击连接，经过稍稍等待之后，即可完成连接，如下图所示：
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209145257.jpeg)
+![image-20220531095327929](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095328.png)
 
 同理，JvisualVm的远程连接是同样的，启动参数也是一样。
 
 然后在本机JvisualVm输入IP：PORT，即可进行远程连接：如下图所示：
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209145257.jpeg)
+![image-20220531095327929](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095404.png)
 
 相比较Jvisualvm功能更加强大一下，界面也更美观。
 

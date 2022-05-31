@@ -2,7 +2,7 @@
 
 ## 消息队列基础
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210302104057.jpg)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092413.jpeg)
 
 ## 1、为什么要使用消息队列？  
 
@@ -16,13 +16,13 @@
 
    传统模式的缺点：系统间耦合性太强，如上图所示，系统A在代码中直接调用系统B和系统C的代码，如果将来D系统接入，系统A还需要修改代码，过于麻烦！
 
- ![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103406.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092443.png)
 
 **B 中间件模式:**
 
    中间件模式的的优点：将消息写入消息队列，需要消息的系统自己从消息队列中订阅，从而系统A不需要做任何修改。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103358.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092455.png)
 
 ### （2）异步  
 
@@ -30,13 +30,13 @@ A 传统模式:
 
    传统模式的缺点： 一些非必要的业务逻辑以同步的方式运行，太耗费时间。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103359.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092505.png)
 
 B 中间件模式:
 
    中间件模式的的优点：将消息写入消息队列，非必要的业务逻辑以异步的方式运行，加快响应速度 
 
- ![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103400.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092552.png)
 
 ### （3）削峰  
 
@@ -44,13 +44,13 @@ A 传统模式：
 
    传统模式的缺点：并发量大的时候，所有的请求直接怼到数据库，造成数据库连接异常。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103401.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092610.png)
 
 B 中间件模式:
 
    中间件模式的的优点：系统A慢慢的按照数据库能处理的并发量，从消息队列中慢慢拉取消息。  在生产中，这个短暂的高峰期积压是允许的。
 
-  ![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103402.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092631.png)
 
 ## 2、使用了消息队列会有什么缺点?       
 
@@ -80,14 +80,14 @@ B 中间件模式:
 
  回答:这问题，其实要对消息队列的集群模式要有深刻了解，才好回答。  以RcoketMQ为例，他的集群就有多master 模式、多master多slave异步复制模式、多 master多slave同步双写模式。多master多slave模式部署架构图(网上找的,偷个懒，懒得画): 
 
- ![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103403.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092645.png)
 
  其实博主第一眼看到这个图，就觉得和kafka好像，只是NameServer集群，在kafka中是用zookeeper代替，都是用来保存和发现master和slave用的。通信过程如下: 
 
   Producer 与 NameServer集群中的其中一个节点（随机选择）建立长连接，定期从 NameServer 获取 Topic 路由信息，并向提供 Topic 服务的 Broker Master 建立长连接 且定时向 Broker 发送心跳。Producer 只能将消息发送到 Broker master，但是 Consumer 则不一样，它同时和提供 Topic 服务的 Master 和 Slave建立长连接，既可以从 Broker Master 订阅消息，也可以从 Broker Slave 订阅消息。
  那么kafka呢,为了对比说明直接上kafka的拓补架构图(也是找的，懒得画) 
 
- ![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103404.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092657.png)
 
   如上图所示，一个典型的Kafka集群中包含若干Producer（可以是web前端产生的Page View，或者是服务器日志，系统CPU、  emory等），若干broker（Kafka支持水平扩展，一般broker数量越多，集群吞吐率越高），若干Consumer Group，以及一个  Zookeeper集群。Kafka通过Zookeeper管理集群配置，选举leader，以及在Consumer Group发生变化时进行rebalance。Producer使用push模式将消息发布到broker，Consumer使用pull模式从broker订阅并消费消息。 
 
@@ -171,7 +171,7 @@ System.out.println("ack: deliveryTag = "+deliveryTag+" multiple: "+multiple);
 
 ## 8、主要消息中间件对比
 
- ![](https://gitee.com/VincentBlog/image/raw/master/image/20210302103405.png) 
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092715.png)
 
  一般的业务系统要引入MQ，最早大家都用ActiveMQ，但是现在确实大家用的不多了，没经过大规模吞吐量场景的验证，社区也不是很活跃 
 
@@ -191,6 +191,8 @@ System.out.println("ack: deliveryTag = "+deliveryTag+" multiple: "+multiple);
 
 ### 关注
 
-![snailThink.png](http://ww1.sinaimg.cn/large/006aMktPgy1gdegzjxv6yj30go0gogmi.jpg)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092832.jpeg)
+
+
 
 ![](https://pic.downk.cc/item/5f5e3aae160a154a67a7b936.gif)

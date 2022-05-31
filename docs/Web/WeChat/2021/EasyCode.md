@@ -8,7 +8,7 @@
 
 #### 1.安装EasyCode
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210518152542.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531103850.png)
 
 
 
@@ -35,15 +35,17 @@ CREATE TABLE `orm_customer`  (
 
 #### 3.在IDEA中配置数据库
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210518152543.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531103920.png)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210518152544.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531103931.png)
 
 #### 4.生成代码
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210518152545.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531103941.png)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210518152546.png)
+
+
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531103950.png)
 
 
 

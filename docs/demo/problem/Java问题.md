@@ -56,7 +56,7 @@ https://blog.csdn.net/xiegqooo/article/details/9718351
 
 那么在Java8中如何使用，如果在Java8中直接写 `continue`会提示`Continue outside of loop`，`break`则会提示`Break outside switch or loop`，`continue/break` 需要在循环外执行.
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210310162734.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095032.png)
 
 
 
@@ -108,9 +108,7 @@ lambda forEach循环5
 lambda forEach循环11
 ```
 
-
-
-#### 终止本循环 
+### 终止本循环 
 
 ```java
 @Test
@@ -159,31 +157,31 @@ java.lang.RuntimeException: 终止lambda forEach循环
 
 #### **1.选择自己的分支然后点击 Create merge**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201210141600.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091149.png)
 
 **2.选择分支**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201210141601.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091213.png)
 
 **3.选择自己的分支和远程分支进行merge**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201210141602.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091224.png)
 
 #### 2.如何将不同的项目放在同一个IDEA中打开
 
 **1.选择project structure**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201210103002.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091234.png)
 
 **2.导入项目所在的文件件**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201210103000.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091244.png)
 
 **3.选择maven导入项目一路下一步保存**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201210103001.png)
 
 
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091254.png)
 
 ### 2.Java常见错误
 
@@ -218,13 +216,12 @@ eureka.client.serviceUrl.defaultZone: http://${eureka.instance.hostname}:${serve
 
  三、注销依赖以及清空下载的eureka依赖包： 
 
-```java
+```xml
 <dependency>
    <groupId>org.springframework.cloud</groupId>
    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
    <version>2.1.1.RELEASE</version>
 </dependency>
-
 ```
 
 [参考网址](https://blog.csdn.net/sevenmt/article/details/91793311)
@@ -262,5 +259,5 @@ public interface AlarmSettingMapper {
 
  **快捷键（Ctrl - Shift -F8 ） 出现所有的断点**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210326094800.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091323.png)
 
