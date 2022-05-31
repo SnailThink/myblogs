@@ -18,7 +18,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 
 
-![img](https://user-gold-cdn.xitu.io/2018/5/4/1632a41105e95860?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![image-20220531112044812](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531112044.png)
 
 
 

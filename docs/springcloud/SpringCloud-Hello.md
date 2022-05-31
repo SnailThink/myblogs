@@ -628,10 +628,6 @@ public class RouteFilter extends ZuulFilter {
 * `Config` 微服务统一配置中心
 * `Bus` 消息总线
 
-如果你能这个时候能看懂文首那张图，也就说明了你已经对 `Spring Cloud` 微服务有了一定的架构认识。
-
-![img](https://user-gold-cdn.xitu.io/2019/11/30/16ebc26b21515692?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
 > 如果觉得我写的还不错，那就留下个赞吧！ 👍👍👍
 
 

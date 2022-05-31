@@ -38,7 +38,7 @@ github上的工程clone到本地后，修改完代码后想要push到github，�
 >
 >   git push --set-upstream origin master 
 
-![git.png](http://ww1.sinaimg.cn/large/006aMktPly1gcb0v0c5ngj30f70afmxr.jpg)
+![git.png](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531113439.jpeg)
 
 
 
@@ -63,7 +63,7 @@ github上的工程clone到本地后，修改完代码后想要push到github，�
 
 重启资源管理器即可（任务管理器-->资源管理器（重新启动））
 
-![tort.png](https://user-gold-cdn.xitu.io/2020/3/11/170c9390ae123625?w=712&h=713&f=png&s=14124)
+![image-20220531113531110](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531113531.png)
 
 ------
 
@@ -182,8 +182,6 @@ Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):
 
 4、打开https://github.com/，登陆你的账户，进入设置
 
-![21.png](https://user-gold-cdn.xitu.io/2020/3/25/1710f6add8deacfc?w=1692&h=792&f=png&s=40702)
-
 
 
 5、在git中输入命令：
@@ -218,7 +216,7 @@ git reset –hard HEAD~100 );
 
 **小技巧 使用gitk 有惊喜呦**
 
-![UTOOLS1585099894053.png](https://user-gold-cdn.xitu.io/2020/3/25/1710f50e4ad50f67?w=566&h=373&f=png&s=31528)
+
 
 > eg:  git reset –hard 40f1d78
 
@@ -309,3 +307,4 @@ git有可以创建4096长度的文件名，然而在windows最多是260，因为
 git config --global core.longpaths true
 ```
 
+ 

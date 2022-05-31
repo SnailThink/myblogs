@@ -161,7 +161,7 @@ DESCRIBE orm_user/desc orm_user
 
 
 
-#### 3.备份数据
+#### 3、备份数据
 
 ```sql
 --备份数据库
@@ -388,7 +388,7 @@ TRUNCATE [TABLE] tbl_name
 
 
 
-### 三. binlog恢复数据
+### 三、 binlog恢复数据
 
 ```mysql
 # 登录
@@ -408,13 +408,13 @@ show master status;
 
 
 
-![image-20210522111429209](C:\Users\Manager\AppData\Roaming\Typora\typora-user-images\image-20210522111429209.png)
+![image-20210522111429209](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531111411.png)
 
 
 
 
 
-![image-20210522112010358](C:\Users\Manager\AppData\Roaming\Typora\typora-user-images\image-20210522112010358.png)
+![image-20210522112010358](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531111423.png)
 
 
 
@@ -424,7 +424,7 @@ show master status;
 show binlog events in 'mysql-bin.000127';
 ```
 
-![image-20210522140951203](C:\Users\Manager\AppData\Roaming\Typora\typora-user-images\image-20210522140951203.png)
+![image-20210522140951203](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531111426.png)
 
 
 
