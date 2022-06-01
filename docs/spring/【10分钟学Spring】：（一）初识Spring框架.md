@@ -1,4 +1,10 @@
-﻿### 简介
+﻿## 认识Spring框架
+
+> 作者：知否派。<br/>
+>文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
+
+
+### 简介
 Spring是一个轻量级的企业级的Java开发框架。主要是用来替代原来更加重量级的企业级Java技术，比如EJB(Enterprise JavaBean)、Java数据对象（Java Data Object）等。Spring的出现极大简化了Java开发。
 
 另外Spring框架是一个一体化的框架，它不仅能无缝对接比如Struts、Hibernate等传统框架，也能很好地同其他各种企业级开发组件（比如Redis、MQ、Mybatis等）集成。
