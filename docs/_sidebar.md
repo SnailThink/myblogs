@@ -61,7 +61,7 @@
 
 - 基础工具
   - [demo](demo/demo-hello.md)
-  - [Htool](demo/HTool.md)
+  - [HTool](demo/tool/HTool.md)
   - [单元测试](demo/单元测试.md)
 
 - 设计模式

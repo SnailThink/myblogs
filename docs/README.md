@@ -105,7 +105,7 @@
 |    Git     | [Git-Hello](tool/base_tool/Git/Git-Hello.md)<br/> [Git-基础](tool/base_tool/Git/Git-基础.md)|
 |    IDEA    | [IDEA插件](tool/base_tool/IDEA/IDEA插件.md)</br> [IDEA调试技巧](tool/base_tool/IDEA/IDEA高级调试技巧.md)|
 |  Jenkins   |                                                              |
-|   Htool    | [Htool](demo/HTool.md)<br/>  |
+|   Htool    | [Htool](demo/tool/HTool.md)<br/>  |
 |   单元测试 | [单元测试](demo/单元测试.md)<br/>  |
 
 ##  💡  其他工具

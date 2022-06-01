@@ -92,7 +92,7 @@
 |    Git     | [Git使用技巧](https://mp.weixin.qq.com/s/OQ-MYB6cP3LjLyG1D2p_DA)<br>[Git常见错误](https://mp.weixin.qq.com/s/Z97aHUncuTx6_KQL7rZqKg)<br>[Git使用命令](https://mp.weixin.qq.com/s/tb0B_7wevt29RZJSiTJOPQ)<br> |
 |    IDEA    | [IDEA插件](https://mp.weixin.qq.com/s/wH_cUGVb9c4JKHuCjhMd2Q)<br>[IDEA实用技巧](https://mp.weixin.qq.com/s/tfQ0OPc4VZT_rMMiFDzRog)<br>[IDEA调试技巧](https://mp.weixin.qq.com/s/RDVo56glqzWKDCaHnZ27hQ) |
 |  Jenkins   |                                                              |
-|   Htool    | [Htool](demo/HTool.md)<br/>                                                           |
+|   Htool    | [Htool](demo/tool/HTool.md)<br/>                                                           |
 
 
 ##  💡  其他工具
