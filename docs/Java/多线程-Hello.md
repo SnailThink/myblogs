@@ -610,3 +610,8 @@ java.util.TimerTask是一个实现了Runnable接口的抽象类，我们需要�
 
 java.util.concurrent.Executors提供了一个 java.util.concurrent.Executor接口的实现用于创建线程池。线程池例子展现了如何创建和使用线程池，或者阅读ScheduledThreadPoolExecutor例子，了解如何创建一个周期任务。
 
+## 关注
+
+如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
+
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)

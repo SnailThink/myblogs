@@ -1,12 +1,14 @@
 - Java
   - 基础 
      - [Java基础](Java/Java基础.md)
+     - [JavaStream](Java/Java8/JavaStream流还可以这样玩.md)
+
   - 集合
      - [ArrayList](Java/数据结构/ArrayList.md)
      - [HashMap](Java/数据结构/HashMap.md)
 
   - 多线程
-     - [Java多线程](./Java/Java多线程.md)
+     - [Java多线程](./Java/多线程-Hello.md)
 
   - 文档
      - [官方文档](./Java/官方文档.md)
@@ -14,6 +16,7 @@
 - 数据库 
   - [MySQL数据库](database/MySQL-Hello.md)
   - [编码规范](database/MySQL编码规范.md)
+  - [索引失效](database/使用索引时有些不生效的情况.md)
     
 - Linux
   - [Linux-Hello](database/Linux-Hello.md)
@@ -25,12 +28,14 @@
 - Spring框架
 
   - [Spring设计模式](spring/Spring-Design-Patterns.md)
+  - [Spring总结](spring/Spring总结.md)
+  - [Spring事务失效场景](spring/Spring事务失效场景.md)
   - [初识spring框架](spring/【10分钟学Spring】：（一）初识Spring框架.md)
   - [依赖注入及示例](spring/【10分钟学Spring】：（二）一文搞懂spring依赖注入（DI）.md)
   - [spring的条件化装配](spring/【10分钟学Spring】：（三）你了解spring的高级装配吗_条件化装配bean.md)
 
 - SpringBoot
-  - [初识SpringBoot](springboot/SpringBoot-Hello.md)
+  - [SpringBoot基础](springboot/SpringBoot-Hello.md)
   - [定时任务](springboot/Spingboot定时任务-Hello.md)
   - [SpringBoot注解](springboot/SpringBoot注解-Hello.md)
   - [版本关系](springboot/Springboot_jdk_Maven版本.md)
@@ -56,6 +61,8 @@
 
 - 基础工具
   - [demo](demo/demo-hello.md)
+  - [Htool](demo/HTool.md)
+  - [单元测试](demo/单元测试.md)
 
 - 设计模式
 
@@ -71,8 +78,8 @@
     - [Git-基础](tool/base_tool/Git/Git-基础.md)
 
   - IDEA
-     - [Maven-Hello](tool/base_tool/IDEA/IDEA插件.md)
-     - [IDEA调试技巧](tool/base_tool/IDEA/IDEA高级调试技巧.md.md)
+     - [IDEA插件](tool/base_tool/IDEA/IDEA插件.md)
+     - [IDEA调试技巧](tool/base_tool/IDEA/IDEA高级调试技巧.md)
 
   - Maven
      - [Maven-Hello](tool/base_tool/Maven/Maven-Hello.md)
