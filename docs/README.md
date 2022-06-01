@@ -1,16 +1,16 @@
 <p align="center">
   <a href="https://blog.csdn.net/trouble0914?spm=1000.2115.3001.5343"><img src="https://img.shields.io/badge/csdn-CSDN-red.svg" alt="投稿"></a>
   <a href="https://home.cnblogs.com/u/1674174"><img src="https://img.shields.io/badge/cnblogs-博客园-important.svg" alt="投稿"></a>
-  <a href="https://juejin.cn/user/2963939081329080"><img src="https://img.shields.io/badge/juejin-掘金-blue.svg"></a>
+  <a href="https://juejin.cn/user/2963939081329080/posts"><img src="https://img.shields.io/badge/juejin-掘金-blue.svg"></a>
   <a href="https://space.bilibili.com/496629682"><img src="https://img.shields.io/badge/bilibili-哔哩哔哩-critical" alt="投稿"></a>
 </p>
 
 <h3 align="center">记录并分享每一次成长</h3>
 
 
-通过 gitbook 的形式整理了自己的工作和学习经验，[VincentBlog](https://gitee.com/VincentBlog/Java-Blog) 直接访问即可，也推荐大家采用这种形式创建属于自己的“笔记本”，让成长看的见。
+通过 gitbook 的形式整理了自己的工作和学习经验，[VincentBlog](https://github.com/SnailThink/myblogs.git) 直接访问即可，也推荐大家采用这种形式创建属于自己的“笔记本”，让成长看的见。
 
-> 欢迎关注公众号 [VincentBlog](#公众号)
+> 欢迎关注公众号 [知否派](#公众号)
 
 ## ☕ Java
 
@@ -186,3 +186,6 @@
 
 + 文章只是记录自己的学习，如果在文章中发现错误或者侵权问题，欢迎指出，谢谢
 
+# 公众号
+
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
