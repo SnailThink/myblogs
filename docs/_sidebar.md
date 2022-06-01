@@ -85,6 +85,10 @@
      - [Maven-Hello](tool/base_tool/Maven/Maven-Hello.md)
      - [maven_setting](tool/base_tool/Maven/maven_setting.xml中文配置详解.md)
 
+- 面试
+  - [面试技巧](面试/面试技巧.md)
+  - [一面经验](面试/2022/一面经验.md)
+  
   
 * 优秀习惯
   * [优秀习惯](good_programmer/good_programmer_start.md)

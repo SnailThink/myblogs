@@ -16,12 +16,12 @@
 
 | Project | Version | Article                                                      |
 | :-----: | :-----: | :----------------------------------------------------------- |
-|   JVM   |         |                                                              |
+|   JVM   |         | [JVM](Java/JVM.md)                                                              |
 |  Java8  |         | [JavaStream](Java/Java8/JavaStream流还可以这样玩.md)<br/>    |
 |   JUC   |         |                                                              |
 |   NIO   |         |                                                              |
 |   基础  |         | [Java基础](Java/Java基础.md)                                 |
-|   多线程 |       | [Java多线程](./Java/多线程-Hello.md)                       |
+|   多线程 |        | [Java多线程](./Java/多线程-Hello.md)                         |
 
 ## 📖 **数据结构 - Data Structures**
 
@@ -160,16 +160,16 @@
 
 | Project  | Article |
 | :------: | :------ |
-| LeetCode | [leecode](leeCode/LeeCode.md)<br/>   |
-
-
+| LeetCode | [LeeCode](leeCode/LeeCode.md)<br/>   |
+| 排序算法 | [排序算法](leeCode/八大排序算法.md)<br/>   |
 
 
 ##  🏆  直击面试
 
 | Project | Article |
 | :-----: | :------ |
-|  网络   |         |
+|  面试技巧   | [面试技巧](面试/面试技巧.md)<br/>         |
+|  一面       | [一面经验](面试/2022/一面经验.md)<br/>         |
 |  基础   |         |
 
 
