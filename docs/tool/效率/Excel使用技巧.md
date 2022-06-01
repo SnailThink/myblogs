@@ -75,4 +75,4 @@
 Excel求和 Alt+=
 美化表格 Ctrl+T
 生成图表 Alt+F1
-
+=IF(B2=G2,"相同","不同")
