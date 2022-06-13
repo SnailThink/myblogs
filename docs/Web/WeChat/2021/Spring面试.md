@@ -15,7 +15,7 @@ Spring是一个轻量级的IoC和AOP容器框架。是为Java应用程序提供�
 
 下图对应的是Spring 4.x的版本，5.x版本中Web模块的Portlet组件已经被废弃
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210202172756.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180416.png)
 
  
 
@@ -89,13 +89,13 @@ Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动�
 
 几个概念的关系图可以参考下图：
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210202172757.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180501.png)
 
 网上有张非常形象的图，描述了各个概念所处的场景和作用，贴在这里供大家理解：
 
 
 
- ![](https://gitee.com/VincentBlog/image/raw/master/image/20210202172758.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180513.png)
 
 ### **6、Spring通知（Advice）有哪些类型？**
 
@@ -109,7 +109,7 @@ Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动�
 
 （5）抛出异常后通知（AfterThrowing advice）：在方法抛出异常退出时执行的通知
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210202172759.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180524.png)
 
 > 同一个Aspect，不同advice的执行顺序：
 >
@@ -163,7 +163,7 @@ Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动�
 
 但具体来说，Spring Bean的生命周期包含下图的流程：
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210202172800.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180540.png)
 
 （1）实例化Bean：
 

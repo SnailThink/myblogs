@@ -22,7 +22,7 @@
 - **浅拷贝**：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝
 - **深拷贝**： 对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201027211145.jpg)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531104050.jpeg)
 
 ## BeanUtils
 

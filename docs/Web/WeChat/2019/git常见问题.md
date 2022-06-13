@@ -70,7 +70,7 @@ $ unset no_proxy
 
 ```
 
-![git.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAyMC8zLzI1LzE3MTEyMDE4NTI0ZGMwMWI?x-oss-process=image/format,png)
+![git.png](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531113900.png)
 
 
 
@@ -138,7 +138,7 @@ github上的工程clone到本地后，修改完代码后想要push到github，�
 >
 > git push --set-upstream origin master 
 
-![git.png](https://imgconvert.csdnimg.cn/aHR0cDovL3d3MS5zaW5haW1nLmNuL2xhcmdlLzAwNmFNa3RQbHkxZ2NiMHYwYzVuZ2ozMGY3MGFmbXhyLmpwZw?x-oss-process=image/format,png)
+![git.png](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531113856.png)
 
 
 
@@ -167,7 +167,7 @@ Windows会使用掉4项默认排序，另外还有11项是供应用程序配置�
 
 排到靠前位置后 ，重启资源管理器即可（任务管理器-->资源管理器（重新启动））
 
-![tort.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAyMC8zLzExLzE3MGM5MzkwYWUxMjM2MjU?x-oss-process=image/format,png)
+![tort.png](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531113852.png)
 
 -------
 
@@ -219,12 +219,23 @@ git submodule update --init --recursive
 
 操作步骤:控制面板=》凭据管理器=》Windows凭据 =》普通凭据=》删除/更新密码
 
-![032601.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAyMC8zLzI2LzE3MTE3MDEwZGNhZjQzODY?x-oss-process=image/format,png)
+![032601.png](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531113915.png)
 
 ### 14.Failed to connect to 127.0.0.1 port 1080: Connection refused拒绝连接错误
 
+```
+第一步
 
-![git.png](https://user-gold-cdn.xitu.io/2020/3/25/17112018524dc01b?w=943&h=613&f=png&s=79757)
+在终端输入
+defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder
+这行命令可以显示电脑的隐形文件
+第二步
+在Finder里面个人账号的文件夹里找到gitconfig这个隐藏文件，右击打开，然后把里面的代理proxy整行删掉
+第三步
+回到终端，再次执行
+```
+
+
 
 
 ### 15.分支的合并

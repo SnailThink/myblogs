@@ -18,7 +18,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 
 
-![img](https://user-gold-cdn.xitu.io/2018/5/4/1632a41105e95860?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![image-20220531112044812](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531112044.png)
 
 
 
@@ -1741,4 +1741,4 @@ HashMap中，如果key经过hash算法得出的数组索引位置全部不相同
 >点个在看，分享到朋友圈，对我真的很重要！！！
 
 
-![公众号](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)

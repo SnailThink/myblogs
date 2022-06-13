@@ -12,7 +12,7 @@ Dataway 是基于 DataQL 服务聚合能力，为应用提供的一个接口配�
 
 Dataway 工具化的提供 DataQL 配置能力。这种研发模式的变革使得，相当多的需求开发场景只需要配置即可完成交付。从而避免了从数据存取到前端接口之间的一系列开发任务，例如：Mapper、BO、VO、DO、DAO、Service、Controller 统统不在需要。
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209102228.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095838.png)
 
 **2.Spring Boot整合Dataway**
 
@@ -186,7 +186,7 @@ public class DatawayApplication {
 
 应用在启动过程中会看到 Hasor Boot 的欢迎信息
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209102236.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100023.png)
 
 在启动日志中看到下列信息输出就表示 Dataway 已经可以正常访问了。
 
@@ -206,14 +206,16 @@ public class DatawayApplication {
 
 1.查询
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209102241.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095915.png)
 
 2.新增
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209102244.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095927.png)
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209102248.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095939.png)
 
 3.修改
 
-![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209102250.png)![img](https://gitee.com/VincentBlog/image/raw/master/image/20220209102253.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531095954.png)
+
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100007.png)

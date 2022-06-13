@@ -103,29 +103,26 @@ Settings -> Editor -> General -> Appearance` 勾选 `Show Line Numbers
 
 ### 查看maven 关系图
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210318153509.png)
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182355.png)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210318153510.png)
-
-
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182356.png)
 
 ### 配置Maven路径
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210318153620.png)
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182318.png)
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210318153621.png)
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182254.png)
 
 
 
 ### 设置项目编码
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210318153730.png)
-
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182231.png)
 
 
 ### 设置自动编译
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210318153838.png)
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182212.png)
 
 
 

@@ -1,8 +1,8 @@
 # C# 利用 IKVM 调用JAVA 方法
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112162712.jpg)
 
 
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091457.jpeg)
 
 最近在带一个新人小易 , 由于经常犯错，现在把我的低血压都治好了。
 
@@ -12,7 +12,9 @@
 
 没准就把我辞退留下小易了。一想到这，我竟然枯燥一笑了。 
 
-		那天，我闲来无聊，小易跑过来找我，说能不能用C# 调用Java代码，实现接口加密。
+那天，我闲来无聊，小易跑过来找我，说能不能用C# 调用Java代码，实现接口加密。
+
+
 
 Excuse me  告辞，
 
@@ -20,7 +22,7 @@ Excuse me  告辞，
 
 不过男人怎么能说不行呢，更何况是身为暖男的我。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112161545.gif)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531091516.gif)
 
 
 
@@ -171,11 +173,11 @@ javac IkvmSh256EncryptionHelp.java
 javac -encoding UTF-8 IkvmSh256EncryptionHelp.java
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112161546.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531104616.png)
 
 **执行成功后如下图所示**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112161547.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531104639.png)
 
 
 
@@ -185,7 +187,7 @@ javac -encoding UTF-8 IkvmSh256EncryptionHelp.java
 jar cvf IkvmSh256EncryptionHelp.jar IkvmSh256EncryptionHelp.class
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112161548.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531104653.png)
 
 **下面就到关键的一步了将jar包转换为dll文件**
 
@@ -194,7 +196,7 @@ jar cvf IkvmSh256EncryptionHelp.jar IkvmSh256EncryptionHelp.class
 ikvmc -target:library IkvmSh256EncryptionHelp.jar 
 ```
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112161541.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531104704.png)
 
 dll文件生成成功
 
@@ -202,13 +204,13 @@ dll文件生成成功
 
 **3.1 创建一个winform项目测试并安装Nuget**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112161542.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531104717.png)
 
 
 
 **3.2 在项目中添加 IkvmSh256EncryptionHelp.dll**
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112161543.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531104728.png)
 
 
 
@@ -242,7 +244,7 @@ dll文件生成成功
 链接：https://pan.baidu.com/s/108VDeLkfarDFTlksSl5Brw 
 提取码：gv56 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201112161544.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531104738.png)
 
 
 

@@ -1,5 +1,5 @@
 
-### 1、添加字段
+### 1.添加字段
 
 ```sql
 alter table 表名 add 字段名 type not null default 0 ;
@@ -11,61 +11,59 @@ ALTER TABLE WmPlatformBooking ADD IsPushAutoBookingToGA INT NOT NULL DEFAULT (0)
 ALTER TABLE PushQuantityNumber ADD Remarks NVARCHAR(128) NOT NULL DEFAULT ('')
 ```
 
-### 2、修改字段名
+### 2.修改字段名称
 
 ```sql
 alter table 表名 rename column A to B ;
-```
-
-### 3、修改字段类型
-```sql
-alter table 表名 modify column UnitPrice decimal(18, 4) not null;
-```
-
-### 4、修改字段默认值
-```sql
-
-alter table 表名 add default (0) for 字段名 with values
-
-alter table 表名 drop constraint 约束名字   ------说明：删除表的字段的原有约束
-
-alter table 表名 add constraint 约束名字 DEFAULT 默认值 for 字段名称 -------说明：添加一个表的字段的约束并指定默认值
-```
-### 5、删除字段
-```sql
-alter table 表名 drop column 字段名;
-```
-
-### 6、删除有默认值的字段
-```sql
- alter table tableName(表名) drop constraint '默认值约束名'
-
- alter table talbeName(表名) drop column '字段名'
-```
-
-### 8、修改表字段长度
-```sql
-ALTER TABLE 表名 ALTER COLUMN column1 VARCHAR(256)
-```
-### 9、修改表字段类型
-```sql
-alter table PsOrderDetail alter column OTDarriveDate datetime
-```
-
-### 10、修改表字段名称
-
-```sql
 -- 修改字段默认值不为null
 alter table A_test alter column TEST1 decimal(18,5) not null 
 ```
 
-### 11、查询表中包含某字段的数据
+### 3.修改字段类型
+```sql
+alter table 表名 modify column UnitPrice decimal(18, 4) not null;
+alter table PsOrderDetail alter column OTDarriveDate datetime
+```
+
+### 4.修改字段默认值
+```sql
+alter table 表名 add default (0) for 字段名 with values
+alter table 表名 drop constraint 约束名字   ------说明：删除表的字段的原有约束
+alter table 表名 add constraint 约束名字 DEFAULT 默认值 for 字段名称 -------说明：添加一个表的字段的约束并指定默认值
+```
+### 5.删除字段
+```sql
+alter table 表名 drop column 字段名;
+-- 删除有默认值的字段
+alter table tableName(表名) drop constraint '默认值约束名'
+alter table talbeName(表名) drop column '字段名'
+```
+
+### 8.修改表字段长度
+```sql
+ALTER TABLE 表名 ALTER COLUMN column1 VARCHAR(256)
+```
+### 9.关联查询
+
+```sql
+SELECT d.DeliveryNo, cb.BookingID
+FROM dbo.Delivery d
+	INNER JOIN (
+		SELECT DeliveryNo, BookingID
+		FROM dbo.ChannelBookingDelivery
+		WHERE DeliveryNo = '49552049'
+	) CB
+	ON CB.DeliveryNo = d.DeliveryNo
+		AND d.IsValid = 1
+```
+
+### 11.查询表中某字段
 ```sql
 select * from [test_db].[dbo].sysobjects 
 where id in(select id from [test_db].[dbo].syscolumns Where name='DriverID')
 ```
 
-### 12、添加索引
+### 12.添加索引
 ```sql
 -- 创建非聚集索引
 CREATE index IX_Customer_ShortName ON dbo.Customer(ShortName)
@@ -73,42 +71,31 @@ CREATE index IX_Customer_ShortName ON dbo.Customer(ShortName)
 -- 创建聚集索引
 CREATE CLUSTERED INDEX PK_Customer_ShortName on Customer(ShortName);
 
---删除索引
+-- 删除索引
 DROP index dbo.Customer.IX_Customer_ShortName
 
 -- 查看索引
 exec sp_helpindex 'dbo.Customer' 
-
 ```
 
-### 13、查看表创建时间
-```sql
-select name,crdate from sysobjects where xtype = 'U' AND name='Organization'
-```
-### 14、批量更新
+
+
+### 14.批量关联更新
 
 ```sql
-UPDATE d SET UpdateTime=cbd.CreateTime
-FROM  dbo.Delivery D
-INNER JOIN (
-SELECT DeliveryNo,BookingID,CreateTime FROM dbo.ChannelBookingDelivery WHERE DeliveryNo ='WM070301'
-)cbd ON cbd.DeliveryNo = D.DeliveryNo 
+UPDATE  D
+SET     D.UpdateTime = cbd.CreateTime
+FROM    dbo.Delivery D
+        INNER JOIN ( SELECT DeliveryNo ,
+                            BookingID ,
+                            CreateTime
+                     FROM   dbo.ChannelBookingDelivery
+                     WHERE  DeliveryNo = 'TH040105'
+                   ) cbd ON cbd.DeliveryNo = D.DeliveryNo; 
 ```
 
 
-```sql
-
-SELECT d.DeliveryNo,cb.BookingID
- FROM dbo.Delivery d
-INNER JOIN 
-(
-SELECT DeliveryNo,BookingID FROM dbo.ChannelBookingDelivery WHERE DeliveryNo ='49552049'
-) CB ON CB.DeliveryNo = d.DeliveryNo AND d.IsValid=1
- 
-```
-
-
-### 15、查询重复数据
+### 15.查询重复数据
 
 ```sql
 
@@ -123,54 +110,6 @@ delete from table group by 重复字段 having count(重复字段) > 1
 ```
 
 
-### 16.查询时间范围修改的存储过程
-
-```sql
-declare @Platform nvarchar(100) = '数据库名称'
-declare @Platform_BusinessData nvarchar(100) = '数据库名称' 
-declare @LastModifyDate nvarchar(100) = '2020-04-10 00:00:00'  --修改时间
-
-declare @sql nvarchar(max) = '
-if OBJECT_ID(''tempdb..#t'') is not null drop table #t
-
-select *
-    into #t
-    from (
-    select ''' + @Platform + '..'' + o.name + isnull(''.'' + tb.name, '''') name, o.create_date, o.modify_date,o.type_desc
-        FROM ' + @Platform + '.sys.all_objects o
-        left join ' + @Platform + '.sys.triggers t on t.object_id = o.object_id
-        left join ' + @Platform + '.sys.tables tb on tb.object_id = t.parent_id
-        union all
-    select ''' + @Platform_BusinessData + '..'' + o.name + isnull(''.'' + tb.name, ''''), o.create_date, o.modify_date,o.type_desc
-        FROM ' + @Platform_BusinessData + '.sys.all_objects o
-        left join ' + @Platform_BusinessData + '.sys.triggers t on t.object_id = o.object_id
-        left join ' + @Platform_BusinessData + '.sys.tables tb on tb.object_id = t.parent_id
-    ) t
-    where modify_date >=''' + @LastModifyDate + '''
-
---select distinct type_desc from #t
-
-select * from #t
-    where type_desc = ''USER_TABLE''
-        
-select * from #t
-    where type_desc = ''SQL_STORED_PROCEDURE''
-    
-select * from #t
-    where type_desc = ''SQL_SCALAR_FUNCTION'' or type_desc = ''SQL_TABLE_VALUED_FUNCTION''
-    
-select * from #t
-    where type_desc = ''VIEW''
-    
-select * from #t
-    where type_desc = ''SQL_TRIGGER''
-'    
-
-print @Sql
-exec sp_executesql @sql
-```
-
-
 
 ### 17.查询时间范围创建的表
 
@@ -182,10 +121,13 @@ select * from user_objects where object_type='TABLE'
 -- sqlserver中如何表的创建时间
 select name,crdate from sysobjects where xtype='u' order by crdate desc
 select name,crdate from sysobjects where xtype='u' AND crdate>'2020-01-01' ORDER by crdate DESC 
+
+-- sqlserver中如何表的创建时间
+select name,crdate from sysobjects where xtype = 'U' AND name='Organization'
 ```
 
+### 18.行转列存储过程
 
-#### 18.行转列存储过程
 ```sql
 use data 
 go
@@ -230,55 +172,14 @@ END
 
 ```
 
-#### 19、查看锁
-
-```sql
---查看数据库表锁的情况：
-
-  --查看被锁表： 
-
-    select   request_session_id   spid,OBJECT_NAME(resource_associated_entity_id) tableName    
-
-    from   sys.dm_tran_locks where resource_type='OBJECT' 
-
- select * from      sys.dm_tran_locks   where resource_type='OBJECT' 
-     --spid   锁表进程  
-	 --tableName   被锁表名 
-   -- 解锁： 
-       declare @spid  int  
-    Set @spid  = 57 --锁表进程 
-  declare @sql varchar(1000) 
-    set @sql='kill '+cast(@spid  as varchar) 
-    exec(@sql)
- 
-select * from [sys].[sysprocesses] der
- CROSS APPLY 
-  sys.[dm_exec_sql_text](der.[sql_handle]) AS dest 
- where spid=25
 
 
- --闩锁总累计等待次数和时间
-SELECT wait_type,wait_time_ms,waiting_tasks_count
-,wait_time_ms/NULLIF(waiting_tasks_count,0) AS avg_wait_time
-FROM sys.dm_os_wait_stats
-WHERE wait_type LIKE 'LATCH%'
-or wait_type LIKE 'PAGELATCH%'
-or wait_type LIKE 'PAGEIOLATCH%'
-
---各种类闩锁详细累计等待次数和时间
-SELECT * FROM sys.dm_os_latch_stats
-
---查看自旋锁
-SELECT * FROM sys.dm_os_spinlock_stats
-
-DBCC SQLPERF(spinlockstats)
-
-```
-
-#### 20、SqlServer字段说明查询
+### 20.表字段说明查询
 ```sql 
-SELECT t.[name] AS 表名,c.[name] AS 字段名,cast(ep.[value] 
-  as varchar(100)) AS [字段说明]
+SELECT 
+	t.[name] AS 表名,
+	c.[name] AS 字段名,
+	cast(ep.[value] as varchar(100)) AS [字段说明]
   FROM sys.tables AS t
   INNER JOIN sys.columns 
   AS c ON t.object_id = c.object_id
@@ -287,7 +188,7 @@ SELECT t.[name] AS 表名,c.[name] AS 字段名,cast(ep.[value]
   AND t.name='TableName'
 ```
 
-#### 21、SqlServer查看表结构
+### 21.查看表结构
 ```sql
 --快速查看表结构（比较全面的）
 SELECT  CASE WHEN col.colorder = 1 THEN obj.name
@@ -334,8 +235,115 @@ WHERE   obj.name = 'TableName'--表名
 ORDER BY col.colorder ;
 ```
 
+### 30.SQL执行顺序
 
-#### 22.查找表主键
+```sql
+FROM <1>
+ON <2>
+JOIN <3>
+WHERE <4>
+GROUP BY <5>
+HAVING <6>
+SELECT <7>
+DISTINCT <8>
+ORDER BY <9>
+LIMIT <10>
+```
+
+
+
+### 31.存储过程创建、修改时间
+
+```sql
+SELECT
+    [name]
+    ,create_date
+    ,modify_date
+FROM
+  sys.all_objects
+WHERE
+type_desc = N'SQL_STORED_PROCEDURE'
+and name = '存储过程名称' -- 输入名称
+and modify_date >='2021-04-20 00:00:00'
+```
+
+### 32.SqlServer 使用正则校验
+```sql
+SELECT * FROM dbo.SapPushPODetail WHERE 
+ PATINDEX('%[cut]', CustomerOrderNo)>0
+
+SELECT * FROM dbo.SapPushPODetail WHERE 
+CustomerOrderNo LIKE '%cut'
+
+```
+### 时间格式转化
+
+```sql
+ 
+SELECT CONVERT(varchar(100), GETDATE(), 0) AS Style0 
+SELECT CONVERT(varchar(100), GETDATE(), 1) AS Style1 
+SELECT CONVERT(varchar(100), GETDATE(), 2) AS Style2 
+SELECT CONVERT(varchar(100), GETDATE(), 3) AS Style3 
+SELECT CONVERT(varchar(100), GETDATE(), 4) AS Style4 
+SELECT CONVERT(varchar(100), GETDATE(), 5) AS Style5 
+SELECT CONVERT(varchar(100), GETDATE(), 6) AS Style6 
+SELECT CONVERT(varchar(100), GETDATE(), 7) AS Style7 
+SELECT CONVERT(varchar(100), GETDATE(), 8) AS Style8 
+SELECT CONVERT(varchar(100), GETDATE(), 9) AS Style9 
+SELECT CONVERT(varchar(100), GETDATE(), 10) AS Style10 
+SELECT CONVERT(varchar(100), GETDATE(), 11) AS Style11 
+SELECT CONVERT(varchar(100), GETDATE(), 12) AS Style12 
+SELECT CONVERT(varchar(100), GETDATE(), 13) AS Style13 
+SELECT CONVERT(varchar(100), GETDATE(), 14) AS Style14 
+SELECT CONVERT(varchar(100), GETDATE(), 20) AS Style21 
+SELECT CONVERT(varchar(100), GETDATE(), 21) AS Style21 
+SELECT CONVERT(varchar(100), GETDATE(), 22) AS Style22 
+SELECT CONVERT(varchar(100), GETDATE(), 23) AS Style23 
+SELECT CONVERT(varchar(100), GETDATE(), 24) AS Style24 
+SELECT CONVERT(varchar(100), GETDATE(), 25) AS Style25 
+```
+
+
+## 2.Mysql
+
+### 2.1.创建临时表
+
+```sql
+CREATE TEMPORARY TABLE temp_table AS
+(
+	SELECT table_name, table_comment, create_time, update_time 
+	FROM information_schema.tables
+	WHERE table_schema = (SELECT DATABASE()) 
+	AND table_name like 'dwd%'
+	ORDER BY create_time DESC
+);
+```
+
+
+
+### 2.2 查询所有表名
+
+```sql
+-- .查询指定数据库中指定表的所有字段名
+show tables;
+SELECT TABLE_NAME,TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='Snailthink';
+
+select column_name from information_schema.columns where table_schema='Snailthink' and table_name='Table_Name'
+
+SELECT 
+	table_name, 
+	table_comment,
+    create_time,
+    update_time 
+FROM information_schema.tables
+WHERE table_schema = (SELECT DATABASE()) 
+AND table_name like 'dwd%'
+ORDER BY create_time DESC
+```
+
+
+
+### 2.3 查看表主键
 
 ```sql
 
@@ -350,24 +358,10 @@ WHERE
 	AND table_name = '表名称';
 ```
 
-#### 23.Mysql设置多列唯一索引
 
-```sql
-ALTER TABLE `orm_dept` ADD UNIQUE INDEX ` UNIQ_TEMP` (`dept_id`, `dept_no`) USING BTREE 
-```
-#### 24. 查看数据库引擎  InnoDB/ MyISAM
-```sql
-show engines 
-show variables like 'storage_engine'
-show variables like '%storage_engine%'
-show create table orm_dept_test
-```
-#### 25. 查看数据库创建表语句
-```sql
-show create table orm_dept_test
-```
 
-#### 26. MySQL查找表字段
+### 2.4 查看表字段
+
 ```sql
 SELECT
 	COLUMN_NAME,
@@ -384,66 +378,39 @@ WHERE
 	AND table_schema = 'snailthink';
 ```
 
-#### 27. 查询存储过程的修改时间
+### 2.5 索引
+
 ```sql
 
--- 查询存储过程的修改时间
-Select [name],create_date,modify_date FROM sys.all_objects where type_desc = N'SQL_STORED_PROCEDURE' and name = '存储过程名'
+-- 1. Mysql设置多列唯一索引
+ALTER TABLE `orm_dept` ADD UNIQUE INDEX ` UNIQ_TEMP` (`dept_id`, `dept_no`) USING BTREE 
+```
+
+### 2.6. 查看数据库引擎 InnoDB/ MyISAM
+
+```sql
+show engines 
+show variables like 'storage_engine'
+show variables like '%storage_engine%'
+show create table orm_dept_test
+```
+
+### 2.7 查看数据库创建表语句
+
+```sql
+show create table orm_dept_test
+```
+
+### 2.8 行转列
+
+```sql
 
 ```
 
-#### 28 查询数据库所有表名称
-```sql
--- 1.查询数据库中所有表名称
--- 
-show tables;
-SELECT TABLE_NAME,TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='Snailthink';
+### 2.9 列转行
 
--- 2.查询指定数据库中指定表的所有字段名
-select column_name from information_schema.columns where table_schema='Snailthink' and table_name='Table_Name'
+```sql
+-- 安装逗号分割
+select group_concat(id) from orm_customer;
 ```
 
-
-#### 29.关联更新数据
-```sql
-UPDATE operation o 
-       JOIN  (SELECT o.id, 
-                            o.status 
-                     FROM   operation o 
-                     WHERE  o.group = 123 
-                            AND o.status NOT IN ( 'done' ) 
-                     ORDER  BY o.parent, 
-                               o.id 
-                     LIMIT  1) t
-         ON o.id = t.id 
-SET    status = 'applying' 
-```
-
-#### 30. SQL执行顺序
-
-```sql
-FROM <1>
-ON <2>
-JOIN <3>
-WHERE <4>
-GROUP BY <5>
-HAVING <6>
-SELECT <7>
-DISTINCT <8>
-ORDER BY <9>
-LIMIT <10>
-``` 
-
-#### 31. 某个存储过程修改时间
-```sql
-SELECT
-    [name]
-    ,create_date
-    ,modify_date
-FROM
-  sys.all_objects
-WHERE
-type_desc = N'SQL_STORED_PROCEDURE'
-and name = '存储过程名称' -- 输入名称
-and modify_date >='2021-04-20 00:00:00'
-``` 

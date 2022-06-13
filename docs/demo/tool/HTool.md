@@ -512,3 +512,9 @@ hutool-captcha 图片验证码实现
 
 [文档说明](https://hutool.cn/docs/#/)
 
+
+## 关注
+
+如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
+
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)

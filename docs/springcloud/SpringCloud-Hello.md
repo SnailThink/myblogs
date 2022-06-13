@@ -1,7 +1,9 @@
 > 本文基于 Spring Cloud Netflix 。Spring Cloud Alibaba 也是非常不错的选择哦！
 >
 > 授权转载自：https://juejin.im/post/5de2553e5188256e885f4fa3
+> 
 
+[SpringCloud](https://blog.csdn.net/weixin_43591980/article/details/106255122#t1)
 
 
 首先我给大家看一张图，如果大家对这张图有些地方不太理解的话，我希望你们看完我这篇文章会恍然大悟。
@@ -627,10 +629,6 @@ public class RouteFilter extends ZuulFilter {
 * `Zuul` 微服务网关
 * `Config` 微服务统一配置中心
 * `Bus` 消息总线
-
-如果你能这个时候能看懂文首那张图，也就说明了你已经对 `Spring Cloud` 微服务有了一定的架构认识。
-
-![img](https://user-gold-cdn.xitu.io/2019/11/30/16ebc26b21515692?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 > 如果觉得我写的还不错，那就留下个赞吧！ 👍👍👍
 

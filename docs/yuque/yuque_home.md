@@ -1,8 +1,5 @@
 
 ## 语雀
-
-  - [arthas 常用命令图解](https://gitee.com/VincentBlog/image/raw/master/image/20220209101528.png)
-
   - [maven_setting.xml中文配置详解](yuque/Java/maven_setting.xml中文配置详解.md)
 
   - [数据接口配置服务-Dataway](yuque/Java/数据接口配置服务-Dataway.md)
@@ -32,3 +29,5 @@
   - [sonar安装及配置](yuque/Java/sonar安装及配置.md)
   
   - [在线工具](yuque/Java/在线工具.md)
+
+![arthas 常用命令图解](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531101830.png)

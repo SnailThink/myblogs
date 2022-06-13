@@ -6,9 +6,9 @@
 
 **Linux 常用命令** 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201124175734.png)
 
 
+![20201124175734](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174701.png)
 
 #### 常用命令
 
@@ -195,9 +195,7 @@ sudo chown shiyanlou iphone 11
 
 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201119171414.png)
-
-
+![20201119171414](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174652.png)
 
 #### 2.1 目录路径
 
@@ -674,7 +672,7 @@ banner linux //输出linux
 >
 >点个在看，分享到朋友圈，对我真的很重要！！！
 
-![公众号](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
 
 ![](https://pic.downk.cc/item/5f33d1f214195aa594018b66.gif)
 

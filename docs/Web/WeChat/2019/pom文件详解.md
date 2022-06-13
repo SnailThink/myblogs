@@ -935,14 +935,10 @@
 ```
 
 
-### 如果觉得还不错： ###
+### 如果觉得还不错： 
 关注公众号：
 
-![](https://user-gold-cdn.xitu.io/2019/12/12/16efabc712b6ace4?w=258&h=258&f=jpeg&s=27596)
-
-加微信:
-
-![](https://user-gold-cdn.xitu.io/2019/12/12/16efac493c2b7e3d?w=674&h=896&f=jpeg&s=113217)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
 
   &ensp;创作不易，各位的支持和认可，就是我创作的最大动力，我们下篇文章见！
 

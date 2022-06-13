@@ -172,7 +172,7 @@ Linux命令大全：![http://man.linuxde.net/](http://man.linuxde.net/)
     
    注意：命令 tail -f 文件 可以对某个文件进行动态监控，例如tomcat的日志文件，  会随着程序的运行，日志会变化，可以使用tail -f catalina-2016-11-11.log 监控 文 件的变化 
 3. **`vim 文件`：**  修改文件的内容（改）
- 
+
    vim编辑器是Linux中的强大组件，是vi编辑器的加强版，vim编辑器的命令和快捷方式有很多，但此处不一一阐述，大家也无需研究的很透彻，使用vim编辑修改文件的方式基本会使用就可以了。
 
    **在实际开发中，使用vim编辑器主要作用就是修改配置文件，下面是一般步骤：**
@@ -193,11 +193,11 @@ Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.g
 其中：
 
   z：调用gzip压缩命令进行压缩
-  
+
   c：打包文件
-  
+
   v：显示运行过程
-  
+
   f：指定文件名
 
 比如：加入test目录下有三个文件分别是 :aaa.txt bbb.txt ccc.txt,如果我们要打包test目录并指定压缩后的压缩包名称为test.tar.gz可以使用命令：**`tar -zcvf test.tar.gz aaa.txt bbb.txt ccc.txt`或：`tar -zcvf test.tar.gz       /test/`**
@@ -222,11 +222,9 @@ Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.g
 
 示例：在随意某个目录下`ls -l`
 
-![](https://user-gold-cdn.xitu.io/2018/7/5/1646955be781daaa?w=589&h=228&f=png&s=16360)
+![image-20220531112734865](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531112735.png)
 
-第一列的内容的信息解释如下：
 
-![](https://user-gold-cdn.xitu.io/2018/7/5/16469565b6951791?w=489&h=209&f=png&s=39791)
 
 > 下面将详细讲解文件的类型、Linux中权限以及文件有所有者、所在组、其它组具体是什么？
 
@@ -247,7 +245,7 @@ Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.g
 **文件和目录权限的区别：**
 
  对文件和目录而言，读写执行表示不同的意义。
- 
+
  对于文件：
 
 | 权限名称      |   可执行操作  | 
@@ -272,7 +270,7 @@ Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.g
 
   一般为文件的创建者，谁创建了该文件，就天然的成为该文件的所有者，用ls ‐ahl命令可以看到文件的所有者 也可以使用chown 用户名  文件名来修改文件的所有者 。
 - **文件所在组**
- 
+
   当某个用户创建了一个文件后，这个文件的所在组就是该用户所在的组 用ls ‐ahl命令可以看到文件的所有组 也可以使用chgrp  组名  文件名来修改文件所在的组。 
 - **其它组**
 
@@ -347,7 +345,7 @@ passwd命令用于设置用户的认证信息，包括用户密码、密码过�
     `net-tools`起源于BSD的TCP/IP工具箱，后来成为老版本Linux内核中配置网络功能的工具。但自2001年起，Linux社区已经对其停止维护。同时，一些Linux发行版比如Arch Linux和CentOS/RHEL 7则已经完全抛弃了net-tools，只支持`iproute2`。linux ip命令类似于ifconfig，但功能更强大，旨在替代它。更多详情请阅读[如何在Linux中使用IP命令和示例](https://linoxide.com/linux-command/use-ip-command-linux)
 - **`shutdown`：**  `shutdown -h now`： 指定现在立即关机；`shutdown +5 "System will shutdown after 5 minutes"`:指定5分钟后关机，同时送出警告信息给登入用户。
 - **`reboot`：**  **`reboot`：**  重开机。**`reboot -w`：** 做个重开机的模拟（只有纪录并不会真的重开机）。
- 
+
 
 
 

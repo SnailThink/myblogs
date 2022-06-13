@@ -24,7 +24,7 @@
 - **浅拷贝**：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝
 - **深拷贝**： 对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20201027211145.jpg)
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530181503.jpg)
 
 ## BeanUtils
 
@@ -217,6 +217,6 @@ private static void copyProperties(Object source, Object target, @Nullable Class
 
 ## 关注
 
-![公众号](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
 
 ![](https://pic.downk.cc/item/5f5e3aae160a154a67a7b936.gif)

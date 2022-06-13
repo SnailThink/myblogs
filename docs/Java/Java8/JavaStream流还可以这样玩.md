@@ -259,7 +259,22 @@ Integer sum2 = customerVOList.stream().mapToInt(CustomerVO::getMoney).sum();
 Double average = customerVOList.stream().collect(averagingInt(CustomerVO::getMoney));
 OptionalDouble average2 = customerVOList.stream().mapToInt(CustomerVO::getAge).getMoney();
 ```
+### Java 8 Functional 
 
+- 举例：枚举类 + Functional 实现一个轻量级“工厂”（包 demo1）
+- PropertyNamer
+
+| name           | type                | description                     |
+| -------------- | ------------------- | ------------------------------- |
+| Consumer       | Consumer< T >       | 接收T对象，不返回值             |
+| Predicate      | Predicate< T >      | 接收T对象并返回boolean          |
+| Function       | Function< T, R >    | 接收T对象，返回R对象            |
+| Supplier       | Supplier< T >       | 提供T对象（例如工厂），不接收值 |
+| UnaryOperator  | UnaryOperator< T >  | 接收T对象，返回T对象            |
+| BiConsumer     | BiConsumer<T, U>    | 接收T对象和U对象，不返回值      |
+| BiPredicate    | BiPredicate<T, U>   | 接收T对象和U对象，返回boolean   |
+| BiFunction     | BiFunction<T, U, R> | 接收T对象和U对象，返回R对象     |
+| BinaryOperator | BinaryOperator< T > | 接收两个T对象，返回T对象        |
 
 
 **推荐阅读 **
@@ -276,4 +291,4 @@ OptionalDouble average2 = customerVOList.stream().mapToInt(CustomerVO::getAge).g
 >如果本篇博客有任何错误，请批评指教，不胜感激！
 >点个在看，分享到朋友圈，对我真的很重要！！！
 
-![公众号](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)

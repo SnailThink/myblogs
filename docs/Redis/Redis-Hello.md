@@ -33,7 +33,7 @@ Redis 支持 32 位和 64 位。这个需要根据你系统平台的实际情况
 
 内容如下
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210303102148.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100129.png)
 
 打开cmd窗口 使用cd进入文件中然后执行
 
@@ -334,7 +334,7 @@ redis 提供了一个工具 `redis-check-aof -fix`
 
 aof默认就是文件的无限追加 文件会越来越大
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210303102149.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100204.png)
 
 若aof文件大于64m！fork一个新的进程将文件进行重写
 
@@ -375,7 +375,7 @@ appendfsync everysec   # 每秒执行一次 sync，可能会丢失这1s的数�
     那要不要只使用AOF呢？作者建议不要，
    
      因为RDB更适合用于备份数据库（AOF在不断变化不好备份），快速重启，
-    而且不会有 AOF可能潜在的Bug，留着作为一个万一的手段
+     而且不会有 AOF可能潜在的Bug，留着作为一个万一的手段
    
 5. 性能建议
 
@@ -403,7 +403,9 @@ appendfsync everysec   # 每秒执行一次 sync，可能会丢失这1s的数�
 1、从结构上，单个Redis服务器会发生单点故障，并且一台服务器需要处理所有的请求负载，压力较大；
 2、从容量上，单个Redis服务器内存容量有限，就算一台Redis服务器内存容量为256G，也不能将所有 内存用作Redis存储内存，一般来说，单台Redis大使用内存不应该超过20G。
 电商网站上的商品，一般都是一次上传，无数次浏览的，说专业点也就是"多读少写"。
-对于这种场景，我们可以使如下这种架构： ![](https://gitee.com/VincentBlog/image/raw/master/image/20210303102150.png)
+对于这种场景，我们可以使如下这种架构：
+ 
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100326.png)
 
 主从复制 读写分离80%的情况都是进行读操作！减缓服务器的压了！架构中经常使用！一主二从。
 
@@ -1176,13 +1178,13 @@ Redis 客户端可以订阅任意数量的频道。
 
 下图展示了频道 channel1 ， 以及订阅这个频道的三个客户端 —— client2 、 client5 和 client1 之间的关系：
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210303164851.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100238.png)
 
 
 
  当有新消息通过 PUBLISH 命令发送给频道 channel1 时， 这个消息就会被发送给订阅它的三个客户端： 
 
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210303164850.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531100249.png)
 
 
 
@@ -1319,5 +1321,4 @@ Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，
 Redis Sentinel着眼于高可用，在master宕机时会自动将slave提升为master，继续提供服务。
 
 Redis Cluster着眼于扩展性，在单个redis内存不足时，使用Cluster进行分片存储。
-
 

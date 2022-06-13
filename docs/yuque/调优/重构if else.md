@@ -31,10 +31,7 @@ static void testDemo() {
 ```
 
 如果将代码都放到 if else代码，代码很难维护也很丑，我们一开始就用了策略模式来处理这种情况。 
-
-![](https://gitee.com/VincentBlog/image/raw/master/image/20210830160128.jpg) 
-
-
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182108.jpg)
 
 ### 实现思路
 

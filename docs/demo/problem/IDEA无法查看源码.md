@@ -8,7 +8,7 @@
 
 
 
-![image-20211102180421044](https://gitee.com/VincentBlog/image/raw/master/image/20211102180428.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180224.png)
 
 
 
@@ -24,7 +24,7 @@ mvn dependency:resolve -Dclassifier=sources
 
 
 
-![image-20211102180619660](https://gitee.com/VincentBlog/image/raw/master/image/20211102180619.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180254.png)
 
 
 
@@ -32,8 +32,8 @@ mvn dependency:resolve -Dclassifier=sources
 
 设置Maven home directory：
 
-![image-20211102180834998](https://gitee.com/VincentBlog/image/raw/master/image/20211102180835.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180306.png)
 
 ### 方法三：设置maven sources
 
-![image-20211102180944878](https://gitee.com/VincentBlog/image/raw/master/image/20211102180944.png)
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530180316.png)
