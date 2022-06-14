@@ -414,3 +414,19 @@ show create table orm_dept_test
 select group_concat(id) from orm_customer;
 ```
 
+### 2.10 mysql时间用法
+
+```sql
+1.获得当前日期函数：curdate()，current_date()
+2.获得当前时间函数：curtime();
+3.获得当前日期+时间：now();
+4.SELECT DATE_ADD(CURRENT_DATE(),INTERVAL 2 DAY) AS OrderPayDate //2天后
+5.SELECT DATE_SUB(CURRENT_DATE(),INTERVAL 2 DAY) AS OrderPayDate //2天前
+6.SELECT DATEDIFF('2020-08-14','2020-08-10') //返回4 时间相减
+7.SELECT DATE_FORMAT(NOW(),'%Y-%m-%d') //时间格式转化
+8.SELECT DATE_ADD(NOW(),INTERVAL -15 DAY) 15天前的数据
+9.DATE_ADD(NOW,INTERVAL 1 MONTH) -- 一个月之后
+10.获取23:59:59 时间
+SELECT DATE_FORMAT('2019-08-08','%Y-%m-%d %H:%i:%s');
+SELECT DATE_SUB( DATE_ADD('2019-08-08', INTERVAL 1 DAY),INTERVAL 1 SECOND)
+```
