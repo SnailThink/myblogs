@@ -127,7 +127,7 @@
 |  sonar安装及配置    |[sonar安装及配置](tool/software/sonar安装及配置.md) |
 | 数据接口配置服务 | [数据接口配置服务-Dataway](tool/software/数据接口配置服务-Dataway.md) |
 |   数据库表结构生成工具    | [数据库表结构生成工具](tool/software/数据库表结构生成工具.md) |
-|   Java启动关闭脚本   | [Java启动关闭脚本](tool/software/Java启动关闭脚本.md) |
+|   Java启动关闭脚本   | [Java启动关闭脚本](demo/脚本/Java启动关闭脚本.md) |
 |   程序员软件   | [程序员软件](tool/效率/程序员软件.md) |
 
 

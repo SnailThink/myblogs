@@ -4,6 +4,7 @@
 
 >[Leecode-100](https://leetcode-cn.com/problem-list/2cktkvj/)
 [Leecode刷题技巧](https://github.com/CyC2018/CS-Notes/tree/master/notes)
+[leetcode 题解](https://github.com.cnpmjs.org/wind-liang/leetcode.git)
 
 ### 628 [三个数的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-three-numbers/)
 
