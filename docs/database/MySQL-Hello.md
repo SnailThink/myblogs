@@ -499,6 +499,31 @@ mysqlbinlog --start-datetime="2022-06-16 15:50:00" --stop-datetime="2022-06-16 1
 ```
 
 
+mysqlbinlog.exe 路径：C:\Program Files\MySQL\MySQL Server 5.7\bin
+mysql-bin.000003文件路径：C:\ProgramData\MySQL\MySQL Server 5.7\Data
+
+#### **6.记录mysql操作日志**
+
+1.这两个命令在MySQL重启后失效 为临时方法
+```sql
+-- 查看日志记录是否开启 general_log为ON 则为开启
+SHOW VARIABLES LIKE "general_log%";
+//日志开启
+SET GLOBAL log_output = 'TABLE';SET GLOBAL general_log = 'ON';  
+//日志关闭
+SET GLOBAL log_output = 'TABLE'; SET GLOBAL general_log = 'OFF';  
+-- 查看当前执行的sql语句
+select * from information_schema.`PROCESSLIST` where info is not null;
+```
+2. 永久开启
+永久有效需要配置my.cnf文件，加入下面两行：
+```sql
+general_log = 1
+general_log_file = /var/log/mysql/general_sql.log
+```
+
+
+
 
 ### 四、使用mysqldump 恢复数据
 
