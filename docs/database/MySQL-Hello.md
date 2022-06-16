@@ -390,35 +390,77 @@ TRUNCATE [TABLE] tbl_name
 
 ### 三、 binlog恢复数据
 
+#### 1.恢复binlog数据流程
+
 ```mysql
 # 登录
 mysql -hlocalhost -uroot -p1q2w3e;
+
+# 准备测试数据创建表
+CREATE TABLE `user_temp` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `mail` varchar(255) DEFAULT NULL,
+  `lock` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+# 写入数据
+INSERT INTO `snailthink`.`user_temp`(`name`, `phone`, `mail`, `lock`) VALUES ('zhangsan', '110', '110@qq.com', '0');
+INSERT INTO `snailthink`.`user_temp`( `name`, `phone`, `mail`, `lock`) VALUES ('lisi', '111', '111@qq.com', '0');
+INSERT INTO `snailthink`.`user_temp`(`name`, `phone`, `mail`, `lock`) VALUES ('wangwu', '112', '112@qq.com', '0');
+INSERT INTO `snailthink`.`user_temp`(`name`, `phone`, `mail`, `lock`) VALUES ('xiaoming', '113', '113@qq.com', '0');
 
 # 查看是否开启binlog
 show variables like '%log_bin%';
 
 # 删除数据
-DELETE from user_tbl where user_id=1;
+DELETE from user_temp where id=1;
 
-# 查看binlog的状态
+# 查看binlog写入的文件
 show master status;
+
+# 查看biglog
+show binlog events in 'mysql-bin.000127';
+
+# 根据时间段筛选biglog 并转为sql
+mysqlbinlog --start-datetime="2022-06-16 15:50:00" --stop-datetime="2022-06-16 16:02:00" mysql-bin.000201 -d snailthink> filename_binlog.sql;
+
+# 执行sql语句
+source  filename_binlog.sql;
 ```
 
 
 
 
 
+
+
+
+
+#### **2.查看Binlog是否开启**
+
 ![image-20210522111429209](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531111411.png)
 
+log_bin:ON 则为开启
+
+若未开启则需要执行 
+
+```sql
+SET SQL_LOG_BIN=1 命令开启
+SET SQL_LOG_BIN=0 命令关闭
+```
 
 
 
+#### **3.查看当前写入的日志文件**
 
 ![image-20210522112010358](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531111423.png)
 
 
 
-**查看binlog 日志**
+#### **4.查看binlog 日志**
 
 ```mysql
 show binlog events in 'mysql-bin.000127';
@@ -428,7 +470,37 @@ show binlog events in 'mysql-bin.000127';
 
 
 
+#### **5.通过binlog恢复数据**
 
+第一种：是通过binlog中的position id恢复,首先通过备份将数据导入数据库，然后将后面缺失的数据库操作通过binlog恢复
+
+使用命令
+
+```
+mysqlbinlog --start-position=100 --stop-position=500 --database=test
+/var/lib/mysql/mysql-bin.000001 | /usr/bin/mysql -u root -p passwd -v
+database_name
+```
+
+第二种：根据时间查询biglog，将binlog转为sql语句(它本质上还是一个二进制的文本文件，不能直接执行需要通过source执行)，然后通过source执行sql 文件.**推荐**
+
+```sql
+mysqlbinlog --start-datetime="2022-06-16 15:50:00" --stop-datetime="2022-06-16 16:02:00" mysql-bin.000201 -d snailthink> filename_binlog.sql;
+```
+
+```sql
+ source D:\filename_binlog.sql
+```
+
+第三种：直接执行 将sql语句执行并恢复到数据库中
+
+```sql
+mysqlbinlog --start-datetime="2022-06-16 15:50:00" --stop-datetime="2022-06-16 16:02:00" mysql-bin.000201 | mysql -u root -p 1q2w3e snailthink;
+```
+
+
+
+### 四、使用mysqldump 恢复数据
 
 #### 1.1 创建表
 
