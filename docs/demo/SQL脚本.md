@@ -430,3 +430,15 @@ select group_concat(id) from orm_customer;
 SELECT DATE_FORMAT('2019-08-08','%Y-%m-%d %H:%i:%s');
 SELECT DATE_SUB( DATE_ADD('2019-08-08', INTERVAL 1 DAY),INTERVAL 1 SECOND)
 ```
+
+
+### 2.11 查询重复数据
+```sql
+SELECT
+	* 
+FROM
+	snailthink.orm_dept 
+WHERE
+	dept_no IN ( SELECT dept_no FROM snailthink.orm_dept GROUP BY dept_no HAVING count( dept_no ) > 1 )
+	
+```

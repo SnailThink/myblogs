@@ -1,3 +1,11 @@
+
+
+[TOC]
+
+
+
+
+
 ### JPA进阶
 
 
@@ -56,7 +64,6 @@ spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.Ph
 ```java
 public class OrmCustomerPO implements Serializable {
 
-
 	private Long id;
 
 	/**
@@ -75,5 +82,27 @@ public class OrmCustomerPO implements Serializable {
 	private String customerName4;
 
 }
+```
+
+#### 4.JPA使用SQL语句
+
+```java
+
+@Query(value="select * from orm_dept where dept_name=(:deptName)",nativeQuery = true)
+	List<OrmDeptPO> queryDeptByName(@Param("deptName") String deptName);
+```
+
+
+
+#### 5.Jpa非主键字段如何配置自动增长
+
+- nullable：是否为空
+- insertable：是否能插入
+- updateable：是否能更新
+
+```java
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id",nullable=false,insertable=false,updatable=false,columnDefinition="numeric(19,0) IDENTITY")
+    private Integer id;
 ```
 

@@ -2,9 +2,11 @@
 
 原文地址:https://blog.csdn.net/weixin_41846320/article/details/82697818
 
+[IDEA插件推荐](https://blog.csdn.net/weixin_46285416/article/details/107853987)
+
 插件安装方式：
 
-![img](https://img-blog.csdn.net/20180914094459203?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![image-20220617182055339](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182055339.png)
 
 新版本IDE安装方式略有不同，不一一赘述 
 
@@ -16,13 +18,15 @@
 
  
 
-![img](https://img-blog.csdnimg.cn/20190107192754262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182112158](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182112158.png)
 
 使用方法：
 
-![img](https://img-blog.csdn.net/20180914100034129?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![image-20220617182123438](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182123438.png)
 
-![img](https://img-blog.csdnimg.cn/20190107192924250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+
+
+![image-20220617182134743](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182134743.png)
 
 注意，如果是IDEA版本是2020.1版本以上就不需要再额外装这个插件，这个插件是已经内置安装了。
 
@@ -32,18 +36,18 @@ Mybatis现在是java中操作数据库的首选，在开发的时候，我们都
 
 但是默认的情况下，输出的脚本不是一个可以直接执行的。
 
-![img](https://img-blog.csdnimg.cn/20190108100931957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182142462](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182142462.png)
 
 如果我们想直接执行，还需要在手动转化一下，比较麻烦。
 MyBatis Log Plugin 这款插件是直接将Mybatis执行的sql脚本显示出来，无需处理，可以直接复制出来执行的 。
 
 Tools -- >  Mybatis Log Plugin  打开其日志框，注意其转换的SQL不是输出到IDE的控制台!!!
 
-![img](https://img-blog.csdnimg.cn/20190108100455907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182152022](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182152022.png)
 
 再执行， 效果是不是很赞
 
- ![img](https://img-blog.csdnimg.cn/20190108100812654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182205741](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182205741.png)
 
  
 
@@ -51,13 +55,15 @@ Tools -- >  Mybatis Log Plugin  打开其日志框，注意其转换的SQL不是
 
 由于Intellij idea不支持显示ascii颜色，grep-console插件能很好的解决这个问题， 可以设置不同级别log的字体颜色和背景色.
 
-![img](https://img-blog.csdnimg.cn/20190108102502835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182215895](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182215895.png)
 
-![img](https://img-blog.csdn.net/20180927155737233?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+
+![image-20220617182227216](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182227216.png)
 
 自定义设置后，可以运行下项目看下效果 
 
-![img](https://img-blog.csdn.net/20180927155656739?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70) ![img](https://img-blog.csdn.net/20180927155655935?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![image-20220617182240895](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182240895.png) 
 
  
 
@@ -65,9 +71,11 @@ Tools -- >  Mybatis Log Plugin  打开其日志框，注意其转换的SQL不是
 
 CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，使用起来比拖动滚动条方便多了
 
-![img](https://img-blog.csdnimg.cn/20190108103050176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182254625](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182254625.png)
 
-![img](https://img-blog.csdnimg.cn/2019010810323759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+
+
+![image-20220617182307423](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182307423.png)
 
 **5、GenerateAllSetter**
 
@@ -78,9 +86,7 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 - 当returnType为List Set Map时生成默认值
 - 在所有getter方法上生成对assertThat的调用
 
-![Screenshot 2](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9wbHVnaW5zLmpldGJyYWlucy5jb20vZmlsZXMvOTM2MC9zY3JlZW5zaG90XzE2NjE0LnBuZw?x-oss-process=image/format,png)
 
-![Screenshot 1](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9wbHVnaW5zLmpldGJyYWlucy5jb20vZmlsZXMvOTM2MC9zY3JlZW5zaG90XzE2NjEzLnBuZw?x-oss-process=image/format,png)
 
 **6、RestfulToolkit**
 
@@ -94,7 +100,7 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 
   安装后，右侧会有RestServices侧边栏，点击打开
 
-![img](https://img-blog.csdnimg.cn/20190121102038621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182332911](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182332911.png)
 
  全局快捷搜索快捷键：*Ctrl \* 
 
@@ -110,7 +116,7 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 
 打开项目中的pom文件，在底部会显示一个“Dependency Analyzer”,
 
-![img](https://img-blog.csdnimg.cn/20190121102632607.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+C![image-20220617182351903](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182351903.png)
 
 点击此按钮，切换到此工具栏
 
@@ -133,31 +139,33 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 
 安装好之后界面布局： 
 
-![img](https://img-blog.csdnimg.cn/2019122516263341.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182406102](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182406102.png)
 
  检查几个必要的设置看是否已配置，否则热部署可能没效果：
 
 1）设置项目自动编译
 
-![img](https://img-blog.csdnimg.cn/20191225163222129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182416551](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182416551.png)
 
 2）设置 compiler.automake.allow.when.app.running 
 
 快捷键ctrl+shift+A 或者 菜单help->find action…打开搜索框搜索“registry”
 
-![img](https://img-blog.csdnimg.cn/20191225164059375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182424406](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182424406.png)
 
- ![img](https://img-blog.csdnimg.cn/20191225164428905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+
+
+![image-20220617182434494](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182434494.png)
 
 3）需要热部署的项目在此处是否勾选
 
-![img](https://img-blog.csdnimg.cn/20191225164733777.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182444655](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182444655.png)
 
 **9、 Json Parser**
 
 厌倦了打开浏览器格式化和验证JSON?为什么不安装JSON解析器并在IDE中使用离线支持呢?JSON解析器是一个用于验证和格式化JSON字符串的轻量级插件。
 
-![Screenshot 1](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9wbHVnaW5zLmpldGJyYWlucy5jb20vZmlsZXMvMTA2NTAvc2NyZWVuc2hvdF8xOTE5MC5wbmc?x-oss-process=image/format,png)
+![image-20220617182453022](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182453022.png)
 
 **10、Translation**
 
@@ -184,19 +192,17 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 ![img](https://img-blog.csdnimg.cn/20200420194550701.png)
 
 可以点击图标调出不同的对话框进行搜索翻译
-![img](https://img-blog.csdnimg.cn/20200420194824952.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70) 
-![img](https://img-blog.csdnimg.cn/2020042019490456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
 
-当然也可以选中要翻译的文本，然后右键，
+![image-20220617182521643](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182521643.png)
 
-![img](https://img-blog.csdnimg.cn/20200420232207381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+
 
 选择Translate，可以直接调出翻译面板，
 
-![img](https://img-blog.csdnimg.cn/20200420233201554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182530029](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182530029.png)
 
 选择Translate and Replace，可以直接将翻译结果显示在下拉框中，选择合适的点击之后会自动替换当前文本
-![img](https://img-blog.csdnimg.cn/20200420232550316.png)
+![image-20220617182541850](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182541850.png)
 
 以上两个右键操作可以使用快捷键 Ctrl + Shift + Y 和 Ctrl + Shift + X来代替
 
@@ -204,7 +210,7 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 
 就拿阅读java.lang.String的源码来说，进入到内部后，使光标处在文档注释区域，随便任何位置，然后右键，选择Translate Documentation,立马就有翻译出来，并且自动排版，非常易于阅读
 
-![img](https://img-blog.csdnimg.cn/20200420234712213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182553925](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182553925.png)
 
 **11、aiXcode & codota**
 
@@ -221,7 +227,9 @@ codota基于数百万个开源Java程序和您的上下文来完成代码行，�
 
 个人觉得代码示例功能要比aiCode的代码搜索引擎要方便好用的多，
 
- 比如我想知道list.stream.map(..)方法的参考使用,只需要光标定位在map上，然后右键选择菜单“Get relevant examples”或者使用快捷键“Ctrl + Shift + O”就可以快速搜索出来很多示例，非常方便。![img](https://img-blog.csdnimg.cn/2020061609563514.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+ 比如我想知道list.stream.map(..)方法的参考使用,只需要光标定位在map上，然后右键选择菜单“Get relevant examples”或者使用快捷键“Ctrl + Shift + O”就可以快速搜索出来很多示例，非常方便。
+
+![image-20220617182607791](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182607791.png)
 
 其实个人觉得IDEA自带的代码自动提示补全功能就已经非常智能好用，如果只是想使用这一功能，就没必要再装以上两款插件。
 
@@ -242,14 +250,14 @@ Material Theme UI是JetBrains IDE（IntelliJ IDEA，WebStorm，Android Studio等
 
 安装后重启IDE会先进入主题设置导航页，按照提示一步一步设置
 
-![img](https://img-blog.csdnimg.cn/20191225170931663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182618238](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182618238.png)
 
-![img](https://img-blog.csdnimg.cn/20191225171058822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182630317](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182630317.png)
 
  
 
 设置好后的效果
-![img](https://img-blog.csdnimg.cn/20191225180715790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182640007](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182640007.png)
 
  还可以继续在setting中进行自定义设置：
 
@@ -259,11 +267,13 @@ Material Theme UI是JetBrains IDE（IntelliJ IDEA，WebStorm，Android Studio等
 
 一款颜色主题集合插件
 
- 安装后到file->settings->Editor->Color Schemes 进行选择设置![img](https://img-blog.csdnimg.cn/20191225182203410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+ 安装后到file->settings->Editor->Color Schemes 进行选择设置
+
+![image-20220617182653670](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182653670.png)
 
  设置后效果，各种效果可自行设置体验
 
-![img](https://img-blog.csdnimg.cn/20191225182615265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTg0NjMyMA==,size_16,color_FFFFFF,t_70)
+![image-20220617182706191](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182706191.png)
 
 ### 字体美化 
 

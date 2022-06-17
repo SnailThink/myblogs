@@ -4,7 +4,9 @@
 
 Map 的实现类有 HashMap、LinkedHashMap、TreeMap、IdentityHashMap、WeakHashMap、Hashtable、Properties 等等。
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/laEmibHFxFw69P7lqqnHgjoy7tABoPYAl6ky3K5qsGaUkVrz5eTVqJqPDVkictC2gGw3vrjyWgRNkoaSzMg2Biaag/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+![image-20220617180817757](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180817757.png)
 
 关于 HashMap，一直都是一个非常热门的话题，只要你出去面试，我保证一定少不了它！
 
@@ -24,7 +26,9 @@ HashMap 容器，实质还是一个哈希数组结构，但是在元素插入的
 
 从 jdk1.8 开始，HashMap 主要是由数组+链表+红黑树实现的，相比 jdk1.7 而言，多了一个红黑树实现。当链表长度超过 8 的时候，就将链表变成红黑树，如图所示。
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/laEmibHFxFw69P7lqqnHgjoy7tABoPYAlia2ibg0Bxb9VZRCwlO9719jV88UfvONH75zhwYTePG3m4URZUOKZVxrw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20220617180522904](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180522904.png)
+
+
 
 关于红黑树的实现，因为篇幅太长，在《集合系列》文章中红黑树设计，也有所介绍，这里就不在详细介绍了。
 
@@ -100,7 +104,7 @@ HashMap 的内部功能实现有很多，本文主要从以下几点，进行逐
 
 不管增加、删除还是查找键值对，定位到数组的位置都是很关键的第一步，打开 hashMap 的任意一个增加、删除、查找方法，从源码可以看出，通过`key`获取数组下标，主要做了 3 步操作，其中`length`指的是容器数组的大小。
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/laEmibHFxFw69P7lqqnHgjoy7tABoPYAlxDwLQia6emKZfDZSmZd4chCDFzlb8H9eqCQqqtW14CqV3L7Rw3NFnlw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20220617180537741](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180537741.png)
 
 源码部分：
 
@@ -123,7 +127,7 @@ static int indexFor(int h, int length) {
 
 put(K key, V value)方法是将指定的 key, value 对添加到 map 里。该方法首先会对 map 做一次查找，看是否包含该 K，如果已经包含则直接返回；如果没有找到，则将元素插入容器。具体插入过程如下：
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/laEmibHFxFw69P7lqqnHgjoy7tABoPYAlMjOoNvcl8ANI4H1uUy2BqIF23FQ4JAIY8Rzzk99zPxy1m9rPVe2qfQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20220617180551382](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180551382.png)
 
 具体执行步骤
 
@@ -274,7 +278,7 @@ final TreeNode<K,V> putTreeVal(HashMap<K,V> map, Node<K,V>[] tab,
 
 ##### 3.3.1、jdk1.7 的扩容实现源码部分
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/laEmibHFxFw69P7lqqnHgjoy7tABoPYAlChFcb5yNicSDtIoNngvJVeeNK3yzwnxhYPkFPq9muuOPEDlFo3vpiaDQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20220617180605613](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180605613.png)
 
 源码部分
 
@@ -339,7 +343,7 @@ void transfer(Entry[] newTable) {
 
 ##### 3.3.2、jdk1.8 的扩容实现
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/laEmibHFxFw69P7lqqnHgjoy7tABoPYAlljHuRLWObdV6icypfMC1NouHV48JeWkJKajhSOrofLKADJnrXXARvGw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20220617180619926](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180619926.png)
 
 源码如下
 
@@ -599,7 +603,7 @@ jdk1.8 在进行重新扩容之后，会重新计算 hash 值，因为 n 变为 
 
 其实现如下流程图所示：
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/laEmibHFxFw69P7lqqnHgjoy7tABoPYAlGCUpM2ewrznU7GldFhPvPBQDDUO6zOz31zdia9hALBz4kokd3iccVDjg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20220617180710425](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180710425.png)
 
 可以看见，因为 hash 值本来就是随机性的，所以 hash 按位与上 newTable 得到的 0（扩容前的索引位置）和 1（扩容前索引位置加上扩容前数组长度的数值索引处）就是随机的，所以扩容的过程就能把之前哈希冲突的元素再随机的分布到不同的索引去，这算是 JDK1.8 的一个优化点。
 
@@ -611,7 +615,7 @@ jdk1.8 在进行重新扩容之后，会重新计算 hash 值，因为 n 变为 
 
 get(Object key)方法根据指定的 key 值返回对应的 value，`getNode(hash(key), key))`得到相应的 Node 对象 e，然后返回 e.value。因此 getNode()是算法的核心。
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/laEmibHFxFw69P7lqqnHgjoy7tABoPYAlf0uehr8iah9tbuBhZiawN2ZHLRKhtJbcrX1vRruBornA6G6p1XWXCTHA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20220617180725715](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180725715.png)
 
 get 方法源码部分：
 
@@ -705,7 +709,7 @@ get 方法，首先通过 hash()函数得到对应数组下标，然后依次判
 
 remove(Object key)的作用是删除 key 值对应的 Node，该方法的具体逻辑是在`removeNode(hash(key), key, null, false, true)`里实现的。
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/laEmibHFxFw69P7lqqnHgjoy7tABoPYAlb22Fo7hlP4QChtStbMaMZgbibF6Vqx9HAXNQZqwl2AHgbOLmb5O5VPg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20220617180748553](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617180748553.png)
 
 remove 方法，源码部分：
 
@@ -898,3 +902,11 @@ jdk1.8 的删除逻辑实现比较复杂，相比 jdk1.7 而言，多了红黑�
 3、简书 - JJDK 1.8 中 HashMap 扩容: *https://www.jianshu.com/p/bdfd5f98cc31* 
 
 4、Java HashMap 基础面试常见问题: *https://www.rabbitwfly.com/articles/2019/04/23/1556021848567.html*
+
+
+
+###  公众号
+
+如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
+
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220507200900.jpg)
