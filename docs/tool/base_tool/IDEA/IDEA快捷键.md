@@ -107,7 +107,7 @@ Alt+F10，定位到断点
 ### 5.重构
 
 Ctrl+Alt+Shift+T，弹出重构菜单
-Shift+F6，重命名
+Shift+F6，重命名 
 F6，移动
 F5，复制
 Alt+Delete，安全删除

@@ -4,6 +4,8 @@
 
 [IDEA插件推荐](https://blog.csdn.net/weixin_46285416/article/details/107853987)
 
+[Intellij IDEA 神级插件](https://mp.weixin.qq.com/s/AMCUUKP7ZTU2wIMiPUdhKw)
+
 插件安装方式：
 
 ![image-20220617182055339](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182055339.png)
