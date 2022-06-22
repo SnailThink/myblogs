@@ -17,6 +17,8 @@
 Java机自学教程，百度网盘地址送上：
 链接:https://pan.baidu.com/s/1tOyMq3sGa2-xuajGJJYwOQ 提取码:om0i 
 
+Java常见错误100例源码
+https://gitee.com/szc941106/java-common-mistakes.git
 
 ### 微笑很纯洁
 Java 知识总结手册
