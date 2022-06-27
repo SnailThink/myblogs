@@ -41,6 +41,7 @@
 
 ```sql
 =CONCATENATE("'",A1,"';,")
+=CONCATENATE("'",A1,"',")
 =CONCATENATE("#{item.",B1,"},")
 ```
 

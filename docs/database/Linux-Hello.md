@@ -24,8 +24,6 @@ echo '0000'>hello.txt
 
 ```
 
-
-
 ##### 删除文件
 
 ```sh
@@ -44,7 +42,6 @@ rm file1 file2 file3 //删除多个文件
 ##### 连接服务器
 ssh root@121.41.31.240
 
-##### 删除文件
 
 ##### tail 命令可用于查看文件的内容 
 
@@ -260,7 +257,6 @@ vimtutor//编辑文件
 ```
 
 
-
 #### 2.3 文件打包和压缩
 
 ```shell
@@ -304,6 +300,10 @@ du -h -d 1 ~
 du -h # 同 --human-readable 以 K，M，G 为单位，提高信息的可读性。
 du -a # 同 --all 显示目录中所有文件的大小。
 du -s # 同 --summarize 仅显示总计，只列出最后加总的值。
+
+
+du -h ljl.txt  --查看文件的大小
+
 ```
 
 
@@ -636,6 +636,52 @@ sz 下载选择文件名称
 28、esc+f //移动到当前单词的结尾
 
 ````
+
+
+##### 其他命令
+```c
+文件重命名
+rename 'test' 'aaa' test.txt
+
+文件复制到当前目录并重命名 ./ 表示单前目录
+cp temp.text ./temp4.text
+
+将文件复制到 2022log文件夹中
+cp temp.text /software/2022log/
+
+将文件移动到 2022log文件夹中
+mv temp2.text /software/2022log/
+
+
+```
+
+##### 常用查看日志
+
+```linux
+1.查询最近多少条日志：
+tail -n 100 default.log
+
+2.根据关键字查询日志：：
+cat -n default.log |grep '关键字'
+
+
+3.根据关键字查出后多少行的日志：：
+tail -n 100 file.log | grep "关键字"
+
+4.实时查看日志
+tail -f /logs/app_logs/default.log
+
+5.这个命令可以查找日志文件特定的一段 , 根据时间的一个范围查询，可以按照行号和时间范围查询
+
+按照行号
+sed -n '5,10p' default.log 这样你就可以只查看文件的第5行到第10行。
+按照时间段
+sed -n '/2022-06-17 16:17:20/,/2022-06-17 16:18:00/p' default.log
+
+```
+
+
+
 
 
 
