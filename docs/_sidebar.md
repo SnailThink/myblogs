@@ -2,7 +2,8 @@
   - 基础 
      - [Java基础](Java/Java基础.md)
      - [JavaStream](Java/Java8/JavaStream流还可以这样玩.md)
-
+     - [JVM](Java/JVM.md)
+     
   - 集合
      - [ArrayList](Java/数据结构/ArrayList.md)
      - [HashMap](Java/数据结构/HashMap.md)
