@@ -304,6 +304,10 @@ https://blog.csdn.net/frankcheng5143/article/details/50779149
 - K8s工具：Kubernetes
 - 彩虹颜色括号：Rainbow Brackets
 
+**MyIDEA plug-in**
+
+![image-20220629152217860](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220629152217860.png)
+
 ### 关注
 
 ![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
