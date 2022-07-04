@@ -442,3 +442,28 @@ WHERE
 	dept_no IN ( SELECT dept_no FROM snailthink.orm_dept GROUP BY dept_no HAVING count( dept_no ) > 1 )
 	
 ```
+
+### 2.12 SUBSTRING 截取数据
+```sql
+
+SELECT SUBSTRING('MySQL SUBSTRING',1,5);
+
+SELECT COUNT(*) FROM orm_booking where 
+SUBSTRING(delivery_no,1,4)='2019';
+```
+
+### 2.13 正则查询数据
+
+```sql
+-- 查找 person_name 字段中以'st'为开头的所有数据：
+SELECT person_name FROM person_tbl WHERE name REGEXP '^st';
+
+-- 查找 person_name 字段中以'ok'为结尾的所有数据：
+SELECT person_name FROM person_tbl WHERE name REGEXP 'ok$';
+
+-- 查找 person_name 字段中包含'mar'字符串的所有数据：
+ SELECT person_name FROM person_tbl WHERE name REGEXP 'mar';
+
+-- 查找 person_name 字段中以元音字符开头或以'ok'字符串结尾的所有数据：
+SELECT person_name FROM person_tbl WHERE name REGEXP '^[aeiou]|ok$';
+```

@@ -67,11 +67,14 @@
 
 ##  🏡  必备框架
 
-| Project | Version | Article                                                      |
-| :-----: | :-----: | :----------------------------------------------------------- |
-|   JPA   |         | [JPA详解](framework/JPA详解.md)          |                                                   |
-| MyBatis |         | [mybatis实战](framework/Mybatis实战.md)|
-|  Shiro  |         | [Shiro实战](framework/Shiro实战.md) |
+| Project | Version | Article                                 |
+| :-----: | :-----: | :-------------------------------------- |
+|   JPA   |         | [JPA详解](framework/JPA详解.md)         |
+| MyBatis |         | [mybatis实战](framework/Mybatis实战.md) |
+|  Shiro  |         | [Shiro实战](framework/Shiro实战.md)     |
+| base_project        |         | [Linux部署docker](framework/base_project/Linux部署docker.md)<br>[README](framework/base_project/README.md)|
+|         |         |                                         |
+|         |         |                                         |
 
 
 
@@ -176,6 +179,10 @@
 | B站Java视频资料学习 | [狂神笔记](面试/狂神笔记.md) </br>[B站Java视频资料](https://mp.weixin.qq.com/s/8rWtnXFNfAKK7Hdq735xBA) |
 | 微信公众号 | [文章导航](Web/WeChat/文章导航.md)</br>  |
 | 项目地址 | [项目地址](notes.md)</br>  |
+| 项目部署 | [Linux部署docker](framework/base_project/Linux部署docker.md)</br>  |
+
+
+
 
 
 
