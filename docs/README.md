@@ -18,8 +18,6 @@
 | :-----: | :-----: | :----------------------------------------------------------- |
 |   JVM   |         | [JVM](Java/JVM.md)                                                              |
 |  Java8  |         | [JavaStream](Java/Java8/JavaStream流还可以这样玩.md)<br/>    |
-|   JUC   |         |                                                              |
-|   NIO   |         |                                                              |
 |   基础  |         | [Java基础](Java/Java基础.md)                                 |
 |   多线程 |        | [Java多线程](./Java/多线程-Hello.md)</br> [多线程万字总结](./Java/多线程万字总结.md)                        |
 
@@ -38,7 +36,7 @@
 
 |      Project      | Version | Article                                                      |
 | :---------------: | :-----: | :----------------------------------------------------------- |
-|     **MySQL**     | 5.7.25  | 1、MySQL架构概述<br/>2、MySQL存储引擎<br/>3、[索引失效](database/使用索引时有些不生效的情况.md)<br/>4、事务<br/>5、表设计<br/>6、性能优化<br/>7、锁机制<br/>8、[分库分表](database/分库分表.md)<br/>9 、主从复制<br/>10 、[MySQL数据库](database/MySQL-Hello.md)<br/>11 、[编码规范](database/MySQL编码规范.md)<br/> |
+|     **MySQL**     | 5.7.25  | 1、MySQL架构概述<br/>2、MySQL存储引擎<br/>3、[索引失效](database/使用索引时有些不生效的情况.md)<br/>4、事务<br/>5、表设计<br/>6、性能优化<br/>7、锁机制<br/>8、[分库分表](database/分库分表.md)<br/>9 、主从复制<br/>10 、[MySQL数据库](database/MySQL/MySQL-Hello.md)<br/>11 、[编码规范](database/MySQL/MySQL编码规范.md)<br/> |
 |     **Redis**     |  5.0.6  | [Redis指南](Redis/Redis-Hello.md)                             |
 | **Elasticsearch** |         |                                                              |
 |      MongoDB      |         |                                                              |
@@ -73,9 +71,6 @@
 | MyBatis |         | [mybatis实战](framework/Mybatis实战.md) |
 |  Shiro  |         | [Shiro实战](framework/Shiro实战.md)     |
 | base_project        |         | [Linux部署docker](framework/base_project/Linux部署docker.md)<br>[README](framework/base_project/README.md)|
-|         |         |                                         |
-|         |         |                                         |
-
 
 
 ##  ✉️ Message Queue

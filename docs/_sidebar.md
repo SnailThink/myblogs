@@ -16,8 +16,8 @@
      - [官方文档](./Java/官方文档.md)
      
 - 数据库 
-  - [MySQL数据库](database/MySQL-Hello.md)
-  - [编码规范](database/MySQL编码规范.md)
+  - [MySQL数据库](database/MySQL/MySQL-Hello.md)
+  - [编码规范](database/MySQL/MySQL编码规范.md)
   - [索引失效](database/使用索引时有些不生效的情况.md)
     
 - Linux
