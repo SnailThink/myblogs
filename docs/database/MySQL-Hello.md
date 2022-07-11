@@ -387,6 +387,17 @@ TRUNCATE [TABLE] tbl_name
 ```
 
 
+#### 10.查看MySQL当前默认的存储引擎
+
+查看默认的存储引擎。
+```sql
+show variables like '%storage_engine%';
+```
+查看表的存储引擎
+```sql
+show table status like "table_name";
+```
+
 
 ### 三、 binlog恢复数据
 
