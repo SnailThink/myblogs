@@ -444,12 +444,6 @@ source  filename_binlog.sql;
 
 
 
-
-
-
-
-
-
 #### **2.查看Binlog是否开启**
 
 ![image-20210522111429209](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531111411.png)

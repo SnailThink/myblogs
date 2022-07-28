@@ -17,6 +17,9 @@ ALTER TABLE PushQuantityNumber ADD Remarks NVARCHAR(128) NOT NULL DEFAULT ('')
 alter table 表名 rename column A to B ;
 -- 修改字段默认值不为null
 alter table A_test alter column TEST1 decimal(18,5) not null 
+
+sp_rename 'EstimatedToArrivalUpload.CustomerRequirArrivTime','CustomerRequirArrivTime2','column'
+
 ```
 
 ### 3.修改字段类型
@@ -276,6 +279,26 @@ SELECT * FROM dbo.SapPushPODetail WHERE
 CustomerOrderNo LIKE '%cut'
 
 ```
+
+### 33.获取指定表的所有约束
+```sql
+SELECT  OBJECT_NAME(so.id) AS tableName ,
+        OBJECT_NAME(sc.constid)
+FROM    sysconstraints SC
+        INNER JOIN sysobjects SO ON sc.id = so.id
+WHERE   OBJECT_NAME(so.id) = 'TableName'
+```
+
+### 34.获取指定表指定列的默认值：
+```sql
+SELECT  SCOM.text AS value
+FROM    syscolumns SCOL
+        LEFT JOIN syscomments SCOM ON SCOL.cdefault = SCOM.id
+WHERE   SCOL.id = OBJECT_ID('TableName')
+        AND SCOL.name = 'ColumnName'
+```
+
+
 ### 时间格式转化
 
 ```sql
@@ -467,3 +490,16 @@ SELECT person_name FROM person_tbl WHERE name REGEXP 'ok$';
 -- 查找 person_name 字段中以元音字符开头或以'ok'字符串结尾的所有数据：
 SELECT person_name FROM person_tbl WHERE name REGEXP '^[aeiou]|ok$';
 ```
+### 2.14 索引相关
+
+
+### 2.15 字段处理
+
+```sql
+-- 添加字段
+alter table carrier add remark  varchar(64);
+-- 删除字段
+alter table carrier drop column remark;
+
+```
+
