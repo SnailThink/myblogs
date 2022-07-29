@@ -1,7 +1,7 @@
 
-## 四、JVM的组成 
+## JVM的组成 
 
-### 4.1 JVM入门
+### 1 JVM入门
 
 >参考视频：[B站JVM入门](https://www.bilibili.com/video/BV1iJ411d7jS)
 >
@@ -458,7 +458,7 @@ public static void main(String[] args) {
 
 ##### **查看新生代老年代内存空间**
 
-![image-20220627164735620](../AppData/Roaming/Typora/typora-user-images/image-20220627164735620.png)
+![image-20220728150243446](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220728150243446.png)
 
 再次验证：元空间并不在虚拟机中 (逻辑上存在，物理上不存在）
 
@@ -609,7 +609,7 @@ public class Demo03 {
 - 堆内存很好理解，可能有人会有疑问为什么会有栈内存，举个例子，好比学校有很多教室，每个教室有一个门牌号，教室内放了很多的桌椅等等，这个编号就好比地址，老师叫小明去一个教室拿东西，老师必须把房间号告诉小明才能拿到，也就是为什么地址必须存放在一个地方，而这个地方在计算机中就是栈内存。
 
 
-### 4.2. JVM面试
+### 2. JVM面试
 1. 请你谈谈你对JVM的理解?
 1. java8虚拟机和之前的变化更新?
 2. 什么是OOM，什么是栈溢出StackOverFlowError? 怎么分析?
