@@ -10,17 +10,11 @@
 
 > 文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
 
-
-
-### EasyExcel注解说明
-
-
+### 一、EasyExcel注解说明
 
 #### `@ExcelProperty`
 
 这是最常用的一个注解，注解中有三个参数`value`,`index`,`converter`分别代表列明，列序号，数据转换方式，`value`和`index`只能二选一，通常不用设置`converter`
-
-
 
 ```java
 public class ImeiEncrypt {
@@ -133,8 +127,6 @@ public class ImeiEncrypt {
 | ------- | ------------------------ |
 | `value` | 设置行高，-1代表自动行高 |
 
-
-
 #### `@HeadStyle`
 
 设置标题样式
@@ -170,6 +162,110 @@ public class ImeiEncrypt {
 #### `@ExcelIgnoreUnannotated`
 
 没有注解的字段都不转换
+
+### 二、SpringBoot集成EasyExcel
+
+#### 2.1 引入依赖
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-boot-learning</artifactId>
+        <groupId>com.whcoding</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>demo-easyexcel</artifactId>
+
+    <!--模块版本-->
+    <version>1.0.0-SNAPSHOT</version>
+    <!--打包方式-->
+    <packaging>jar</packaging>
+
+    <!--设置版本-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <swagger.version>2.9.2</swagger.version>
+        <fastjson.version>1.2.75</fastjson.version>
+    </properties>
+
+    <dependencies>
+        <!--springboot启动类-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--springboot 测试类-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--Hutool Java工具包-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <!--lombok依赖-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--EasyExcel相关依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>3.0.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <!--build 插件以及名称-->
+    <build>
+        <finalName>demo-easyexcel</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+```
+
+
+
+
 
 
 
