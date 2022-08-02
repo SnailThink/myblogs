@@ -10,7 +10,7 @@
 
 
 
-## 1.**数据库引擎不支持事务**
+## 1.数据库引擎不支持事务
 
 这里以 MySQL 为例，其 MyISAM 引擎是不支持事务操作的，InnoDB 才是支持事务的引擎，一般要支持事务都会使用 InnoDB。
 
@@ -22,7 +22,7 @@ MySQL 5.5.5 开始的默认存储引擎是：InnoDB，之前默认的都是：My
 
 
 
-## 2.**没有被 Spring 管理**
+## 2.没有被 Spring 管理
 
 如下所示：
 
@@ -39,7 +39,7 @@ public class DeptTransactionServiceImpl implements DeptService {
 
 如果把 @Service 注解注释掉，DeptTransactionServiceImpl类就不会被加载成一个 Bean。类就不会被 Spring 管理了，事务自然就失效了。
 
-## 3.**方法不是 public 的**
+## 3.方法不是 public 的
 
 以下来自 Spring 官方文档：
 
@@ -49,7 +49,7 @@ When using proxies, you should apply the @Transactional annotation only to metho
 
  @Transactional 只能用于 public 的方法上，否则事务不会失效，如果要用在非 public 方法上，可以开启 AspectJ 代理模式。
 
-## 4.**自身调用问题**
+## 4.自身调用问题
 
 **示例一如下**
 
@@ -99,7 +99,7 @@ public class DeptTransactionServiceImpl implements DeptService {
 
 
 
-## 5.**@Transactional的扩展配置不支持事务**
+## 5.@Transactional的扩展配置不支持事务
 
 `Propagation.NOT_SUPPORTED`：表示不以事务运行，当前若存在事务则挂起。这表示不支持以事务的方式运行，所以即使事务生效也是白搭！
 
@@ -151,8 +151,6 @@ public class ServiceA {
 }
 ```
 
-
-
 ```java
 @Service
 public class ServiceB {
@@ -166,7 +164,7 @@ public class ServiceB {
 
 我们将要事务分离出来的方法写在另一个service中，再次测试，发现执行完插入语句之后，数据库中就已经能查到数据了，说明事务分离了.
 
-## **6.异常被吃了**
+## 6.异常被吃了
 
 把异常吃了，然后又不抛出来，事务也不会回滚！
 
@@ -187,9 +185,7 @@ public class DeptTransactionServiceImpl implements DeptService {
 }
 ```
 
-## **7.异常类型错误**
-
-
+## 7.异常类型错误
 
 ```java
 @Service
@@ -216,8 +212,6 @@ public class DeptTransactionServiceImpl implements DeptService {
 ## 参考
 
 Spring事务失效：https://mp.weixin.qq.com/s/Yi0HK1DbAxv3N3Y-Drmqtw
-
-
 
 
 

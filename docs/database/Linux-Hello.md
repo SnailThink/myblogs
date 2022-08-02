@@ -4,16 +4,201 @@
 
 [实验楼Linux基础](https://www.lanqiao.cn/courses/1/learning/)
 
-**Linux 常用命令** 
-
-
+**Linux 常用命令**
 
 ![20201124175734](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174701.png)
 
-#### 常用命令
+### 1.常用命令
+
+#### 1.1 查找文件
 
 ```shell
-//输出字符串
+find / -name filename.txt  #根据名称查找/目录下的filename.txt文件。
+
+find . -name "*.xml" #递归查找所有的xml文件
+
+find . -name "*.xml" |xargs grep "hello world" #递归查找所有文件内容中包含hello world的xml文件
+
+grep -H 'spring' *.xml  #查找所以有的包含spring的xml文件
+
+find ./ -size 0 | xargs rm -f & #删除文件大小为零的文件
+
+ls -l | grep '.jar' #查找当前目录中的所有jar文件
+
+grep 'test' d* #显示所有以d开头的文件中包含test的行。
+
+grep 'test' aa bb cc #显示在aa，bb，cc文件中匹配test的行。
+
+grep '[a-z]\{5\}' aa #显示所有包含每个字符串至少有5个连续小写字符的字符串的行。
+
+ls -al  #查看文件，包含隐藏文件
+```
+
+#### 1.2 复制文件
+
+```shell
+cp source dest #复制文件
+
+cp -r sourceFolder targetFolder #递归复制整个文件夹
+
+scp sourecFile romoteUserName@remoteIp:remoteAddr #远程拷贝
+
+#文件复制到当前目录并重命名 ./ 表示单前目录
+cp temp.text ./temp4.text
+
+#将文件复制到 2022log文件夹中
+cp temp.text /software/2022log/
+
+```
+
+#### 1.3 删除文件
+
+```sh
+mkdir test 创建目录
+
+#删除文件
+rm test #删除文件
+
+rm-f test #删除文件没有提示信息
+
+rm-r test #删除目录要加-r
+
+rm-rf test #遇到权限不足删除不了的文件则加上-f
+
+rm file1 file2 file3 #删除多个文件
+
+sudo rm a.txt #使用管理员身份删除文件
+
+rmdir test #删除空目录
+```
+
+#### 1.4 移动文件重命名
+
+```sh
+#1.移动文件
+mv /temp/movefile /targetFolder
+#2.重命名
+mv oldNameFile newNameFile
+
+#文件重命名
+rename 'test' 'aaa' test.txt
+
+#将文件移动到 2022log文件夹中
+mv temp2.text /software/2022log/
+```
+
+#### 1.5 创建文件
+
+```shell
+#创建test目录
+mkdir test 
+
+#//创建2个文件 后缀为txt
+touch asd.txt fgh.txt 
+
+#//创建多个文件比如 test_1_linux.txt 
+#//test_2_linux.txt 
+touch test_{1..10}_linux.txt
+touch file{1..5}.txt
+#//.txt文件重命名.c 为后缀的文件
+rename 's/\.txt/\.c/' *.txt
+#//将.c改为.C
+rename 'y/a-z/A-Z/' *.txt
+
+#//文件中填写内容
+echo "AAA" > 文件名
+
+
+
+
+```
+
+#### 1.6 文件权限
+
+```sh
+# 修改文件权限
+chmod 777 file.java  # file.java 的权限-rwxrwxrwx，r表示读、w表示写、x表示可执行
+```
+
+#### 1.7 文件压缩/下载
+
+```sh
+#压缩文件
+tar -czf test.tar.gz /test1 /test2
+#列出压缩文件列表
+tar -tzf test.tar.gz
+#解压文件
+tar -xvzf test.tar.gz
+
+# 文件下载
+wget http://file.tgz
+curl http://file.tgz
+
+
+#1.打包文件
+zip -r -q -o test.zip /home/shiyanlou/Desktop
+
+#2.查看文件类型以及大小
+du -h test.zip
+
+#3.查看压缩包信息
+file test.zip
+
+# tar 打包工具
+#1.1 创建一个tar包
+tar -P -cf test.tar /home/shiyanlou/Desktop
+
+#1.2.解包一个文件
+mkdir tardir
+#将文件解压到tardir
+tar -xf shiyanlou.tar -C tardir
+#只查看不解压文件
+tar -tf shiyanlou.tar
+```
+
+
+
+#### 1.8 查看日志
+
+```sh
+# 1.查询最近多少条日志：
+tail -n 100 default.log
+
+# 2.根据关键字查询日志：：
+cat -n default.log |grep '关键字'
+
+# 3.根据关键字查出100行的日志：：
+tail -n 100 file.log | grep "关键字" # 文件头10行
+head -n 10 file.log | grep "关键字" # 文件尾10行
+
+#4.实时查看日志
+tail -f /logs/app_logs/default.log
+
+#5.这个命令可以查找日志文件特定的一段 , 根据时间的一个范围查询，可以按照行号和时间范围查询
+按照行号
+sed -n '5,10p' default.log 这样你就可以只查看文件的第5行到第10行。
+按照时间段
+sed -n '/2022-06-17 16:17:20/,/2022-06-17 16:18:00/p' default.log
+```
+
+#### 1.9 查看文件
+
+```sh
+cat -文件名 //查看文件
+
+cat -n 文件名 //添加行号
+
+tail /etc/passwd 
+
+tail -n /etc/passwd 
+
+vimtutor//编辑文件
+
+tail notes.log         # 默认显示最后 10 行
+tail -f notes.log  # 要跟踪名为 notes.log 的文件的增长情况
+
+
+#输出字符串
 echo "hello vincent"
 
 #创建文件并输入文本
@@ -21,119 +206,19 @@ echo 'hello world' >hello.txt
 
 #hello.txt中再追加内容
 echo '0000'>hello.txt
-
 ```
 
-##### 删除文件
-
-```sh
-#删除文件
-rm test //删除文件
-
-rm-f test //删除文件没有提示信息
-
-rm-r family //删除目录要加-r
-
-rm-rf family //遇到权限不足删除不了的文件则加上-f
-
-rm file1 file2 file3 //删除多个文件
-```
-
-##### 连接服务器
-ssh root@121.41.31.240
-
-
-##### tail 命令可用于查看文件的内容 
+#### 1.10 **创建/查看用户**
 
 ```shell
-tail notes.log         # 默认显示最后 10 行
-tail -f notes.log  # 要跟踪名为 notes.log 的文件的增长情况
-```
-
-
-
-##### touch 创建文件
-
-```shell
-
-//创建2个文件 后缀为txt
-touch asd.txt fgh.txt 
-
-//创建多个文件比如 test_1_linux.txt 
-//test_2_linux.txt 
-touch test_{1..10}_linux.txt
-touch file{1..5}.txt
-//.txt文件重命名.c 为后缀的文件
-rename 's/\.txt/\.c/' *.txt
-//将.c改为.C
-rename 'y/a-z/A-Z/' *.txt
-
-//文件中填写内容
-echo "AAA" > 文件名
-
-```
-
-
-
-##### ls 查找文件
-
-```shell
-//查找后缀为 .txt的文件
-ls *.txt 
-
-//创建文件夹
-touch [test]
-
-//查看文件权限
-ls -alh [文件名]
-
-//声明一个变量test
-declare test
-test=AAA//赋值
-echo $test //输出
-
-//创建shell文件
-touch hellow_shell.sh
-gedit hellow_shell.sh
-
-whereis who
-whereis find
-
-sudo find /etc/ -name 文件名
-find / -name '*.txt' -o -name '*.pdf'
-
-
-~ 退回到主页
-
-```
-
-##### find
-
-```shell
-find / -name file——/代表全文搜索
-```
-
-
-
-##### **who 查看用户**
-
-```shell
+# 查看用户
 who am i
-
-# 或者
-
 who mom like
-
 [root@iZbp11bb3m59delo5elu0zZ ~]# who am i
 root     pts/0        2020-11-16 19:36 (117.22.144.128)
 [root@iZbp11bb3m59delo5elu0zZ ~]# 
-```
 
 
-
-##### **创建用户**
-
-```shell
 //创建用户
 sudo adduser admin
 
@@ -156,142 +241,56 @@ sudo usermod -G sudo lilei
 exit 
 ```
 
+#### 1.11 进程
 
+```sh
+# 1.查看进程
+ps aux|grep java #查看java进程
+ps aux #查看所有进程
 
-##### 查看/etc/group 文件
+# 2.端口
+netstat -tln | grep 8080 #查看端口8080的使用情况
+lsof -i :8080 #查看端口属于哪个程序
 
-```shell
+#3.查看一个程序是否运行
+ps -ef|grep tomcat #查看所有有关tomcat的进程
+
+#4.终止线程
+kill -9 19979 #终止线程号位19979的进程
+```
+
+#### 1.13 其他
+
+```sh
+#1.以树状图列出目录的内容
+tree a
+
+# 2.查看文件当前路径
+pwd
+
+# 3.网络检测
+ping www.baidu.com
+
+#4.连接服务器远程登录
+ssh root@121.41.31.240
+
+#2.查看/etc/group 文件
 cat/etc/group | sort
 ```
 
-
-
-##### 修改文件权限
-
-```shell
-//1.创建文件
-sudo touch iphone11
-
-//查看文件权限
-ls -alh iphone
-
-//切换用户
-exit
-
-//进入用户目录
-cd /home/lilei
-ls iphone
-
-//修改文件权限为shiyanlou
-sudo chown shiyanlou iphone 11
-```
-
-
-
 ### 2.目录结构
-
-
-
-![20201119171414](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174652.png)
 
 #### 2.1 目录路径
 
-```shell
-//进入上一级目录
-cd ..
+![20201119171414](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174652.png)
 
-//进入home 目录
-cd ~
-
-#绝对路径
-cd /user/local/bin
-
-#相对路径
-cd ../../user/local/bin
-
-#创建目录
-mkdir mydir
-
-#复制文件
-//将test 文件复制到grandson文件中
-cp test father/son/grandson
-
-#复制目录
-//将father目录复制到family
-cp -r father family
-
-#删除文件
-rm test //删除文件
-
-rm-f test //删除文件没有提示信息
-
-rm-r family //删除目录要加-r
-
-rm-rf family //遇到权限不足删除不了的文件则加上-f
-
-rm file1 file2 file3 //删除多个文件
-
-# 移动文件
-mkdir test//创建test目录
-touch filetest //创建一个文件
-mv filetest test // 将filetest文件移动到test文件中
-
-#重命名
-mv filetest filetestNew
-```
-
-
-
-#### 2.2 查看文件
-
-```shell
-cat -文件名 //查看文件
-
-cat -n 文件名 //添加行号
-
-tail /etc/passwd 
-
-tail -n /etc/passwd 
-
-vimtutor//编辑文件
-```
-
-
-#### 2.3 文件打包和压缩
-
-```shell
-#1.打包文件
-zip -r -q -o test.zip /home/shiyanlou/Desktop
-
-#2.查看文件类型以及大小
-du -h test.zip
-
-#3.查看压缩包信息
-file test.zip
-
-
-# tar 打包工具
- #1.1 创建一个tar包
-tar -P -cf test.tar /home/shiyanlou/Desktop
-
- #1.2.解包一个文件
-mkdir tardir
-#将文件解压到tardir
-tar -xf shiyanlou.tar -C tardir
-#只查看不解压文件
-tar -tf shiyanlou.tar
-```
-
-
-
-#### 2.4 磁盘操作
+#### 2.2 磁盘操作
 
 ```shell
 # 默认同样以块的大小展示
 du
 # 加上 `-h` 参数，以更易读的方式展示
 du -h
-
 # 只查看 1 级目录的信息
 du -h -d 0 ~
 # 查看 2 级
@@ -300,15 +299,11 @@ du -h -d 1 ~
 du -h # 同 --human-readable 以 K，M，G 为单位，提高信息的可读性。
 du -a # 同 --all 显示目录中所有文件的大小。
 du -s # 同 --summarize 仅显示总计，只列出最后加总的值。
-
-
 du -h ljl.txt  --查看文件的大小
 
 ```
 
-
-
-#### 2.5 帮助命令
+#### 2.3 帮助命令
 
 ```shell
 # 得到这样的结果说明是内建命令，正如上文所说内建命令都是在 bash 源码中的 builtins 的.def中
@@ -319,9 +314,7 @@ xxx is /usr/bin/xxx
 xxx is an alias for xx --xxx
 ```
 
-
-
-#### 2.6 任务计划crontab
+#### 2.4 任务计划crontab
 
 ```shell
 # Example of job definition:
@@ -334,9 +327,7 @@ xxx is an alias for xx --xxx
 # *  *  *  *  * user-name command to be executed
 ```
 
-
-
- #### 2.7 备份日志
+ #### 2.5 备份日志
 
 ```shell
    sudo cron -f &
@@ -345,9 +336,7 @@ xxx is an alias for xx --xxx
    0 3 * * * sudo cp /var/log/alternatives.log /home/shiyanlou/tmp/$(date +\%Y-\%m-\%d)
 ```
 
-
-
-#### 2.8 命令执行顺序和管道
+#### 2.6 命令执行顺序和管道
 
 ```shell
 #grep 在文本中或者stdin中查找匹配的字符串
@@ -375,9 +364,7 @@ wc -L /etc/passwd
 ls -dl /etc/*/ | wc -l
 ```
 
-
-
-#### 2.9 排序
+#### 2.7 排序
 
 ```shell
 # 默认为字典排序
@@ -390,7 +377,7 @@ cat /etc/passwd | sort -r
 cat /etc/passwd | sort -t':' -k 3
 ```
 
-#### 2.10 去重
+#### 2.8 去重
 
 ```shell
 uniq 用于过滤或者输出重复行
@@ -398,12 +385,10 @@ uniq 用于过滤或者输出重复行
 history查看最近执行命令 实际为读取吃的是${SHELL}_history 文件
 history | cut -c 8- | cut -d ' ' -f 1 | uniq
 
-
 # 输出重复过的行（重复的只输出一个）及重复次数
 history | cut -c 8- | cut -d ' ' -f 1 | sort | uniq -dc
 # 输出所有重复的行
 history | cut -c 8- | cut -d ' ' -f 1 | sort | uniq -D
-
 ```
 
 ### 3.文本处理
@@ -424,11 +409,7 @@ $ echo 'input some text here' | tr '[:lower:]' '[:upper:]'
 
 ```
 
-
-
-#### 3.2 col 命令
-
-
+#### 3.2 cat命令
 
 ```shell
 # 查看 /etc/protocols 中的不可见字符，可以看到很多 ^I ，这其实就是 Tab 转义成可见字符的符号
@@ -436,8 +417,6 @@ cat -A /etc/protocols
 # 使用 col -x 将 /etc/protocols 中的 Tab 转换为空格，然后再使用 cat 查看，你发现 ^I 不见了
 cat /etc/protocols | col -x | cat -A
 ```
-
-
 
 #### 3.3 join 命令
 
@@ -457,7 +436,6 @@ sudo join -t':' -1 4 /etc/passwd -2 3 /etc/group
 
 ```shell
 paste 与join命令类型 将多个文件合并在一起 以为tab隔开
-
 echo hello > file1
 echo shiyanlou > file2
 echo www.shiyanlou.com > file3
@@ -473,11 +451,7 @@ echo 'www.shiyanlou.com' >> redirect
 cat redirect
 ```
 
-
-
 ### 4.软件安装
-
-
 
 | 工具           | 说明                                                         |
 | -------------- | ------------------------------------------------------------ |
@@ -491,8 +465,6 @@ cat redirect
 | `clean`        | 移除下载到本地的已经安装的软件包，默认保存在 `/var/cache/apt/archives/` |
 | `autoclean`    | 移除已安装的软件的旧版本软件包                               |
 
-
-
 下面是一些`apt-get`常用的参数：
 
 | 参数                 | 说明                                                         |
@@ -504,8 +476,6 @@ cat redirect
 | `-d`                 | 只下载不安装                                                 |
 | `--reinstall`        | 重新安装已经安装但可能存在问题的软件包                       |
 | `--install-suggests` | 同时安装 APT 给出的建议安装的软件包                          |
-
-
 
 **在线安装**
 
@@ -529,8 +499,6 @@ sudo apt-get remove w3m
 sudo apt-cache search softname1 softname2 softname3……
 ```
 
-
-
 **磁盘安装**
 
 ```sh
@@ -538,8 +506,6 @@ sudo apt-cache search softname1 softname2 softname3……
 # 使用dpkg安装
 sudo dpkg -i emacs24_24.5+1-6ubuntu1.1_amd64.deb
 ```
-
-
 
 ### 5.上传下载
 
@@ -552,9 +518,64 @@ rz 上传[选择文件名]
 sz 下载选择文件名称
 ```
 
+### 6.用户管理
 
+#### 6.1 添加用户
 
-### 6.快捷键
+```sh
+# 新增用户
+adduser 用户名
+
+# 设置用户密码
+passwd 用户名
+
+Changing password for user 用户名.
+
+# 在这里输入新密码
+New UNIX password:
+
+# 再次输入新密码
+Retype new UNIX password: 
+
+# 密码重新成功
+passwd: all authentication tokens updated successfully.
+```
+
+#### 6.2 添加管理员
+
+**方法一:**
+
+```sh
+#修改 /etc/sudoers 用户权限配置文件
+vi /etc/sudoers
+# 放开 wheel组内成员的所有命令行执行权限
+## Allows people in group wheel to run all commands
+%wheel  ALL=(ALL)       ALL
+```
+
+**方法二:直接将指定用户设为管理员(这中方式成功！已测试)**
+
+```sh
+# 修改/etc/sudoers
+vi /etc/sudoers
+# 新增：
+## Allow root to run any commands anywhere
+root    ALL=(ALL)       ALL
+enzo    ALL=(ALL)       ALL
+# 退出时，需要强制保存，因为该文件是只读的 
+编辑完后 按esc 后按住 shift+: 输入 wq表示保存并退出 。
+```
+
+#### 6.3 将用户加入至管理员组
+
+```sh
+# 使用usermod 修改用户归属组
+usermod -g root 用户名 (wheel即root组)
+# 查看指定用户组信息
+groups 用户名
+```
+
+### 7.快捷键
 
 |               |                                          |
 | ------------- | :--------------------------------------: |
@@ -638,49 +659,6 @@ sz 下载选择文件名称
 ````
 
 
-##### 其他命令
-```c
-文件重命名
-rename 'test' 'aaa' test.txt
-
-文件复制到当前目录并重命名 ./ 表示单前目录
-cp temp.text ./temp4.text
-
-将文件复制到 2022log文件夹中
-cp temp.text /software/2022log/
-
-将文件移动到 2022log文件夹中
-mv temp2.text /software/2022log/
-
-
-```
-
-##### 常用查看日志
-
-```linux
-1.查询最近多少条日志：
-tail -n 100 default.log
-
-2.根据关键字查询日志：：
-cat -n default.log |grep '关键字'
-
-
-3.根据关键字查出后多少行的日志：：
-tail -n 100 file.log | grep "关键字"
-
-4.实时查看日志
-tail -f /logs/app_logs/default.log
-
-5.这个命令可以查找日志文件特定的一段 , 根据时间的一个范围查询，可以按照行号和时间范围查询
-
-按照行号
-sed -n '5,10p' default.log 这样你就可以只查看文件的第5行到第10行。
-按照时间段
-sed -n '/2022-06-17 16:17:20/,/2022-06-17 16:18:00/p' default.log
-
-```
-
-
 
 
 
@@ -707,8 +685,6 @@ sodo apt-get install sysvbanner
 
 banner linux //输出linux
 ```
-
-
 
 ## 关注
 

@@ -26,7 +26,6 @@
 - Linux
   - [Linux-Hello](database/Linux-Hello.md)
   - [shell命令](database/shell命令.md)
-  - [Linux常用命令](database/Linux常用命令.md)
 
 - Spring框架
   - [Spring设计模式](spring/Spring-Design-Patterns.md)
