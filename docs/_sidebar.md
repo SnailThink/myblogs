@@ -5,7 +5,7 @@
      - [JVM](Java/JVM.md)
      
   - 集合
-     - [ArrayList](Java/数据结构/ArrayList.md)
+     - [Java集合知识梳理](Java/数据结构/Java集合知识梳理.md)
      - [HashMap](Java/数据结构/HashMap.md)
      - [源码解析](Java/数据结构/源码解析.md)
 
@@ -31,7 +31,7 @@
   - [Spring设计模式](spring/Spring-Design-Patterns.md)
   - [Spring总结](spring/Spring总结.md)
   - [Spring事务失效场景](spring/Spring事务失效场景.md)
-  - [初识spring框架](spring/(1)初识Spring框架.md)
+  - [(1)初识spring框架](spring/(1)初识Spring框架.md)
   - [依赖注入及示例](spring/(2)一文搞懂spring依赖注入DI.md)
   - [spring的条件化装配](spring/(3)你了解spring的高级装配吗_条件化装配bean.md)
 

@@ -2,7 +2,7 @@
 
 
 
-# 一 Java 集合
+# 一 Java集合知识梳理
 
 >作者:九灵
 >原文地址:https://juejin.im/post/5ef84184e51d45348424d810
@@ -489,7 +489,7 @@ ArrayList总体来说比较简单，不过ArrayList还有以下一些特点：
 
 
 
-![Vector 依赖关系](https://user-gold-cdn.xitu.io/2018/5/5/16330ecb7a653419?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![Vector 依赖关系](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220802150023128.png)
 
 
 

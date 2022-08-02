@@ -10,7 +10,7 @@ Stream API可以极大提高Java程序员的生产力，让程序员写出高效
 
 元素流在管道中经过中间操作（intermediate operation）的处理，最后由最终操作(terminal operation)得到前面处理的结果。
 
-## 什么是Stream？
+## 1.什么是Stream？
 
 Stream（流）是一个来自数据源的元素队列并支持聚合操作
 
@@ -23,7 +23,7 @@ Stream（流）是一个来自数据源的元素队列并支持聚合操作
 - **Pipelining**: 中间操作都会返回流对象本身。 这样多个操作可以串联成一个管道， 如同流式风格（fluent style）。 这样做可以对操作进行优化， 比如延迟执行(laziness)和短路( short-circuiting)。
 - **内部迭代**： 以前对集合遍历都是通过Iterator或者For-Each的方式, 显式的在集合外部进行迭代， 这叫做外部迭代。 Stream提供了内部迭代的方式， 通过访问者模式(Visitor)实现。
 
-## 生成流
+## 2.生成流
 
 在 Java 8 中, 集合接口有两个方法来生成流：
 
@@ -35,7 +35,7 @@ List<String> strings = Arrays.asList("AAA", "BBB", "CCC", "DDD");
 List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
 ```
 
-## 常用方法
+## 3.常用方法
 
 ### 1.filter(T->Boolean)
 
@@ -45,7 +45,6 @@ List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).col
 //筛选查询ID=20 的数据
 List<CustomerVO> customerVOList = getArrayList();
 List<CustomerVO> idList= customerVOList.stream().filter(customerVO -> customerVO.getId().equals(20)).collect(Collectors.toList());
-
 ```
 
 ### 2.distinct()
@@ -55,7 +54,6 @@ List<CustomerVO> idList= customerVOList.stream().filter(customerVO -> customerVO
 ```java
 //筛选ID大于0并且去重的数据
 List<CustomerVO> customerDistinctList =customerVOList.stream().filter(t->t.getId().compareTo(0)==1).distinct().collect(Collectors.toList());
-
 ```
 
 ### 3.map(T -> R)
@@ -162,7 +160,6 @@ list = customerVOList.stream()
 ```java
 //skip/limit 获取List中低n->m的数据 [获取id 2到10之间的数据]
 customerVOList.stream().sorted(Comparator.comparing(CustomerVO::getId).reversed()).skip(2).limit(10).collect(Collectors.toList());
-
 ```
 
 ### 11.sorted() / sorted((T, T) -> int)
@@ -204,17 +201,41 @@ private void getSendNOLambda(String sendNo,String receiveNo){
 ```java
 //转换为Map[获取ID大于0的发货方和收货方转换为Map]
 Map<String,String> stringMap=customerVOList.stream().filter(customerVO -> customerVO.getId()>0).collect(Collectors.toMap(CustomerVO::getSendNo,CustomerVO::getReceiveNo));
+
+
+Map<Long, String> collectMap = customerVOList.stream().collect(Collectors.toMap(OrmCustomerVO::getId, OrmCustomerVO::getCustomerName));
+		//方法一：
+		Map<Long, OrmCustomerVO> collectByID = customerVOList.stream().collect(Collectors.toMap(OrmCustomerVO::getId, t -> t));
+		//方法二：
+		Map<Long, OrmCustomerVO> collectByID2 = customerVOList.stream().collect(Collectors.toMap(OrmCustomerVO::getId, Function.identity()));
+		//方法三： 筛选指定对象
+		Map<Long, OrmCustomerVO> collectMap3 = customerVOList.stream().filter(cp -> StringUtils.isNotBlank(cp.getCustomerName())).
+				collect(Collectors.toMap(OrmCustomerVO::getId, ormUserVO -> {
+					Integer userType = ormUserVO.getCustomerType();
+					if (BaseConstant.DEFAULT_VALID_ONE.equals(userType)) {
+						ormUserVO.setId(10L);
+					}
+					return ormUserVO;
+				}, (t1, t2) -> t1));
+
+		//Map转为List
+		Map<Long, OrmCustomerVO> map = customerVOList.stream().collect(Collectors.toMap(OrmCustomerVO::getId, a -> a, (k1, k2) -> k1));
+		for (Map.Entry<Long, OrmCustomerVO> entry : map.entrySet()) {
+			Long key = entry.getKey();
+			System.out.println("map中的key是:" + key);
+			System.out.println("map中的value是:" + entry.getValue().toString());
+		}
 ```
 
 ### 14.toArray
 
 ```java
 //1.不带参数返回的是Object数组
-		Object[] receiveNoArray= customerVOList.stream().filter(cp->cp.getId()>0).map(CustomerVO::getReceiveNo).toArray();
+Object[] receiveNoArray= customerVOList.stream().filter(cp->cp.getId()>0).map(CustomerVO::getReceiveNo).toArray();
 
-		String[] receiveArray= customerVOList.stream().filter(cp->cp.getId()>0).map(CustomerVO::getReceiveNo).toArray(String[]::new);
+String[] receiveArray= customerVOList.stream().filter(cp->cp.getId()>0).map(CustomerVO::getReceiveNo).toArray(String[]::new);
 
-		CustomerVO[] customerVOArray= customerVOList.stream().filter(cp->cp.getId()>0).toArray(CustomerVO[]::new);
+CustomerVO[] customerVOArray= customerVOList.stream().filter(cp->cp.getId()>0).toArray(CustomerVO[]::new);
 ```
 
 ### 15. groupingBy 分组
@@ -223,14 +244,49 @@ Map<String,String> stringMap=customerVOList.stream().filter(customerVO -> custom
 
 ```java
 //其中返回的 Map 键为 Integer 类型，值为 Map<T, List> 类型，即参数中 groupBy(...) 返回的类型
-Map<Integer, List<CustomerVO>> map = list.stream().collect(groupingBy(CustomerVO::getId));
-```
-
-```
 // groupingBy(CustomerVO::getId) 等同于 groupingBy(CustomerVO::getId, toList())
+Map<Integer, List<CustomerVO>> map = list.stream().collect(groupingBy(CustomerVO::getId));
+
+// group By 单个字段
+Map<Long, List<OrmCustomerVO>> customerMap = customerVOList.stream().collect(Collectors.groupingBy(OrmCustomerVO::getId));
+
+//方法一： 遍历map
+for (Map.Entry<Long, List<OrmCustomerVO>> entry : customerMap.entrySet()) {
+	System.out.println("key：" + entry.getKey() + "value：" + entry.getValue());
+}
+//方法二： 遍历map
+customerMap.forEach((key, value) -> {
+	System.out.println("key：" + key + "value：" + value);
+	//2.遍历value
+	value.forEach(cp -> System.out.println(cp.getCustomerName()));
+});
+
+
+//group By 多个字段
+Map<String, Map<String, Map<Integer, List<OrmCustomerVO>>>> groupByMoreFiled
+		= customerVOList.stream().collect(
+		groupingBy(OrmCustomerVO::getCustomerNo,
+				groupingBy(OrmCustomerVO::getCustomerName,
+						groupingBy(OrmCustomerVO::getCustomerType)
+)));
+
+//方法一： 遍历多个字段
+for (Map.Entry<String, Map<String, List<OrmCustomerVO>>> entryMap : group2.entrySet()) {
+	String entryMapKey = entryMap.getKey();
+	Map<String, List<OrmCustomerVO>> entryMapValue = entryMap.getValue();
+
+	System.out.println("第一遍遍历获取key：" + entryMapKey + " value：" + entryMapValue);
+
+	for (Map.Entry<String, List<OrmCustomerVO>> map : entryMapValue.entrySet()) {
+		String mapKey = map.getKey();
+		System.out.println("第二遍遍历获取key：" + mapKey + " value：" + map.getValue());
+		List<OrmCustomerVO> mapValueList = map.getValue();
+		for (OrmCustomerVO ormCustomerVO : mapValueList) {
+			System.out.println("遍历List中的数据" + ormCustomerVO);
+		}
+	}
+}
 ```
-
-
 
 ### 16. 取最值
 
@@ -255,6 +311,7 @@ long listCount2 = customerVOList.stream().count();//推荐
 //2.summingInt ，summingLong ，summingDouble
 Integer sum = customerVOList.stream().collect(summingInt(CustomerVO::getMoney));
 Integer sum2 = customerVOList.stream().mapToInt(CustomerVO::getMoney).sum();
+BigDecimal sumBigDecimal = customerVOList.stream().map(OrmCustomerVO::getCustomerFund).reduce(BigDecimal.ZERO, BigDecimal::add);
 //3.averagingInt，averagingLong，averagingDouble
 Double average = customerVOList.stream().collect(averagingInt(CustomerVO::getMoney));
 OptionalDouble average2 = customerVOList.stream().mapToInt(CustomerVO::getAge).getMoney();
@@ -282,8 +339,6 @@ OptionalDouble average2 = customerVOList.stream().mapToInt(CustomerVO::getAge).g
 [Java 8系列之Stream的基本语法详解](https://blog.csdn.net/IO_Field/article/details/54971761?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase)
 
 [Java集合Stream类filter的使用](https://blog.csdn.net/qq_33829547/article/details/80279488?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase)
-
-
 
 ## 关注
 

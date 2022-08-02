@@ -25,7 +25,7 @@
 
 |  Project   | Article |
 | :--------: | :------ |
-| 数组与链表 |[HashMap](Java/数据结构/HashMap.md) </br> [ArrayList](Java/数据结构/ArrayList.md)</br>        |
+| 数组与链表 |[HashMap](Java/数据结构/HashMap.md) </br> [ArrayList](Java/数据结构/Java集合知识梳理.md)</br>        |
 | 堆、栈与队列  | [Java堆栈](Java/Java堆栈.md)         |
 |   树与图   |         |
 |   哈希表   |         |
