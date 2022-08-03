@@ -1,8 +1,11 @@
 ## validation 参数校验
 
-### 前言
+> 作者：知否派。<br/>
+> 文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
 
-之前我们验证前端查询的参数都是根据参数值进行判断，若参数不满足条件就进行抛出异常，
+## 前言
+
+之前我们验证前端查询的参数都是根据参数值进行判断，若参数不满足条件就进行抛出异常。其实可以更优雅的处理，下面只是简单的使用，主要是提供一个思路，比如捕获异常，全局异常处理。
 
 ### 1.Maven依赖
 
@@ -436,5 +439,193 @@ public class ValidationController {
 }
 ```
 
+### 8.捕获异常统一返回
 
+针对参数验证的异常需要进行捕获统一返回
+
+#### 1.GlobalExceptionHandler
+
+```java
+package com.whcoding.test.exception;
+
+import com.whcoding.test.constant.ResultStatusEnum;
+import com.whcoding.test.pojo.ResponseExceptionVO;
+import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.NoHandlerFoundException;
+
+import javax.validation.ConstraintViolationException;
+import javax.validation.ValidationException;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * @program: spring-boot-learning
+ * @description:统一异常 获取controller异常
+ * @author: whcoding
+ * @create: 2022-06-09 11:01
+ **/
+@ControllerAdvice
+public class GlobalExceptionHandler {
+	/**
+	 * 添加log信息
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+	/**
+	 * 全局处理 {@link org.springframework.web.bind.annotation.RequestParam} 和
+	 * {@link org.springframework.web.bind.annotation.PathVariable} 的校验异常
+	 *
+	 * @param e
+	 * @return
+	 */
+	@ExceptionHandler(ConstraintViolationException.class)
+	public ResponseExceptionVO handleConstraintViolationException(ConstraintViolationException e) {
+		logger.error(e.getMessage(), e);
+		return new ResponseExceptionVO(ResultStatusEnum.PARAM_FAIL_CODE.getCode(), ResultStatusEnum.PARAM_FAIL_CODE.getMsg());
+	}
+
+	/**
+	 * 全局处理 {@link org.springframework.web.bind.annotation.RequestBody} 的异常
+	 *
+	 * @param e
+	 * @return
+	 */
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseExceptionVO handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+		BindingResult bindingResult = e.getBindingResult();
+		List<String> messageList = bindingResult.getFieldErrors().stream()
+				.map(fieldError -> fieldError.getField() + ": " + fieldError.getDefaultMessage())
+				.collect(Collectors.toList());
+		String resultStr = String.join(", \n", messageList);
+		logger.error(resultStr + e.getMessage(), e);
+		return new ResponseExceptionVO(ResultStatusEnum.PARAM_FAIL_CODE.getCode(), e.getBindingResult().getFieldError().getDefaultMessage());
+	}
+
+
+	/**
+	 * 多个参数， 只对应这个 {@link com.xi.valid.controller.DemoController#doSomething(Demo, Foo)}
+	 *
+	 * @param e
+	 * @return
+	 */
+	@ExceptionHandler(BindException.class)
+	public ResponseExceptionVO handlerBindException(BindException e) {
+		List<String> messageList = e.getBindingResult().getAllErrors().stream()
+				.map(objectError -> objectError.getObjectName() + ": " + objectError.getDefaultMessage())
+				.collect(Collectors.toList());
+
+		String resultStr = String.join(", \n", messageList);
+		logger.error(resultStr + e.getMessage(), e);
+		return new ResponseExceptionVO(ResultStatusEnum.SYSTEM_ERROR.getCode(), ResultStatusEnum.SYSTEM_ERROR.getMsg());
+	}
+
+	/**
+	 * ValidationException
+	 */
+	@ExceptionHandler(ValidationException.class)
+	public ResponseExceptionVO handleValidationException(ValidationException e) {
+		logger.error(e.getMessage(), e);
+		return new ResponseExceptionVO(ResultStatusEnum.VALIDATION_CODE.getCode(), ResultStatusEnum.VALIDATION_CODE.getMsg());
+	}
+
+
+	@ExceptionHandler(NoHandlerFoundException.class)
+	public ResponseExceptionVO handlerNoFoundException(Exception e) {
+		logger.error(e.getMessage(), e);
+		return new ResponseExceptionVO(ResultStatusEnum.PATH_NOT_FOND.getCode(), "路径不存在，请检查路径是否正确");
+	}
+
+	@ExceptionHandler(DuplicateKeyException.class)
+	public ResponseExceptionVO handleDuplicateKeyException(DuplicateKeyException e) {
+		logger.error(e.getMessage(), e);
+		return new ResponseExceptionVO(ResultStatusEnum.DUPLICATE_KEY_CODE.getCode(), "数据重复，请检查后提交");
+	}
+
+	@ExceptionHandler(Exception.class)
+	public ResponseExceptionVO handleException(Exception e) {
+		logger.error(e.getMessage(), e);
+		return new ResponseExceptionVO(ResultStatusEnum.DUPLICATE_KEY_CODE.getCode(), "系统繁忙,请稍后再试");
+	}
+}
+```
+
+#### 2.参数异常统一返回处理
+
+```java
+package com.whcoding.test.constant;
+
+/**
+ * @program: spring-boot-learning
+ * @description:统一返回枚举
+ * @author: whcoding
+ * @create: 2022-08-01 15:10
+ **/
+public enum ResultStatusEnum {
+
+	DUPLICATE_KEY_CODE(1001, "数据重复"),
+	PARAM_FAIL_CODE(1002, "方法参数异常"),
+	VALIDATION_CODE(1003, "Validation异常"),
+	PATH_NOT_FOND(404, "路径未找到"),
+	SYSTEM_ERROR(500, "系统错误");
+
+	private Integer code;
+
+	private String msg;
+
+
+	public Integer getCode() {
+		return code;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	ResultStatusEnum(Integer code, String msg) {
+		this.code = code;
+		this.msg = msg;
+	}
+}
+```
+
+#### 3.返回异常的VO
+
+```java
+package com.whcoding.test.pojo;
+
+import lombok.Data;
+
+/**
+ * @program: spring-boot-learning
+ * @description:返回异常的VO
+ * @author: whcoding
+ * @create: 2022-08-01 15:18
+ **/
+@Data
+public class ResponseExceptionVO {
+
+	private Integer code;
+
+	private String msg;
+
+	/**
+	 * 全参构造函数
+	 *
+	 * @param code 状态码
+	 * @param msg  返回内容
+	 */
+	public ResponseExceptionVO(Integer code, String msg) {
+		this.code = code;
+		this.msg = msg;
+	}
+}
+```
 
