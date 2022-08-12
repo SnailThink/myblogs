@@ -112,8 +112,6 @@ select 重复字段A, 重复字段B, count(*) from 表 group by 重复字段A, �
 delete from table group by 重复字段 having count(重复字段) > 1
 ```
 
-
-
 ### 17.查询时间范围创建的表
 
 ```sql
@@ -176,9 +174,9 @@ END
 ```
 
 
-
 ### 20.表字段说明查询
-```sql 
+
+```sql
 SELECT 
 	t.[name] AS 表名,
 	c.[name] AS 字段名,
@@ -252,8 +250,6 @@ DISTINCT <8>
 ORDER BY <9>
 LIMIT <10>
 ```
-
-
 
 ### 31.存储过程创建、修改时间
 
