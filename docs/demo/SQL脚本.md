@@ -236,6 +236,12 @@ WHERE   obj.name = 'TableName'--表名
 ORDER BY col.colorder ;
 ```
 
+### 22.查看存储过程是否存在
+
+```sql
+select name,crdate from sysobjects where NAME = 'prSavePOInfoByPO' and type='P'
+```
+
 ### 30.SQL执行顺序
 
 ```sql
