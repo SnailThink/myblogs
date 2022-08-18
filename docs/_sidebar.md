@@ -9,7 +9,7 @@
      - [多线程万字总结](./Java/多线程万字总结.md)
 
   - 文档
-     - [官方文档](./Java/官方文档.md)
+     - [官方文档](awesome/官方文档.md)
      
 - 集合
    - [1.ArrayList解析](Java/数据结构/1.ArrayList解析.md)

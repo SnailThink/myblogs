@@ -1,13 +1,7 @@
-
-
-[TOC]
-
-
-
+## SpringBoot 集成JPA
 
 
 ### JPA进阶
-
 
 
 #### 1.JPA @Column 字段命名 默认驼峰转换
@@ -25,7 +19,6 @@ spring data jpa 使用的默认策略是 ImprovedNamingStrategy
 
 spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 ```
-
 
 
 #### 2.spring data jpa方法命名规则
