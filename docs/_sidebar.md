@@ -3,11 +3,6 @@
      - [Java基础](Java/Java基础.md)
      - [JavaStream](Java/Java8/JavaStream流还可以这样玩.md)
      - [JVM](Java/JVM.md)
-     
-  - 集合
-     - [Java集合知识梳理](Java/数据结构/Java集合知识梳理.md)
-     - [HashMap](Java/数据结构/HashMap.md)
-     - [源码解析](Java/数据结构/源码解析.md)
 
   - 多线程
      - [Java多线程](./Java/多线程-Hello.md)
@@ -15,6 +10,14 @@
 
   - 文档
      - [官方文档](./Java/官方文档.md)
+     
+- 集合
+   - [1.ArrayList解析](Java/数据结构/1.ArrayList解析.md)
+   - [2.LinkedList解析](Java/数据结构/2.LinkedList解析.md)     
+   - [3.HashMap解析](Java/数据结构/3.HashMap解析.md)
+   - [4.HashSet解析](Java/数据结构/4.HashSet解析.md)     
+   - [Java集合知识梳理](Java/数据结构/Java集合知识梳理.md)
+
      
 - 数据库 
   - [MySQL数据库](database/MySQL/MySQL-Hello.md)
