@@ -22,18 +22,17 @@
   - [索引失效](database/使用索引时有些不生效的情况.md)
   - [读写分离](database/分库分表.md)
   
-  
 - Linux
   - [Linux-Hello](database/Linux-Hello.md)
   - [shell命令](database/shell命令.md)
 
 - Spring框架
-  - [Spring设计模式](spring/Spring-Design-Patterns.md)
-  - [Spring总结](spring/Spring总结.md)
-  - [Spring事务失效场景](spring/Spring事务失效场景.md)
-  - [(1)初识spring框架](spring/(1)初识Spring框架.md)
-  - [依赖注入及示例](spring/(2)一文搞懂spring依赖注入DI.md)
-  - [spring的条件化装配](spring/(3)你了解spring的高级装配吗_条件化装配bean.md)
+  - [1.初识spring框架](spring/(1)初识Spring框架.md)
+  - [2.依赖注入及示例](spring/(2)一文搞懂spring依赖注入DI.md)
+  - [3.spring的条件化装配](spring/(3)你了解spring的高级装配吗_条件化装配bean.md)
+  - [4.Spring设计模式](spring/Spring-Design-Patterns.md)
+  - [5.Spring总结](spring/Spring总结.md)
+  - [6.Spring事务失效场景](spring/Spring事务失效场景.md)
 
 - SpringBoot
   - [SpringBoot基础](springboot/SpringBoot-Hello.md)
@@ -46,11 +45,16 @@
   - [SpringMvc技巧](springmvc/SpringMvc技巧.md)
 
 - SpringCloud
-  - [SpringCloud-Hello](springcloud/SpringCloud-Hello.md)
-  - [搭建SpringCloud项目](springcloud/搭建SpringCloud项目.md)
-  - [如何理解微服务](springcloud/如何理解微服务.md)
-  - [微服务组件](springcloud/Done/8.微服务组件总结.md)
-  
+  - [1.SpringCloud-Hello](springcloud/SpringCloud-Hello.md)
+  - [2.Rest环境搭建](springcloud/1.SpringCloud—Rest环境搭建.md)
+  - [3.Eureka服务注册中心](springcloud/2.SpringCloud—Eureka服务注册中心.md)
+  - [4.Ribbon负载均衡](springcloud/3.SpringCloud—Ribbon负载均衡.md)
+  - [5.Feign远程调用](springcloud/4.SpringCloud—Feign远程调用.md)
+  - [6.Hystrix断路器](springcloud/5.SpringCloud—Hystrix断路器.md)
+  - [7.Zuul路由网关](springcloud/6.SpringCloud—Zuul路由网关.md)
+  - [8.Geteway路由网关](springcloud/7.SpringCloud—Geteway路由网关.md)
+  - [9.微服务组件总结](springcloud/8.微服务组件总结.md)
+
 - 必备框架
   - [mybatis实战](framework/Mybatis实战.md)
   - [Shiro实战](framework/Shiro实战.md)
@@ -99,8 +103,8 @@
   - [Http状态码](network/Http状态码.md)
 
 - 设计模式
-  - [单例模式](desgin-pattern/Java面试必备：手写单例模式.md)
-  - [工厂模式](desgin-pattern/工厂模式超详解（代码示例）.md)
+  - [1.单例模式](desgin-pattern/Java面试必备：手写单例模式.md)
+  - [2.工厂模式](desgin-pattern/工厂模式超详解（代码示例）.md)
 
 - LeeCode
   - [leeCode](leeCode/LeeCode.md)
