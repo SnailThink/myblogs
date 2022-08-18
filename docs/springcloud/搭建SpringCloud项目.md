@@ -1,10 +1,6 @@
-## 搭建项目
-
-
+## 搭建SpringCloud项目
 
 ### 一.搭建Maven SpringCloud 总项目
-
-
 
 #### 1.新建一个项目
 
@@ -164,8 +160,6 @@
 
 ![image-20220530173524074](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173524.png)
 
-
-
 #### 2.选择maven构建
 
 ![image-20220530173507730](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173507.png)
@@ -176,9 +170,7 @@
 
 ![image-20220530173454665](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173454.png)
 
-
-
-#### 4.设计module 
+#### 4.构造springcloud-api模块
 
 ![image-20220530173431521](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173431.png)
 
@@ -191,8 +183,6 @@
 
 
 #### 7.修改pom引入父级springcloud模板的依赖
-
-
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -330,7 +320,6 @@ public class DeptVO implements Serializable {
 # 端口号为8008
 server:
   port: 8008
-
 ```
 
 ![image-20220530173325804](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530173325.png)
@@ -409,9 +398,7 @@ public class DeptController {
 	public String testRest(@PathVariable("id") Long id) {
 		return "RESTful风格"+id;
 	}
-
 }
-
 ```
 
 
@@ -436,7 +423,7 @@ public class DeptController {
 
 #### 3.部署项目到gitee
 
-```linux
+```shell
 cd spring-cloud
 git init
 touch README.md 
@@ -465,7 +452,7 @@ git remote add origin https://gitee.com/VincentBlog/spring-cloud.git
 
 #### 2.修改springcloud-eureka-7001 pom文件
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -563,6 +550,8 @@ eureka:
 ![image-20220530172945429](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172954.png)
 
 
+
+**添加springcloud-prodive-8001**
 
 ![image-20220530172929953](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530172930.png)
 
@@ -678,8 +667,6 @@ public class DeptProvider_8001 {
 }
 ```
 
-
-
 #### 5.添加yml文件
 
 ```yml
@@ -719,8 +706,6 @@ info:
   company.name: bolg.snailthink.com
   author: snailthink
 ```
-
-
 
 #### 6.添加Controller
 
@@ -817,8 +802,6 @@ public class DeptController {
 }
 
 ```
-
-
 
 #### 7.添加dao
 
@@ -966,7 +949,7 @@ public class DeptServiceImpl implements DeptService {
 
 #### 2.修改pom文件
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1066,8 +1049,6 @@ public class FeginDeptConsumer_9001 {
 ```
 
 #### 5.API模块添加Feign
-
-
 
 ##### 1.添加Feign依赖
 
@@ -1186,11 +1167,7 @@ public class DeptConsumerController {
 
 ```
 
-
-
 #### 7.服务调用测试
-
-
 
 [服务调用](http://localhost:9001/consumer/dept/get/1)
 
@@ -1207,8 +1184,6 @@ public class DeptConsumerController {
 - 首先需要启动Eureka-Server 注册中心
 - 将服务提供着provide-8001 注册到服务中心上
 - 服务消费者根据服务名称访问Eureka 获取到服务提供者进行远程调用。
-
-
 
 ### 七、Hystrix服务熔断
 
@@ -1353,7 +1328,7 @@ public class HystrixDeptProvider_6001 {
 
 #### 4.添加yml文件
 
-```java
+```yml
 server:
   port: 6001
 
@@ -1500,9 +1475,7 @@ public class DeptClientServerFallBackFactory implements FallbackFactory {
 
 ```
 
-**在Server中增加服务降级注解和工厂关联**
-
-
+**在Server中增加服务降级注解**
 
 ```java
 package com.snailthink.springcloud.server;
@@ -1546,14 +1519,13 @@ public interface DeptClientServer {
 	@GetMapping("dept/queryAllDept")
 	List<DeptVO> queryAllDept();
 }
-
 ```
 
 #### 2.dept-feign中开启服务降级
 
 **开启服务降级**
 
-```java
+```yml
 # 开启服务降级
 feign:
   hystrix:
@@ -1564,26 +1536,18 @@ feign:
 
 #### 3.启动服务
 
-```
-1.启动eurekaserve-7001
-2.启动服务端provide-dept-8001
-3.启动客户端consumer-dept-feign
-```
-
-
-
-
+> 1.启动eurekaserve-7001
+> 2.启动服务端provide-dept-8001
+> 3.启动客户端consumer-dept-feign
 
 ##  九、服务监控
 
 
 
-~~~java
+**1.添加引用**
 
-1.添加引用
-
-```java
-  <!--Hystrix依赖-->
+```xml
+  		<!--Hystrix依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
@@ -1597,16 +1561,16 @@ feign:
         </dependency>
 ```
 
+**2.主启动类增加如下**
 
-2.主启动类增加如下
-```java
+~~~java
+
 @SpringBootApplication
 @EnableEurekaClient //EnableEurekaClient 客户端的启动类，在服务启动后自动向注册中心注册服务
 public class DeptProvider_8001 {
     public static void main(String[] args) {
         SpringApplication.run(DeptProvider_8001.class,args);
     }
-
     //增加一个 Servlet
     @Bean
     public ServletRegistrationBean hystrixMetricsStreamServlet(){
@@ -1618,10 +1582,7 @@ public class DeptProvider_8001 {
     }
 }
 
-```
 ~~~
-
-
 
 **访问http://localhost:8008/hystrix**
 

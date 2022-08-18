@@ -86,7 +86,7 @@
 
 [如何理解微服务](springcloud/如何理解微服务.md)
 
-[微服务组件](springcloud/微服务组件.md)
+[微服务组件](springcloud/Done/8.微服务组件总结.md)
 
 ### 必备框架
 

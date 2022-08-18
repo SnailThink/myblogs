@@ -11,7 +11,7 @@
 ![image-20220419170303155](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220419170315.png)
 
 
-## 什么是Spring cloud
+## 一、什么是Spring cloud
 
 > 构建分布式系统不需要复杂和容易出错。Spring Cloud 为最常见的分布式系统模式提供了一种简单且易于接受的编程模型，帮助开发人员构建有弹性的、可靠的、协调的应用程序。Spring Cloud 构建于 Spring Boot 之上，使得开发者很容易入手并快速应用于生产中。
 
@@ -19,13 +19,13 @@
 
 我所理解的 `Spring Cloud` 就是微服务系统架构的一站式解决方案，在平时我们构建微服务的过程中需要做如 **服务发现注册** 、**配置中心** 、**消息总线** 、**负载均衡** 、**断路器** 、**数据监控** 等操作，而 Spring Cloud 为我们提供了一套简易的编程模型，使我们能在 Spring Boot 的基础上轻松地实现微服务项目的构建。
 
-## Spring Cloud 的版本
+## 二、Spring Cloud 的版本
 
 当然这个只是个题外话。
 
 `Spring Cloud` 的版本号并不是我们通常见的数字版本号，而是一些很奇怪的单词。这些单词均为英国伦敦地铁站的站名。同时根据字母表的顺序来对应版本时间顺序，比如：最早 的 `Release` 版本 `Angel`，第二个 `Release` 版本 `Brixton`（英国地名），然后是 `Camden`、 `Dalston`、`Edgware`、`Finchley`、`Greenwich`、`Hoxton`。
 
-## Spring Cloud 的服务发现框架——Eureka
+## 三、Spring Cloud 的服务发现框架——Eureka
 
 > `Eureka`是基于`REST`（代表性状态转移）的服务，主要在 `AWS` 云中用于定位服务，以实现负载均衡和中间层服务器的故障转移。我们称此服务为`Eureka`服务器。Eureka还带有一个基于 `Java` 的客户端组件 `Eureka Client`，它使与服务的交互变得更加容易。客户端还具有一个内置的负载平衡器，可以执行基本的循环负载平衡。在 `Netflix`，更复杂的负载均衡器将 `Eureka` 包装起来，以基于流量，资源使用，错误条件等多种因素提供加权负载均衡，以提供出色的弹性。
 
@@ -103,7 +103,7 @@
 
 更多关于 `Eureka` 的知识(自我保护，初始注册策略等等)可以自己去官网查看，或者查看我的另一篇文章 [深入理解 Eureka](<https://juejin.im/post/5dd497e3f265da0ba7718018>)。
 
-## 负载均衡之 Ribbon
+## 四、负载均衡之 Ribbon
 
 ### 什么是 `RestTemplate`?
 
@@ -176,7 +176,7 @@ providerName:
 
 当然，在 `Ribbon` 中你还可以**自定义负载均衡算法**，你只需要实现 `IRule` 接口，然后修改配置文件或者自定义 `Java Config` 类。
 
-## 什么是 Open Feign
+## 五、什么是Open Feign
 
 有了 `Eureka`  ，`RestTemplate` ，`Ribbon`，  我们就可以愉快地进行服务间的调用了，但是使用 `RestTemplate` 还是不方便，我们每次都要进行这样的调用。
 
@@ -229,7 +229,7 @@ public class TestController {
 }
 ```
 
-## 必不可少的 Hystrix
+## 六、Hystrix
 
 ### 什么是 Hystrix之熔断和降级
 
@@ -294,7 +294,7 @@ public News getHystrixNews(@PathVariable("id") int id) {
 
 具体其原理我推荐大家自己去了解一下，本篇文章中对 **舱壁模式** 不做过多解释。当然还有 **`Hystrix` 仪表盘**，它是**用来实时监控 `Hystrix` 的各项指标信息的**，这里我将这个问题也抛出去，希望有不了解的可以自己去搜索一下。
 
-## 微服务网关——Zuul
+## 七、微服务网关——Zuul
 
 > ZUUL 是从设备和 web 站点到 Netflix 流应用后端的所有请求的前门。作为边界服务应用，ZUUL 是为了实现动态路由、监视、弹性和安全性而构建的。它还具有根据情况将请求路由到多个 Amazon Auto Scaling Groups（亚马逊自动缩放组，亚马逊的一种云计算方式） 的能力
 
@@ -310,7 +310,7 @@ public News getHystrixNews(@PathVariable("id") int id) {
 
 > Router and Filter : Zuul
 
-### Zuul 的路由功能
+### 7.1 Zuul 的路由功能
 
 #### 简单配置
 
@@ -406,7 +406,7 @@ zuul:
 
 默认情况下，像 `Cookie`、`Set-Cookie` 等敏感请求头信息会被 `zuul` 屏蔽掉，我们可以将这些默认屏蔽去掉，当然，也可以添加要屏蔽的请求头。
 
-### Zuul 的过滤功能 
+### 7.2 Zuul 的过滤功能 
 
 如果说，路由功能是 `Zuul` 的基操的话，那么**过滤器**就是 `Zuul`的利器了。毕竟所有请求都经过网关(Zuul)，那么我们可以进行各种过滤，这样我们就能实现 **限流**，**灰度发布**，**权限控制** 等等。
 
@@ -562,7 +562,7 @@ public class RouteFilter extends ZuulFilter {
 
 这样我们就能将请求数量控制在一秒两个，有没有觉得很酷？
 
-### 关于 Zuul  的其他
+### 7.3关于 Zuul  的其他
 
 `Zuul` 的过滤器的功能肯定不止上面我所实现的两种，它还可以实现 **权限校验**，包括我上面提到的 **灰度发布** 等等。
 
@@ -570,7 +570,7 @@ public class RouteFilter extends ZuulFilter {
 
 ##Spring Cloud配置管理——Config
 
-### 为什么要使用进行配置管理？
+## 八、为什么要使用进行配置管理？
 
 当我们的微服务系统开始慢慢地庞大起来，那么多 `Consumer` 、`Provider` 、`Eureka Server` 、`Zuul` 系统都会持有自己的配置，这个时候我们在项目运行的时候可能需要更改某些应用的配置，如果我们不进行配置的统一管理，我们只能**去每个应用下一个一个寻找配置文件然后修改配置文件再重启应用**。
 
@@ -608,7 +608,7 @@ public class RouteFilter extends ZuulFilter {
 
 而一般我们会使用 `Bus` 消息总线 + `Spring Cloud Config` 进行配置的动态刷新。
 
-## 引出 Spring Cloud Bus
+## 九、Spring Cloud Bus
 
 > 用于将服务和服务实例与分布式消息系统链接在一起的事件总线。在集群中传播状态更改很有用（例如配置更改事件）。
 
@@ -619,7 +619,7 @@ public class RouteFilter extends ZuulFilter {
 <img src="https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/springcloud-bus-s213dsfsd.jpg" style="zoom:50%;" />
 
 
-## SpringCloud涉及的组件
+## 十、SpringCloud涉及的组件
 - Spring Cloud Netflix：核心组件，对多个Netflix OSS 开源套件进行整合。
 - Spring Cloud Alibaba：Alibaba提供的微服务开发的一站式解决方案。
 - Spring Cloud Config：配置管理工具。支持使用GIT、SVN、文件存储配置内容，可以使用它实现应用配置的外部化存储，并支持客户端配置信息刷新、加密/解密配置内容等。
