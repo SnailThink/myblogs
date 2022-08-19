@@ -39,7 +39,7 @@
 
 - SpringBoot
   - [SpringBoot基础](springboot/SpringBoot-Hello.md)
-  - [SpringBoo定时任务](springboot/Spingboot定时任务-Hello.md)
+  - [SpringBoo定时任务](springboot/learning/Spingboot定时任务-Hello.md)
   - [SpringBoot注解](springboot/SpringBoot注解-Hello.md)
   - [版本关系](springboot/Springboot_jdk_Maven版本.md)
   - [SpringBoot源码run方法](springboot/SpringBoot源码run方法.md)
@@ -93,11 +93,11 @@
      - [maven_setting](tool/base_tool/Maven/maven_setting.xml中文配置详解.md)
  
 - 基础工具
-  - [validation参数校验](springboot/Done/validation参数校验.md)
+  - [validation参数校验](springboot/learning/validation参数校验.md)
   - [HTool](demo/tool/HTool.md)
-  - [单元测试](springboot/Done/单元测试.md)
-  - [Java导出CSV](springboot/Done/Java导出CSV.md)
-  - [logback参数配置](springboot/Done/logback参数配置.md)
+  - [单元测试](springboot/learning/单元测试.md)
+  - [Java导出CSV](springboot/learning/Java导出CSV.md)
+  - [logback参数配置](springboot/learning/logback参数配置.md)
   - [常用工具说明](demo/temp/常用工具说明.md)
 
 
