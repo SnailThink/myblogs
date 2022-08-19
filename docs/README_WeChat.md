@@ -30,7 +30,7 @@
 | :---------------: | :-----: | :----------------------------------------------------------- |
 |     **MySQL**     | 5.7.25  | 1、MySQL架构概述<br/>2、MySQL存储引擎<br/>3、索引<br/>4、事务<br/>5、表设计<br/>6、性能优化<br/>7、锁机制<br/>8、分区分表分库<br/>9 、主从复制<br/>10 、[mysql基础](https://mp.weixin.qq.com/s/-3nlo-vTbK2-QTgI2tBvPQ)<br/>11 、[Sql调优](https://mp.weixin.qq.com/s/1Tf7uSnAwVnI9PmWOtH65g)<br/> |
 |     **Redis**     |  5.0.6  | [Redis-Hello](https://mp.weixin.qq.com/s/WIShAZFUyUiNFgJem356SQ) |
-| **Elasticsearch** |         | [elasticsearch](yuque/Java/elasticsearch.md)                                                             |
+| **Elasticsearch** |         | [elasticsearch](Web/yuque/Java/elasticsearch.md)                                                             |
 |   **Amazon S3**   |         |                                                              |
 |      MongoDB      |         |                                                              |
 |     Sqlserver     |         | [SqlServer基础](https://mp.weixin.qq.com/s/-p7Ni115nRRd3Q5AQ1O0dw) |
