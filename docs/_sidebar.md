@@ -16,7 +16,7 @@
    - [2.LinkedList解析](Java/数据结构/2.LinkedList解析.md)     
    - [3.HashMap解析](Java/数据结构/3.HashMap解析.md)
    - [4.HashSet解析](Java/数据结构/4.HashSet解析.md)     
-   - [Java集合知识梳理](Java/数据结构/Java集合知识梳理.md)
+   - [5.Vector解析](Java/数据结构/5.Vector解析.md)
 
      
 - 数据库 
@@ -57,10 +57,6 @@
   - [9.微服务组件总结](springcloud/8.微服务组件总结.md)
 
 - 必备框架
-  - [mybatis实战](framework/Mybatis实战.md)
-  - [Shiro实战](framework/Shiro实战.md)
-  - [JPA详解](framework/JPA详解.md)
-  - [pom文件详解](framework/pom文件详解.md)
 
 - Message Queue
   - [RabbitMQ](message_queue/RabbitMQ-Hello.md)
@@ -76,28 +72,22 @@
 
 - 工具
   - Git 
-    - [Git-Hello](tool/base_tool/Git/Git-Hello.md)
-    - [Git-基础](tool/base_tool/Git/Git-基础.md)
     - [Git命令清单](tool/base_tool/Git/Git常用命令清单.md)
-    - [Git命令清单](tool/base_tool/Git/Git常用命令清单.md)
+    - [Git-Hello-转](tool/base_tool/Git/Git-Hello.md)
+
     
   - IDEA
-     - [IDEA插件](tool/base_tool/IDEA/IDEA插件.md)
-     - [IDEA高级调试技巧](tool/base_tool/IDEA/IDEA高级调试技巧.md)
-     - [IDEA中使用Debug教程](tool/base_tool/IDEA/IDEA中使用Debug教程.md)
-     
+     - [1.IDEA插件](tool/base_tool/IDEA/IDEA插件.md)
+     - [2.IDEA技巧](tool/base_tool/IDEA/IDEA技巧.md)
+     - [3.IDEADebug](tool/base_tool/IDEA/IDEADebug.md)
+     - [4.IDEA快捷键](tool/base_tool/IDEA/IDEA快捷键.md)
+
   - Maven
      - [Maven-Hello](tool/base_tool/Maven/Maven-Hello.md)
-     - [maven_setting](tool/base_tool/Maven/maven_setting.xml中文配置详解.md)
+     - [Maven-Setting](tool/base_tool/Maven/maven_setting.xml中文配置详解.md)
  
 - 基础工具
-  - [validation参数校验](springboot/learning/validation参数校验.md)
   - [HTool](demo/tool/HTool.md)
-  - [单元测试](springboot/learning/单元测试.md)
-  - [Java导出CSV](springboot/learning/Java导出CSV.md)
-  - [logback参数配置](springboot/learning/logback参数配置.md)
-  - [常用工具说明](demo/temp/常用工具说明.md)
-
 
 - 网络
   - [Http和RPC](network/Http和RPC.md)

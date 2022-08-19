@@ -1,18 +1,56 @@
+## Git常用命令清单
+
+## Git流程
+
+![](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182854.png)
+git init 初始化git文件夹
+
+git add .  添加到暂存区
+
+git commit 添加到本地仓库
+
+git push 推送到远程仓库
+
+git pull 拉取远程仓库
+
+git clone 将远程仓库拉取到本地仓库
+
+git checkout 从本地仓库拉取到工作区
+
+git reset --hard 版本号 回滚版本
+
+
+
+
+
+**git仓库的三大区域：工作区、暂存区、版本区**
+
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182811.png)
+
+**git 工作流程**
+
+![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530182811.png)
+
+add 后文件存储在暂存区
+
+commit 后文件存储在版本库
+
+push 后文件存在在远程仓库
+
 ## 一. 专用名词的译名
 
 ```
 Workspace：工作区
-	Index / Stage：暂存区
-	Repository：仓库区（或本地仓库）
-	Remote：远程仓库
-
+Index / Stage：暂存区
+Repository：仓库区（或本地仓库）
+Remote：远程仓库
 ```
 
 ## 二. 常用命令
 
 ### 1.新建代码库
 
-```javascript
+```sh
 $ git init   	//在当前目录新建一个Git代码库
 $ git init [project-name]   //新建一个目录，将其初始化为Git代码库
 $ git clone [url]   //下载一个项目和它的整个代码历史
@@ -20,7 +58,7 @@ $ git clone [url]   //下载一个项目和它的整个代码历史
 
 ### 2.配置信息
 
-```git
+```sh
 # 显示当前的Git配置
 $ git config --list
 
@@ -94,7 +132,7 @@ $ git commit --amend [file1] [file2] ...
 
 ### 5.分支管理
 
-```
+```sh
 # 列出所有本地分支
 $ git branch
 
@@ -106,6 +144,18 @@ $ git branch -a
 
 # 新建一个分支，但依然停留在当前分支
 $ git branch [branch-name]
+
+#分支模糊查询
+$ git branch | grep 'branchName'
+
+#清理无效分支(远程已经删除本地没有删除的分支)
+$ git fetch -p
+
+# 查看分支下的文件
+$ git ls-files
+
+#切换到test分支
+$ git checkout master
 
 # 新建一个分支，并切换到该分支
 $ git checkout -b [branch]
@@ -134,6 +184,9 @@ $ git cherry-pick [commit]
 # 删除分支
 $ git branch -d [branch-name]
 
+#删除远程分支
+git push origin --delete [branchname]
+
 # 重命令本地分支
 $ git branch -m [old-branch-name] [new-branch-name] 
 
@@ -147,16 +200,26 @@ $ git branch --set-upstream  [new-branch-name]  origin/[new-branch-name] (绑定
 $ git push origin --delete [branch-name] //需要有删除权限
 $ git branch -dr [remote/branch]
 
+
+# eg:
+#切换到develop分支
+git checkout develop 
+git merge test   // 将test分支合并到当前分支
+
 ```
 
 ### 6.标签管理
 
-```
+```sh
 # 列出所有tag
 $ git tag
 
 # 新建一个tag在当前commit
 $ git tag [tag]
+
+# 历史版本增加 tag
+$ git tag v0.9 4ec76c9
+
 
 # 新建一个tag在指定commit
 $ git tag [tag] [commit]
@@ -183,7 +246,7 @@ $ git checkout -b [branch] [tag]
 
 ### 7.查看信息
 
-```
+```sh
 # 显示有变更的文件
 $ git status
 
@@ -252,7 +315,7 @@ $ git reflog //用git log 看不出来被删除的commitid，用git reflog则可
 
 ### 8.远程同步
 
-```
+```sh
 # 下载远程仓库的所有变动
 $ git fetch [remote]
 
@@ -277,11 +340,22 @@ $ git push [remote] --force
 # 推送所有分支到远程仓库
 $ git push [remote] --all
 
+
+#eg：
+#关联分支
+git remote add origin https://gitee.com/VincentBlog/testgit.git
+
+# 推送分支 推送到远端仓库
+git push origin https://gitee.com/VincentBlog/testgit.git
+
+# 拉取分支
+git clone https://gitee.com/VincentBlog/testgit.git
+
 ```
 
 ### 9.撤销
 
-```
+```sh
 # 恢复暂存区的指定文件到工作区
 $ git checkout [file]
 
@@ -316,9 +390,110 @@ $ git stash pop
 
 ```
 
-### 10.其他
+
+
+### 10.日志
+
+```sh
+# 查看commit 提交日志 包含 11的提交记录
+git log  --all  --grep='11'
+
+#查看提交记录
+git reflog 
+
+#显示全部的版本历史
+git log -3 //(查询最近3次的提交记录)
+
+# 查看指定文件的修改记录
+git blame filename
+```
+
+### 11. 初始化
+
+```sh
+# 配置SSH
+
+#查看用户名和邮箱是否配置
+git config --global  --list 
+
+#配置用户名以及邮箱
+git config --global  user.name "这里换上你的用户名"
+git config --global user.email "这里换上你的邮箱"
+
+#生成秘钥
+ssh-keygen -t rsa -C "这里换上你的邮箱"
+
+#在路径下找到 id_rsa.pub 配置到github 中
+C:\Users\Manager\.ssh
+
+
+# 初始化
+
+
+#新建仓库
+git init
+
+#add 添加到暂存区
+git add .
+
+#commit 添加到版本库
+git commit -m 'temp'
+
+#版本库关联
+git remote add origin https://gitee.com/VincentBlog/testgit.git
+
+#拉取远程分支
+git pull 
+
+#推送数据到远程
+git push origin https://gitee.com/VincentBlog/testgit.git
 
 ```
+
+
+
+### 12. 用户
+
+```sh
+# 查看用户名
+git config user.name 
+
+# 切换用户
+git config --global user.name "xxx" 
+
+#切换邮箱
+git config --global user.email "xxx"
+
+
+#修改用户名
+$ git config --global --replace-all user.name "要修改的用户名"
+
+#修改邮箱
+$ git config --global --replace-all user.email"要修改的邮箱"
+
+#修改密码
+$ git config --global --replace-all user.password "要修改的密码"
+
+#查看修改完后的用户名：
+
+$ git config user.name 
+
+#查看修改完后的邮箱：
+
+$ git config user.email
+
+#查看修改完后的密码：
+
+$ git config user.password
+```
+
+
+
+
+
+### 10.其他
+
+```sh
 # 生成一个可供发布的压缩包
 $ git archive
 ```
@@ -569,8 +744,6 @@ s fb28c8d fix: 第三次提交
 
 一般代码提交流程为：工作区 -> **git status** 查看状态 -> **git add .** 将所有修改加入暂存区-> **git commit -m “提交描述”** 将代码提交到 本地仓库 -> **git push** 将本地仓库代码更新到 远程仓库
 
-###### 场景1：工作区
-
 当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令**git checkout – file**。
 // 丢弃工作区的修改
 
@@ -601,9 +774,42 @@ git branch -a   //检查分支, 当前分支为该版本分支
 
 修改完之后, 再切回原来的分支, 提交代码, 再查看全部分支, 检出的版本分支已经不存在了, 都不用删除分支, 这样的方式是不是很爽
 
+#### 场景十一、回退
+
+```sh
+-- 1.版本库回退
+
+#创建一个文本并添加
+echo 'aaa111bbb'> temp.txt
+#添加文本信息[追加]
+echo '0000' >>temp.txt
+#查询差异
+git diff
+#提交代码
+git commit -m 'temp2'
+#回退到没有添加0000版本
+git reset --hard HEAD^  //回退一个版本（将版本退回上一个commit的状态）
+git reset --hard HEAD^^ //回退两个版本
+git reset --hard HEAD~100 //回退100个版本
+
+# 回退到指定版本
+git reset --hard 版本号
+# 查看版本号
+git log
 
 
 
+-- 2.git未add操作
+
+#由于未执行add操作则可以直接删除文件
+rm test
+git checkout  --filename
+
+-- 3. add后回退，没有commit
+#add添加到了暂存区 从暂存区中删除[暂存区可以直接删除]
+git reset HEAD filename
+git checkout --filename
+```
 
 ## 参考
 

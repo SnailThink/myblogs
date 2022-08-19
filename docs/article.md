@@ -134,7 +134,7 @@
 
 [IDEA高级调试技巧](tool/base_tool/IDEA/IDEA高级调试技巧.md)
 
-[IDEA中使用Debug教程](tool/base_tool/IDEA/IDEA中使用Debug教程.md)
+[IDEA中使用Debug教程](tool/base_tool/IDEA/IDEADebug.md)
 
 **Maven**
 

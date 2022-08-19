@@ -1,43 +1,16 @@
-
-> 原文地址: https://www.jianshu.com/p/228c20d37db5 
+## IDEA技巧
 
 ## 前言
 
 > 工欲善其事
 >
->  必先利其器
+> 必先利其器
+>
+> 原文地址: https://www.jianshu.com/p/228c20d37db5 
 
 最近受部门的邀请，给入职新人统一培训IDEA，发现有很多新人虽然日常开发使用的是IDEA，但是还是很多好用的技巧没有用到，只是用到一些基本的功能，蛮浪费IDEA这个优秀的IDE。 同时，在这次分享之后，本人自己也学习到了一些新的使用技巧，所以借着这次机会，一起分享出来。希望可以帮到一些人。
 
 > 基于的 IDEA 版本信息：IntelliJ IDEA 2018.2.2 (Ultimate Edition)
-
-知识点概览：
-
-- 高效率配置
-- 日常使用 必备快捷键（★★） 
-  - 查找
-  - 跳转切换
-  - 编码相关
-  - 代码阅读相关
-  - 版本管理相关
-- 编码效率相关（★★） 
-  - 文件代码模板
-  - 实时代码模板
-  - 其他
-- 代码调试 源码阅读相关（★★★） 
-  - 视图模式
-  - 代码调试
-  - ...
-- 插件方面 
-  - 插件的安装与使用
-  - 插件推荐
-- 参考
-
-------
-
-### 2019-08-09 UPDATE
-
-[插件推荐]增加图片描述，增加插件内容。阅读更友好。
 
 ------
 
@@ -309,133 +282,6 @@ IDEA 还可以在调试代码的时候，动态修改当前方法栈中变量的
 ![img](https:////upload-images.jianshu.io/upload_images/8514567-71e8c0b10b76f9b1.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 
-## 插件方面
-
-### 插件安装
-
-```
-File -> Setting -> Plugin
-```
-
-插件安装，可以直接在IDEA的插件库中实时搜索安装。`browse plugin repository`
-
-对于**网络不好**的用户，可以登录官方插件仓库地址：[https://plugins.jetbrains.com/idea](https://links.jianshu.com/go?to=https%3A%2F%2Fplugins.jetbrains.com%2Fidea)，下载压缩包之后，选择`install from disk`
-
-### 插件推荐
-
-本人日常开发中使用的插件推荐
-
-#### Alibaba Java Coding Guidelines
-
-阿里Java编程规约插件
-
-#### FindBugs
-
-代码缺陷扫描
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-2e790880bfb16772.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/797/format/webp)
-
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-0378f799e8a899b1.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
-
-
-#### PMD
-
-代码缺陷扫描
-
-#### InnerBuilder
-
-builder模式快速生成
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-eb497ae97f9717d3.png?imageMogr2/auto-orient/strip|imageView2/2/w/532/format/webp)
-
-
-#### lombok plugin
-
-lombok 插件
-
-#### maven helper
-
-maven 依赖管理助手 ，解析maven pom结构，分析冲突；
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-fecce84266ca590f.png?imageMogr2/auto-orient/strip|imageView2/2/w/585/format/webp)
-
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-ceb891f566c07f51.png?imageMogr2/auto-orient/strip|imageView2/2/w/620/format/webp)
-
-
-#### Rainbow brackets
-
-让代码中的括号更具标识性
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-dba5ad1ba3e97dc0.png?imageMogr2/auto-orient/strip|imageView2/2/w/1060/format/webp)
-
-
-#### String Manipulation
-
-String相关辅助简化，搭配 CTRL+W 、ALT+J等文本选择快捷键使用
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-5d448ff9b0c42067?imageMogr2/auto-orient/strip|imageView2/2/w/1108/format/webp)
-
-
-#### Translation
-
-翻译插件，阅读源码必备
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-312b716ee862ec63.png?imageMogr2/auto-orient/strip|imageView2/2/w/400/format/webp)
-
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-9988b032cfc162fe.png?imageMogr2/auto-orient/strip|imageView2/2/w/500/format/webp)
-
-
-#### GenerateAllSetter
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-2319658ade6ab006.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
-
-
-#### Key Promoter X
-
-对你的鼠标操作进行 快捷键提示
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-81a9a95f864edb42.png?imageMogr2/auto-orient/strip|imageView2/2/w/1034/format/webp)
-
-
-#### GenerateSerialVersionUID
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-f4cbc1fa2d2be65d?imageMogr2/auto-orient/strip|imageView2/2/w/1108/format/webp)
-
-
-#### GsonFormat
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-f2d4df6b3246b909.png?imageMogr2/auto-orient/strip|imageView2/2/w/819/format/webp)
-
-
-#### RestfulToolkit
-
-1. 快速跳转到Restful Api处( use: Ctrl(Command) + \ or Ctrl + Alt + N )
-2. 展示Resultful 接口结构
-3. http 简单请求工具
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-f40f4fb07ca86690.png?imageMogr2/auto-orient/strip|imageView2/2/w/717/format/webp)
-
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-5816501626985629.png?imageMogr2/auto-orient/strip|imageView2/2/w/415/format/webp)
-
-
-#### Material Theme UI
-
-本人自用的主题就是这个。
-
-![img](https:////upload-images.jianshu.io/upload_images/8514567-8f08d09fbadb75a8.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
-
-
-#### MyBatis Log Plugin
-
-把 Mybatis 输出的sql日志还原成完整的sql语句，看起来更直观。
-
-#### Free Mybatis
-
-MyBatis 免费的插件
 
 ## 参考
 

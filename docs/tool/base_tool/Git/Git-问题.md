@@ -131,9 +131,7 @@ Aborting
 
 
 
-#### 问题 
-
- Please make sure you have the correct access rights and the repository exists. this
+### 问题 Please make sure you have the correct access rights and the repository exists. this
 
 出现这样的问题是 ssh key  有问题了
 

@@ -1,18 +1,32 @@
 ## IntelliJ Idea 常用11款插件
 
-原文地址:https://blog.csdn.net/weixin_41846320/article/details/82697818
+> 原文地址:https://blog.csdn.net/weixin_41846320/article/details/82697818
+>
+> [IDEA插件推荐](https://blog.csdn.net/weixin_46285416/article/details/107853987)
+>
+> [Intellij IDEA 神级插件](https://mp.weixin.qq.com/s/AMCUUKP7ZTU2wIMiPUdhKw)
 
-[IDEA插件推荐](https://blog.csdn.net/weixin_46285416/article/details/107853987)
 
-[Intellij IDEA 神级插件](https://mp.weixin.qq.com/s/AMCUUKP7ZTU2wIMiPUdhKw)
+
+### 插件安装方式
+
+插件安装，可以直接在IDEA的插件库中实时搜索安装。`browse plugin repository`
+
+对于**网络不好**的用户，可以登录官方插件仓库地址：[https://plugins.jetbrains.com/idea](https://links.jianshu.com/go?to=https%3A%2F%2Fplugins.jetbrains.com%2Fidea)，下载压缩包之后，选择`install from disk`
+
+
 
 插件安装方式：
 
 ![image-20220617182055339](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182055339.png)
 
+
+
+### 基础插件
+
 新版本IDE安装方式略有不同，不一一赘述 
 
-**1、Background Image Plus**
+#### **1、Background Image Plus**
 
   这款插件并不能直接提高你的开发效率，但是可以让你面对的IDE不再单调，当把背景设置成你自己心仪的的图片，
 
@@ -32,7 +46,7 @@
 
 注意，如果是IDEA版本是2020.1版本以上就不需要再额外装这个插件，这个插件是已经内置安装了。
 
- **2、Mybatis Log Plugin**
+####  **2、Mybatis Log Plugin**
 
 Mybatis现在是java中操作数据库的首选，在开发的时候，我们都会把Mybatis的脚本直接输出在console中，
 
@@ -53,7 +67,7 @@ Tools -- >  Mybatis Log Plugin  打开其日志框，注意其转换的SQL不是
 
  
 
-**3、Grep Console**
+#### **3、Grep Console**
 
 由于Intellij idea不支持显示ascii颜色，grep-console插件能很好的解决这个问题， 可以设置不同级别log的字体颜色和背景色.
 
@@ -69,7 +83,7 @@ Tools -- >  Mybatis Log Plugin  打开其日志框，注意其转换的SQL不是
 
  
 
-**4、CodeGlance** 
+#### **4、CodeGlance** 
 
 CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，使用起来比拖动滚动条方便多了
 
@@ -79,7 +93,7 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 
 ![image-20220617182307423](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182307423.png)
 
-**5、GenerateAllSetter**
+#### **5、GenerateAllSetter**
 
 一款效率插件，它主要有以下功能： 
 
@@ -88,9 +102,9 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 - 当returnType为List Set Map时生成默认值
 - 在所有getter方法上生成对assertThat的调用
 
+![img](https:////upload-images.jianshu.io/upload_images/8514567-2319658ade6ab006.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
-
-**6、RestfulToolkit**
+#### **6、RestfulToolkit**
 
 一套 RESTful 服务开发辅助工具集。
 
@@ -108,7 +122,7 @@ CodeGlance是一款代码编辑区缩略图插件，可以快速定位代码，�
 
  
 
-**7、Maven Helper** 
+#### **7、Maven Helper** 
 
 分析依赖冲突插件
 
@@ -133,7 +147,7 @@ C![image-20220617182351903](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/im
 
  
 
-**8、JRebel**
+#### **8、JRebel**
 
 热部署插件，让你在修改完代码后，不用再重新启动，很实用！但是，不是免费的，需要大家发挥下聪明才智自行百度破解！
 
@@ -163,17 +177,18 @@ C![image-20220617182351903](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/im
 
 ![image-20220617182444655](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182444655.png)
 
-**9、 Json Parser**
+#### **9、 Json Parser**
 
 厌倦了打开浏览器格式化和验证JSON?为什么不安装JSON解析器并在IDE中使用离线支持呢?JSON解析器是一个用于验证和格式化JSON字符串的轻量级插件。
 
 ![image-20220617182453022](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182453022.png)
 
-**10、Translation**
+#### **10、Translation**
 
 中英文翻译工具，之所以要把它也单独列出来，是使用起来真的很方便，不用再和其他翻译工具之间来回切换了。
 
-**11、CamelCase**
+#### **11、CamelCase**
+
 大小写转换、驼峰式转换,下划线转驼峰、驼峰转下划线 快捷键[shift+alt+u]
 
 官方介绍的特点：
@@ -214,7 +229,7 @@ C![image-20220617182351903](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/im
 
 ![image-20220617182553925](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220617182553925.png)
 
-**11、aiXcode & codota**
+#### **12、aiXcode & codota**
 
 aiXcoder是一个强大的代码完成器和代码搜索引擎，基于最新的深度学习技术。 它有可能向您推荐一整套代码，这将帮助您更快地编写代码。 aiXcoder还提供了一个代码搜索引擎，以帮助您在GitHub上搜索API用例。
 
@@ -236,6 +251,12 @@ codota基于数百万个开源Java程序和您的上下文来完成代码行，�
 其实个人觉得IDEA自带的代码自动提示补全功能就已经非常智能好用，如果只是想使用这一功能，就没必要再装以上两款插件。
 
  
+
+
+
+#### 13.GenerateSerialVersionUID
+
+![img](https:////upload-images.jianshu.io/upload_images/8514567-f4cbc1fa2d2be65d?imageMogr2/auto-orient/strip|imageView2/2/w/1108/format/webp)
 
 ------
 
@@ -304,12 +325,11 @@ https://blog.csdn.net/frankcheng5143/article/details/50779149
 - K8s工具：Kubernetes
 - 彩虹颜色括号：Rainbow Brackets
 
-**MyIDEA plug-in**
+### 我的IDEA插件
 
 ![image-20220629152217860](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220629152217860.png)
 
-### 关注
+### 
 
-![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
 
-![](https://pic.downk.cc/item/5f5e3aae160a154a67a7b936.gif)
+
