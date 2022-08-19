@@ -2,11 +2,11 @@
   - 基础 
      - [Java基础](Java/Java基础.md)
      - [JavaStream](Java/Java8/JavaStream流还可以这样玩.md)
-     - [JVM](Java/JVM.md)
+     - [JVM](Java/JVM/JVM.md)
 
   - 多线程
-     - [Java多线程](./Java/多线程-Hello.md)
-     - [多线程万字总结](./Java/多线程万字总结.md)
+     - [Java多线程](Java/多线程/多线程-Hello.md)
+     - [多线程万字总结](Java/多线程/多线程万字总结.md)
 
   - 文档
      - [官方文档](awesome/官方文档.md)
@@ -93,11 +93,11 @@
      - [maven_setting](tool/base_tool/Maven/maven_setting.xml中文配置详解.md)
  
 - 基础工具
-  - [validation参数校验](demo/tool/validation参数校验.md)
+  - [validation参数校验](springboot/Done/validation参数校验.md)
   - [HTool](demo/tool/HTool.md)
-  - [单元测试](demo/tool/单元测试.md)
-  - [Java导出CSV](demo/tool/Java导出CSV.md)
-  - [logback参数配置](demo/tool/logback参数配置.md)
+  - [单元测试](springboot/Done/单元测试.md)
+  - [Java导出CSV](springboot/Done/Java导出CSV.md)
+  - [logback参数配置](springboot/Done/logback参数配置.md)
   - [常用工具说明](demo/temp/常用工具说明.md)
 
 
