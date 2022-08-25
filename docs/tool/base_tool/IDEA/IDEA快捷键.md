@@ -137,5 +137,28 @@ Alt+Delete，安全删除
 Ctrl+Alt+N，内联
 ```
 
+### 6.查看树形结构
+
+ALT+F12 输入tree
+
+![image-20220823100026207](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/image-20220823100026207.png)
+
+```
+├─demo-helloworld
+│  ├─src
+│  │  └─main
+│  │      ├─docker
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─whcoding
+│  │      │          └─helloworld
+│  │      │              └─controller
+│  │      └─resources
+│  │          └─static
+
+```
+
+
+
 
 
