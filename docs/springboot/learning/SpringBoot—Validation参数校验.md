@@ -1,7 +1,9 @@
-## validation 参数校验
+## SpringBoot—Validation参数校验
 
-> 作者：知否派。<br/>
-> 文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
+>作者：知否派
+>博客地址: [https://snailthink.github.io/myblogs](https://snailthink.github.io/myblogs)
+>项目地址：[spring-boot-learning](https://gitee.com/VincentBlog/spring-boot-learning.git)
+>文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
 
 ## 前言
 

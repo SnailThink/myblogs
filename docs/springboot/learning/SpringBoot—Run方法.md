@@ -1,11 +1,14 @@
-# Spring Boot启动源码之run方法
+## SpringBoot—run方法
 
-> 原文:https://blog.csdn.net/yuanchangliang/article/details/124290682
-
+>作者：知否派
+>博客地址: [https://snailthink.github.io/myblogs](https://snailthink.github.io/myblogs)
+>项目地址：[spring-boot-learning](https://gitee.com/VincentBlog/spring-boot-learning.git)
+>文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
 
 ### 前言
 
 > 我们知道，Spring boot其实功能上，和Spring是一样的，只不过Spring boot更加方便开发，所以Spring boot的启动源码，本质上是和Spring一样的，只不过相比较于Spring的启动关键方法refresh()，只是对Spring的bean管理核心方法#refresh()进行了一些封装，以及一些前置处理，及后置处理。
+> 原文:https://blog.csdn.net/yuanchangliang/article/details/124290682
 
 ### 1、run方法的大致流程概述
 

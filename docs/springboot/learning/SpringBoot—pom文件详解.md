@@ -1,4 +1,13 @@
-## pom文件详解
+## SpringBoot—pom详解
+
+>作者：知否派
+>博客地址: [https://snailthink.github.io/myblogs](https://snailthink.github.io/myblogs)
+>项目地址：[spring-boot-learning](https://gitee.com/VincentBlog/spring-boot-learning.git)
+>文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
+
+## 前言
+下面将向大家介绍pom文件中的详细信息
+
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0"     
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"     

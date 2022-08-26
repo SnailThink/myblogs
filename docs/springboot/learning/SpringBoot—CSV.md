@@ -1,14 +1,15 @@
+## SpringBoot—CSV
 
+>作者：知否派
+>博客地址: [https://snailthink.github.io/myblogs](https://snailthink.github.io/myblogs)
+>项目地址：[spring-boot-learning](https://gitee.com/VincentBlog/spring-boot-learning.git)
+>文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
 
-## Java导出CSV文件
-
-### 背景：
+## 前言：
 
 最近项目中需要导出CSV文件，之前一直都是导出Excel文件，在网上看了其他的导出好多都是写的不清楚的，
 
 借此总结下CSV文件的导出，CSV文件件的本质是导出以逗号为分隔的文本数据 。下面将详细介绍导出的流程
-
-
 
 ### 1.什么是CSV文件
 

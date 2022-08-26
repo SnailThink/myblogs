@@ -10,7 +10,7 @@ Stream API可以极大提高Java程序员的生产力，让程序员写出高效
 
 元素流在管道中经过中间操作（intermediate operation）的处理，最后由最终操作(terminal operation)得到前面处理的结果。
 
-## 1.什么是Stream？
+### 1.什么是Stream？
 
 Stream（流）是一个来自数据源的元素队列并支持聚合操作
 
@@ -23,7 +23,7 @@ Stream（流）是一个来自数据源的元素队列并支持聚合操作
 - **Pipelining**: 中间操作都会返回流对象本身。 这样多个操作可以串联成一个管道， 如同流式风格（fluent style）。 这样做可以对操作进行优化， 比如延迟执行(laziness)和短路( short-circuiting)。
 - **内部迭代**： 以前对集合遍历都是通过Iterator或者For-Each的方式, 显式的在集合外部进行迭代， 这叫做外部迭代。 Stream提供了内部迭代的方式， 通过访问者模式(Visitor)实现。
 
-## 2.生成流
+### 2.生成流
 
 在 Java 8 中, 集合接口有两个方法来生成流：
 
@@ -35,9 +35,9 @@ List<String> strings = Arrays.asList("AAA", "BBB", "CCC", "DDD");
 List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
 ```
 
-## 3.常用方法
+### 3.常用方法
 
-### 1.filter(T->Boolean)
+#### 1.filter(T->Boolean)
 
 筛选Boolean为true的数据
 
@@ -47,7 +47,7 @@ List<CustomerVO> customerVOList = getArrayList();
 List<CustomerVO> idList= customerVOList.stream().filter(customerVO -> customerVO.getId().equals(20)).collect(Collectors.toList());
 ```
 
-### 2.distinct()
+#### 2.distinct()
 
 去除重复元素，根据类的equals判断是否相同
 
@@ -56,7 +56,7 @@ List<CustomerVO> idList= customerVOList.stream().filter(customerVO -> customerVO
 List<CustomerVO> customerDistinctList =customerVOList.stream().filter(t->t.getId().compareTo(0)==1).distinct().collect(Collectors.toList());
 ```
 
-### 3.map(T -> R)
+#### 3.map(T -> R)
 
  将流中的每一个元素 T 映射为一个流，再把每一个流连接成为一个流 
 
@@ -68,7 +68,7 @@ List<String> receiveNoList2=customerVOList.stream().filter(customerVO -> custome
 
 ```
 
-###  4.anyMatch(T -> boolean)
+####  4.anyMatch(T -> boolean)
 
  流中是否有一个元素匹配给定的 `T -> boolean` 条件 
 
@@ -77,21 +77,21 @@ List<String> receiveNoList2=customerVOList.stream().filter(customerVO -> custome
 boolean resultBool= customerVOList.stream().allMatch(person -> person.getId() == 20);
 ```
 
-### 5.anyMatch(T -> boolean)
+#### 5.anyMatch(T -> boolean)
 
 ```java
 //customerVOList是否 CustomerVO 对象的 id 都等于 20：
 boolean resultBool= customerVOList.stream().allMatch(person -> person.getId() == 20);
 ```
 
-### 6. noneMatch(T -> boolean)
+#### 6. noneMatch(T -> boolean)
 
 ```java
 //customerVOList是否不存在 CustomerVO 对象的 id 等于 20：
 boolean resultBool= customerVOList.stream().noneMatch(person -> person.getId() == 20);
 ```
 
-### 7. findAny() 和 findFirst()
+#### 7. findAny() 和 findFirst()
 
 - findAny()：找到其中一个元素 （使用 stream() 时找到的是第一个元素；使用 parallelStream() 并行时找到的是其中一个元素）
 - findFirst()：找到第一个元素
@@ -111,7 +111,7 @@ Optional<CustomerVO> voOptional= customerVOList.stream().filter(cp->cp.getId().c
 		}
 ```
 
-### 8. flatMap(T -> Stream)
+#### 8. flatMap(T -> Stream)
 
  将流中的每一个元素 T 映射为一个流，再把每一个流连接成为一个流 
 
@@ -131,7 +131,7 @@ list = list.stream().map(s -> s.split(" ")).flatMap(Arrays::stream).collect(toLi
 上面例子中，我们的目的是把 List 中每个字符串元素以" "分割开，变成一个新的 List。
 首先 map 方法分割每个字符串元素，但此时流的类型为 Stream<String[ ]>，因为 split 方法返回的是 String[ ] 类型；所以我们需要使用 flatMap 方法，先使用Arrays::stream将每个 String[ ] 元素变成一个 Stream 流，然后 flatMap 会将每一个流连接成为一个流，最终返回我们需要的 Stream
 
-### 9. limit(long n)
+#### 9. limit(long n)
 
 返回前n个元素
 
@@ -142,7 +142,7 @@ list = customerVOList.stream()
             .collect(toList());
 ```
 
-### 10. skip(long n)
+#### 10. skip(long n)
 
 去除前n和元素
 
@@ -162,7 +162,7 @@ list = customerVOList.stream()
 customerVOList.stream().sorted(Comparator.comparing(CustomerVO::getId).reversed()).skip(2).limit(10).collect(Collectors.toList());
 ```
 
-### 11.sorted() / sorted((T, T) -> int)
+#### 11.sorted() / sorted((T, T) -> int)
 
 如果流中的元素的类实现了 Comparable 接口，即有自己的排序规则，那么可以直接调用 sorted() 方法对元素进行排序，如 Stream
 
@@ -182,7 +182,7 @@ list = customerVOList.stream()
            .collect(toList());
 ```
 
-### 12. forEach()
+#### 12. forEach()
 
 ```java
 //使用forEash调用方法
@@ -196,7 +196,7 @@ private void getSendNOLambda(String sendNo,String receiveNo){
 }
 ```
 
-### 13.Map
+#### 13.Map
 
 ```java
 //转换为Map[获取ID大于0的发货方和收货方转换为Map]
@@ -227,7 +227,7 @@ Map<Long, String> collectMap = customerVOList.stream().collect(Collectors.toMap(
 		}
 ```
 
-### 14.toArray
+#### 14.toArray
 
 ```java
 //1.不带参数返回的是Object数组
@@ -238,7 +238,7 @@ String[] receiveArray= customerVOList.stream().filter(cp->cp.getId()>0).map(Cust
 CustomerVO[] customerVOArray= customerVOList.stream().filter(cp->cp.getId()>0).toArray(CustomerVO[]::new);
 ```
 
-### 15. groupingBy 分组
+#### 15. groupingBy 分组
 
  groupingBy 用于将数据分组，最终返回一个 Map 类型 
 
@@ -288,7 +288,7 @@ for (Map.Entry<String, Map<String, List<OrmCustomerVO>>> entryMap : group2.entry
 }
 ```
 
-### 16. 取最值
+#### 16. 取最值
 
  maxBy，minBy 两个方法，需要一个 Comparator 接口作为参数 
 
@@ -301,7 +301,7 @@ Optional<CustomerVO> optiona2 = customerVOList.stream().collect(minBy(comparing(
 Optional<CustomerVO> optional = customerVOList.stream().max(comparing(CustomerVO::getId));
 ```
 
-### 17.汇总
+#### 17.汇总
 
 ```JAVA
 //1.计算总数

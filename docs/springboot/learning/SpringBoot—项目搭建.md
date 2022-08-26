@@ -1,10 +1,14 @@
 ## SpringBoot—项目搭建
 
+>作者：知否派
+>博客地址: [https://snailthink.github.io/myblogs](https://snailthink.github.io/myblogs)
+>项目地址：[spring-boot-learning](https://gitee.com/VincentBlog/spring-boot-learning.git)
+>文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
+
 ## 前言
 
 千里之行,始于足下，要用好SpringBoot项目我们首先要搭建SpringBoot项目不知道大家都是如何搭建的。下面我谈谈我是如何使用的
 
----
 
 `提示：以下是本篇文章正文内容，下面案例可供参考`
 

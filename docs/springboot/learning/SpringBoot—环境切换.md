@@ -1,5 +1,11 @@
 ## SpringBoot—环境切换
 
+>作者：知否派
+>博客地址: [https://snailthink.github.io/myblogs](https://snailthink.github.io/myblogs)
+>项目地址：[spring-boot-learning](https://gitee.com/VincentBlog/spring-boot-learning.git)
+>文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
+
+
 ## 前言
 
 在实际开发过程中，一般会有三个环境，本地环境，dev环境，prod环境，因为三个环境的配置都是不一样的我们应该如何实现呢？
