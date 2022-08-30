@@ -68,7 +68,6 @@ http://www.dxzy163.com/
 https://www.allhistory.com/
 
 斗图
-https://www.doutula.com/maker
 http://www.dbbqb.com/
 
 渣男说话的艺术
@@ -104,8 +103,6 @@ https://calendar.xmt.cn/
 ImgURL 是一个简单、纯粹的图床程序，让个人图床多一个选择 
 https://github.com/helloxz/imgurl
 
-运营工具
-http://yunyinggo.cn/
 
 Windows上优质&精选的最佳应用程序及工具列表
 https://github.com/Awesome-Windows/Awesome/blob/master/README-cn.md
@@ -126,8 +123,6 @@ http://www.yisell.com/
 在线海报设计工具
 https://www.arkie.cn/welcome
 
-kindle电子书免费下载
-http://www.xkreading.com/
 
 毒鸡汤
 http://www.nows.fun/
@@ -173,7 +168,6 @@ http://www.atoolbox.net/
 https://www.toolnb.com/
 http://tool.mkblog.cn/
 https://www.wdku.net/
-https://u.tools/
 
 自动生成二次元妹子
 https://make.girls.moe/

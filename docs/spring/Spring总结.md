@@ -8,8 +8,6 @@
 
 ## Spring
 
-
-
 ### 1.控制反转(IoC)和依赖注入(DI)
 
 **IoC(Inversion of Control,控制反转)** 是Spring 中一个非常非常重要的概念，它不是什么技术，而是一种解耦的设计思想。它的主要目的是借助于“第三方”(Spring 中的 IOC 容器) 实现具有依赖关系的对象之间的解耦(IOC容器管理对象，你只管使用即可)，从而降低代码之间的耦合度。**IOC 是一个原则，而不是一个模式，以下模式（但不限于）实现了IoC原则。**
@@ -73,8 +71,6 @@
 ### 8.Spring AOP和AspectJ AOP区别
 
 ![image-20220519161558012](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220519161558.png)
-
-
 
 ### 9.事务传播机制
 

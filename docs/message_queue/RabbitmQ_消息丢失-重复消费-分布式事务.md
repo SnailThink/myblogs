@@ -5,7 +5,6 @@
 ### 一、首先看一下RabbitMQ为什么不可靠
 
 
-
 RabbitMQ丢失的以下3种情况：
 
 ![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531093820.png)
@@ -361,14 +360,9 @@ spring:
 >查询消息队列消息 [当消息队列有一个失败 进行回滚事务] 订单和库存都要进行回滚事务
 
 
-
 ### 六、流程图
 
-
-
 ![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531094030.png)
-
-
 
 ###  参考地址
 

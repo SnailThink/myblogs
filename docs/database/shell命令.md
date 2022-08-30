@@ -1,5 +1,9 @@
 ## 23个非常实用的 Shell 拿来就用脚本实例
 
+>转载:</br>
+>作者：地球的外星人君 </br>
+>地址: [https://zhuanlan.zhihu.com/p/361002716?utm_medium=social&utm_oi=643096634247090176](https://zhuanlan.zhihu.com/p/361002716?utm_medium=social&utm_oi=643096634247090176)
+
 ### 1.检测两台服务器指定目录下的文件一致性
 
 ```shell

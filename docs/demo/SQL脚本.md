@@ -505,3 +505,24 @@ alter table carrier drop column remark;
 
 ```
 
+### 2.16 脱敏设置
+```sql
+-- 查询电话号码
+SELECT
+	phone AS 脱敏前电话号码,
+	CONCAT( LEFT( phone, 3 ), '****', RIGHT ( phone, 4 ) ) AS 脱敏后电话号码 
+FROM
+	user_test
+
+-- 查询身份证号
+SELECT
+	idcard AS 未脱敏身份证,
+	CONCAT( LEFT ( idcard, 3 ), '****', RIGHT ( idcard, 4 ) ) AS 脱敏后身份证号 
+FROM
+	user_test
+```
+
+
+	
+	
+

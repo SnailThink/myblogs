@@ -22,7 +22,6 @@
 - 数据库 
   - [MySQL数据库](database/MySQL/MySQL-Hello.md)
   - [编码规范](database/MySQL/MySQL编码规范.md)
-  - [索引失效](database/使用索引时有些不生效的情况.md)
   - [读写分离](database/分库分表.md)
   
 - Linux
@@ -35,7 +34,7 @@
   - [3.spring的条件化装配](spring/(3)你了解spring的高级装配吗_条件化装配bean.md)
   - [4.Spring设计模式](spring/Spring-Design-Patterns.md)
   - [5.Spring总结](spring/Spring总结.md)
-  - [6.Spring事务失效场景](spring/Spring事务失效场景.md)
+  - [6.Spring事务](spring/Spring事务.md)
 
 - SpringBoot
   - [SpringBoot基础](springboot/SpringBoot-Hello.md)

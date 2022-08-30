@@ -1,6 +1,9 @@
 
+## 实验楼复盘
 
-### 实验楼复盘
+>作者：知否派 </br>
+>博客地址: [https://snailthink.github.io/myblogs](https://snailthink.github.io/myblogs)</br>
+>文章所涉及的资料来自互联网整理和个人总结，意在于个人学习和经验汇总，如有什么地方侵权，请联系本人删除，谢谢！
 
 [实验楼Linux基础](https://www.lanqiao.cn/courses/1/learning/)
 
@@ -54,7 +57,7 @@ cp temp.text /software/2022log/
 #### 1.3 删除文件
 
 ```sh
-mkdir test 创建目录
+mkdir test #创建目录
 
 #删除文件
 rm test #删除文件
@@ -107,10 +110,6 @@ rename 'y/a-z/A-Z/' *.txt
 
 #//文件中填写内容
 echo "AAA" > 文件名
-
-
-
-
 ```
 
 #### 1.6 文件权限
@@ -332,7 +331,7 @@ xxx is an alias for xx --xxx
 ```shell
    sudo cron -f &
    crontab -e # 添加
-   0 3 * * * sudo rm /home/shiyanlou/tmp/*
+   0 3 * * * sudo rm /home/shiyanlou/tmp/* #凌晨3点执行备份
    0 3 * * * sudo cp /var/log/alternatives.log /home/shiyanlou/tmp/$(date +\%Y-\%m-\%d)
 ```
 

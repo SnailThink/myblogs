@@ -1,6 +1,12 @@
 
 ## 消息队列基础
 
+
+>转载:</br>
+>作者：开着奥迪卖小猪 </br>
+>地址: [https://blog.csdn.net/kzadmxz/article/details/99359067](https://blog.csdn.net/kzadmxz/article/details/99359067)
+
+
 ![img](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092413.jpeg)
 
 ## 1、为什么要使用消息队列？  
@@ -182,16 +188,8 @@ System.out.println("ack: deliveryTag = "+deliveryTag+" multiple: "+multiple);
 
  如果是大数据领域的实时计算、日志采集等场景，用Kafka是业内标准的，绝对没问题，社区活跃度很高，绝对不会黄，何况几乎是全世界这个领域的事实性规范。
 
-
-
-作者：开着奥迪卖小猪
-
-原文地址:https://blog.csdn.net/kzadmxz/article/details/99359067
-
 ### 关注
 
 ![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092832.jpeg)
-
-
 
 ![](https://pic.downk.cc/item/5f5e3aae160a154a67a7b936.gif)

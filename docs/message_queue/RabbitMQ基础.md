@@ -10,7 +10,6 @@ RabbitMQ是一个由erlang语言编写的、开源的、在AMQP基础上完整�
 (2)AMQP：advanced message queuing protocol ，一个提供统一消息服务的应用层标准高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息并不受客户端/中间件不同产品、不同开发语言等条件的限制。
 
 
-
 ### 二、RabbitMQ的核心概念
 生产者（Producer）：发送消息的应用。
 
@@ -226,5 +225,4 @@ Federation Exchanges,可以看成Downstream从Upstream主动拉取消息，但�
 因此，FederationExchange只接收具有订阅的消息。
 
 ### 参考
-
 [RabbitMq介绍](https://blog.csdn.net/github_37130188/article/details/115289346)
