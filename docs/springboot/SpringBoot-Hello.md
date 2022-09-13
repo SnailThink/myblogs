@@ -1148,8 +1148,6 @@ slf4j+log4j的方式；
 
 一层一层的剥开SpringBoot到ResourceProperties，可以看到加载resource的路径顺序，以及属性的一些操作链（SpringBoot1.xx的版本是继承了ResourceLoaderAware，2.xx和1.xx的变化还挺大饿）。
 
-![resource-properties.png](http://ww1.sinaimg.cn/large/9b9f09a9ly1ga0vgp4jfuj213f0jcn4z.jpg)
-
 - 所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；
 
   [webjars](http://www.webjars.org/)：以jar包的方式引入静态资源； 
