@@ -523,6 +523,19 @@ FROM
 ```
 
 
+### 2.17  分页查询优化
+
+```sql
+
+select * from orm_dept limit 0,2;
+
+
+select * from orm_dept where id>=(
+select id from orm_dept order by id limit 
+4,1
+)
+order by id limit 2
+```
 	
 	
 
