@@ -536,6 +536,19 @@ select id from orm_dept order by id limit
 )
 order by id limit 2
 ```
+
+
+### 2.18 MySQL 查询结果转为JSON格式
+
+```sql
+SELECT
+	CONCAT( '[', GROUP_CONCAT( JSON_OBJECT( 'id', id, 'userName', user_name, 'userCode', user_code, 'password', `password` ) ), ']' ) AS `josnStr` 
+FROM
+	orm_user 
+WHERE
+	id = 1
+
+``` 
 	
 	
 
