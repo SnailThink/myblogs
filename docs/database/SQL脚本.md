@@ -503,6 +503,10 @@ alter table carrier add remark  varchar(64);
 -- 删除字段
 alter table carrier drop column remark;
 
+-- 添加默认值字段
+alter table `carrier` add column `deal_status` INT not null DEFAULT 0;
+alter table `carrier` add column `boxno` varchar(20) not null DEFAULT '';
+alter table `carrier` add column `deal_status2` tinyint(3) not null DEFAULT 0;
 ```
 
 ### 2.16 脱敏设置
