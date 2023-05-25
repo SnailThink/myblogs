@@ -545,6 +545,8 @@ order by id limit 2
 ### 2.18 MySQL 查询结果转为JSON格式
 
 ```sql
+
+-- 方式一：
 SELECT
 	CONCAT( '[', GROUP_CONCAT( JSON_OBJECT( 'id', id, 'userName', user_name, 'userCode', user_code, 'password', `password` ) ), ']' ) AS `josnStr` 
 FROM
@@ -552,6 +554,9 @@ FROM
 WHERE
 	id = 1
 
+
+-- 方式二：
+SELECT JSON_OBJECT('dept_no',dept_no,'dept_name',dept_name) from orm_dept
 ``` 
 	
 	
