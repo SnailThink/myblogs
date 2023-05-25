@@ -693,7 +693,7 @@ banner linux //输出linux
 >
 >点个在看，分享到朋友圈，对我真的很重要！！！
 
-![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
+<img src="https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg" alt="知否派" style="zoom:50%;" />
 
-![](https://pic.downk.cc/item/5f33d1f214195aa594018b66.gif)
+
 

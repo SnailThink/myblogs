@@ -503,6 +503,10 @@ alter table carrier add remark  varchar(64);
 -- 删除字段
 alter table carrier drop column remark;
 
+-- 添加默认值字段
+alter table `carrier` add column `deal_status` INT not null DEFAULT 0;
+alter table `carrier` add column `boxno` varchar(20) not null DEFAULT '';
+alter table `carrier` add column `deal_status2` tinyint(3) not null DEFAULT 0;
 ```
 
 ### 2.16 脱敏设置
@@ -541,6 +545,8 @@ order by id limit 2
 ### 2.18 MySQL 查询结果转为JSON格式
 
 ```sql
+
+-- 方式一：
 SELECT
 	CONCAT( '[', GROUP_CONCAT( JSON_OBJECT( 'id', id, 'userName', user_name, 'userCode', user_code, 'password', `password` ) ), ']' ) AS `josnStr` 
 FROM
@@ -548,6 +554,9 @@ FROM
 WHERE
 	id = 1
 
+
+-- 方式二：
+SELECT JSON_OBJECT('dept_no',dept_no,'dept_name',dept_name) from orm_dept
 ``` 
 	
 	
