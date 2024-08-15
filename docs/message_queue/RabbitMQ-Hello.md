@@ -190,6 +190,6 @@ System.out.println("ack: deliveryTag = "+deliveryTag+" multiple: "+multiple);
 
 ### 关注
 
-![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220531092832.jpeg)
+![知否派](https://whcoding.oss-cn-hangzhou.aliyuncs.com/img/20220530174025.jpg)
 
 ![](https://pic.downk.cc/item/5f5e3aae160a154a67a7b936.gif)

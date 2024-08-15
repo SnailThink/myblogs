@@ -81,7 +81,7 @@ public class App {
 
 **Spring 实现单例的方式：**
 
-- xml : `<bean id="userService" class="top.snailclimb.UserService" scope="singleton"/>`
+- xml : `<bean id="userService" class="UserService" scope="singleton"/>`
 - 注解：`@Scope(value = "singleton")`
 
 **Spring 通过 `ConcurrentHashMap` 实现单例注册表的特殊方式实现单例模式。Spring 实现单例的核心代码如下**

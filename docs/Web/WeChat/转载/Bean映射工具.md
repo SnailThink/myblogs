@@ -141,7 +141,7 @@ public void copyProperties(final Object dest, final Object orig)
     }
 ```
 
-### [Spring 的 BeanUtils](https://snailclimb.gitee.io/springboot-guide/#/./docs/advanced/Apache-BeanUtils-VS-SpringBean-Utils?id=spring-的-beanutils)
+### Spring 的 BeanUtils
 
 使用spring的BeanUtils进行对象拷贝:
 
