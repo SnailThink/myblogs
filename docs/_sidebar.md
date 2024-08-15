@@ -66,24 +66,7 @@
   - [docker+k8s](SOA/docker基础命令_k8s基础命令.md)
 
 - 工具
-  - Git 
-  - [Git命令清单](tool/base_tool/Git/Git常用命令清单.md)
-  - [Git-Hello-转](tool/base_tool/Git/Git-Hello.md)
-
-  - IDEA
-  - [1.IDEA插件](tool/base_tool/IDEA/IDEA插件.md)
-  - [2.IDEA技巧](tool/base_tool/IDEA/IDEA技巧.md)
-  - [3.IDEADebug](tool/base_tool/IDEA/IDEADebug.md)
-  - [4.IDEA快捷键](tool/base_tool/IDEA/IDEA快捷键.md)
-
-  - Maven
-  - [Maven-Hello](tool/base_tool/Maven/Maven-Hello.md)
-  - [Maven-Setting](tool/base_tool/Maven/maven_setting.xml中文配置详解.md)
- 
-  - 基础工具
-  - [HTool](demo/tool/HTool.md)
-  - [常用类](demo/tool/常用类.md)
-  - [在线工具](tool/other/在线工具.md)
+  - [工具](tool/toolHome.md)
 
 - 网络
   - [Http和RPC](network/Http和RPC.md)
@@ -96,9 +79,9 @@
   - [排序算法](leeCode/八大排序算法.md)
 
 - 面试
-    - [面试技巧](面试/面试技巧.md)
-    - [面试过程解析](面试/面试过程全解析.md)
-    - [一面经验](面试/2022/一面经验.md)
+  - [面试技巧](面试/面试技巧.md)
+  - [面试过程解析](面试/面试过程全解析.md)
+  - [一面经验](面试/2022/一面经验.md)
   
 * 优秀习惯
   * [优秀习惯](Web/good_programmer/good_programmer_start.md)
