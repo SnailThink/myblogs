@@ -98,17 +98,16 @@
 
 [pom文件详解](framework/pom文件详解.md)
 
-### Message Queue
+### Message Queue&&cache
 
 [RabbitMQ](message_queue/RabbitMQ-Hello.md)
 
 [RabbitmQ_消息丢失-重复消费-分布式事务.md](message_queue/RabbitmQ_消息丢失-重复消费-分布式事务.md)
 
-[RabbitMQ基础.md](message_queue/RabbitMQ基础.md)
-
-### 缓存
+[RabbitMQ基础](message_queue/RabbitMQ基础.md)
 
 [Redis指南](Redis/Redis-Hello.md)
+
 
 ### SOA 
 
@@ -121,8 +120,6 @@
 **Git** 
 
 [Git-Hello](tool/base_tool/Git/Git-Hello.md)
-
-[Git-基础](tool/base_tool/Git/Git-基础.md)
 
 [Git命令清单](tool/base_tool/Git/Git常用命令清单.md)
 
@@ -144,17 +141,8 @@
 
 **基础工具**
 
-[validation参数校验](springboot/learning/validation参数校验.md)
-
 [HTool](demo/tool/HTool.md)
 
-[单元测试](springboot/learning/单元测试.md)
-
-[Java导出CSV](springboot/learning/Java导出CSV.md)
-
-[logback参数配置](springboot/learning/logback参数配置.md)
-
-[常用工具说明](demo/temp/常用工具说明.md)
 
 ### 网络
 
